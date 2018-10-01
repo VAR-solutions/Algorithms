@@ -23,9 +23,9 @@ def knapSack(W , wt , val , n):
   
 # end of function knapSack 
   
-# To test above function 
-val = [60, 100, 120] 
-wt = [10, 20, 30] 
+# To test above function give inputs
+val = [int(x) for x in input().split()] 
+wt = [int(y) for y in input().split()] 
 W = 50
 n = len(val) 
 print knapSack(W , wt , val , n) 
