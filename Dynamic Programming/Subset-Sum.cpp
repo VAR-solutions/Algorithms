@@ -3,7 +3,9 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
 // Returns true if there is a subset of set[] with sun equal to given sum
+
 bool isSubsetSum(int set[], int n, int sum){
   bool subset[n+1][sum+1];
   for (int i = 0; i <= n; i++)
@@ -24,7 +26,7 @@ bool isSubsetSum(int set[], int n, int sum){
 int main()
 {
   int n,sum;
-  //input n - size of set and sum
+  //input n - size of set and sum to which it has to be compared
   cin>>n>>sum;
   int set[n];
   //input elements of set
