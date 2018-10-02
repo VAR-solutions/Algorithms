@@ -6,7 +6,7 @@ using namespace std;
 //     return (a<b)?a:b;
 // }
 
-int LCS(char *X,char *Y,int x, int y){
+int LCS(string X,string Y,int x, int y){
     int T[x+1][y+1];
 
     for(int i=0;i<=x;i++){
@@ -29,11 +29,17 @@ int LCS(char *X,char *Y,int x, int y){
 
 int main(int argc, char const *argv[])
 {
-    char X[] = "AGGTAB"; 
-    char Y[] = "GXTXAYB";
+    // char X[] = "AGGTAB"; 
+    // char Y[] = "GXTXAYB";
+
+    string X , Y;
+
+    getline(cin,X);
+    getline(cin,Y);
+
     int x , y;
-    x = strlen(X);
-    y = strlen(Y);
+    x = X.length();
+    y = Y.length();
 
     int result  = LCS(X,Y,x,y);
     cout<<result;
