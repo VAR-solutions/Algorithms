@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#include <conio.h>
+
 
 using namespace std;
 void stck();
@@ -47,7 +47,7 @@ void stck_ins_arr()
         st[top] = data;
     }
     cout << "\nElement inserted succesfully\n";
-    getch();
+    getchar();
     stck();
 }
 
@@ -63,7 +63,7 @@ void stck_del_arr()
         top--;
         cout << "\nElement deleted succesfully\n";
     }
-    getch();
+    getchar();
     stck();
 }
 void stck_print()
@@ -88,7 +88,7 @@ void stck_print()
                  << "\n";
         }
     }
-    getch();
+    getchar();
     stck();
 }
 void stck()
@@ -136,7 +136,7 @@ void que_ins_arr()
 
     cout << "\nElement inserted succesfully\n";
 
-    getch();
+    getchar();
     que();
 }
 void que_del_arr()
@@ -153,7 +153,7 @@ void que_del_arr()
         cout << "\nElement deleted succesfully\n";
     }
 
-    getch();
+    getchar();
     que();
 }
 void que_print()
@@ -166,7 +166,7 @@ void que_print()
         cout << q[i] << " | ";
     }
 
-    getch();
+    getchar();
     que();
 }
 void que()
@@ -214,7 +214,7 @@ void stck_ins_list()
         head = temp;
     }
     cout << "\nElement insereted successfully\n";
-    getch();
+    getchar();
     stck_list();
 }
 void stck_del_list()
@@ -232,7 +232,7 @@ void stck_del_list()
         free(temp);
     }
     cout << "\nElement deleted succesfully!!\n";
-    getch();
+    getchar();
     stck_list();
 }
 void stck_print_list()
@@ -258,7 +258,7 @@ void stck_print_list()
             temp = temp->next;
         }
     }
-    getch();
+    getchar();
     stck_list();
 }
 
@@ -307,7 +307,7 @@ void que_ins_list()
         head = temp;
     }
     cout << "\nElement inserted succesfully\n";
-    getch();
+    getchar();
     que_list();
 }
 void que_del_list()
@@ -339,7 +339,7 @@ void que_del_list()
         temp1->next = NULL;
     }
     cout << "\nElement deleted succesfully!!\n";
-    getch();
+    getchar();
     que_list();
 }
 void que_print_list()
@@ -362,7 +362,7 @@ void que_print_list()
             temp = temp->next;
         }
     }
-    getch();
+    getchar();
     que_list();
 }
 
