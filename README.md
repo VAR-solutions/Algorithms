@@ -11,6 +11,7 @@ Clean example implementations of data structures and algorithms written in diffe
  * PRs are welcome. To begin developing, follow the structure:
 
    > Algorithm-Type/algorithm_name/language-name/file_name.extension
+ *
    e.g
    > Sorting/bubble_sort/python/bubble_sort.py
 
