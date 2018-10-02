@@ -6,6 +6,13 @@ struct SLLNode{
 	struct SLLNode *next;
 };
 
+struct DLLNode{
+	int data;
+	struct DLLNode *prev;
+	struct DLLNode *next;
+};
+
+typedef struct DLLNode DLL_NODE;
 typedef struct SLLNode SLL_NODE;
 
  SLL_NODE* makeNewSLLNode(int data){
@@ -76,6 +83,79 @@ void displaySLL(SLL_NODE *head){
 	}
 }
 
+DLL_NODE* makeNewDLLNode(int data){
+	DLL_NODE *newNode = (DLL_NODE*) calloc(1, sizeof(DLL_NODE*));
+	newNode->data = data;
+	return newNode;
+}
+
+void DLLInsert(DLL_NODE **head, int data , int position){
+	DLL_NODE* newNode = makeNewDLLNode(data);
+	DLL_NODE* temp = *head;
+	
+	int k = 1;
+	if(position == 1){
+		newNode->prev = NULL;
+		newNode->next = *head;
+		*head = newNode;	
+		return;	
+	}
+	
+	while((k < position - 1) && (temp->next != NULL)){
+		temp = temp->next;
+		k++;
+	}
+	
+	newNode->next = temp->next;
+	newNode->prev = temp;
+	if(temp->next){
+		temp->next->prev = newNode;
+	}
+	
+	temp->next = newNode;
+
+}
+
+void DLLDelete(DLL_NODE **head, int position){
+	DLL_NODE *temp = *head;
+	DLL_NODE *temp2;
+	
+	int k = 1;
+	
+	 if(*head == NULL){
+	 	printf("Empty List");
+	 	return;
+	 }
+	 
+	 if(position == 1){
+	 	temp = *head;
+	 	(*head) = (*head)->next;
+	 	free(temp);
+	 	return;
+	 }
+	 
+	 while((k < position) && (temp->next != NULL)){
+	 	temp = temp->next;
+	 	k++;
+	 }
+	 
+	 temp2 = temp->prev;
+	 temp->next->prev = temp2;
+	 temp2->next = temp->next;
+	 free(temp);
+	 return; 
+	 
+}
+
+void displayDLL(DLL_NODE* head){
+	DLL_NODE* current = head;
+	printf("\n");
+	while(current != NULL){
+		printf("%d -> ", current->data);
+		current = current->next;
+	}
+}
+
 void singlyLinkedList() {
 	SLL_NODE *head = NULL;
 	SLLInsert(&head, 7, 1);
@@ -89,5 +169,42 @@ void singlyLinkedList() {
 	
 	SLLDelete(&head, 4);
 	displaySLL(head);
-	return 0;
+}
+
+void doublyLinkedList() {
+	DLL_NODE* head = NULL;
+	DLLInsert(&head, 7, 1);
+	DLLInsert(&head, 6, 1);
+	DLLInsert(&head, 4, 1);
+	DLLInsert(&head, 5, 2);
+	DLLInsert(&head, 1, 3);
+	DLLInsert(&head, 2, 4);
+	DLLInsert(&head, 3, 5);
+	displayDLL(head);
+	DLLDelete(&head, 3);
+	displayDLL(head);
+}
+
+int main()
+{
+    int a;
+
+    printf("Choose the type of list: ");
+    printf("\n1. Singly linked list\n2. Doubly linked list\n");
+    printf("Your choice:  ");
+    scanf("%d", &a);
+    switch (a)
+    {
+      case 1:
+           singlyLinkedList();
+          break;
+      case 2:
+          doublyLinkedList();
+          break;
+      default:
+          printf("Invalid choice !!!");
+          break;
+    }
+
+    return 0;
 }
