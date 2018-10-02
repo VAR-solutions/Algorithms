@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#include<iostream.h>
+#include<iostream> //Replaced iostream.h with iostream
 using namespace std;
 
 using namespace std;
@@ -51,7 +51,7 @@ void insert_beg_d()
         temp->prev = NULL;
         head = temp;
     }
-    getch();
+    getchar();;
     doubly();
 }
 void insert_end_d()
@@ -83,7 +83,7 @@ void insert_end_d()
         temp->prev = temp1;
         temp1->next = temp;
     }
-    getch();
+    getchar();;
     doubly();
 }
 void insert_ind_d()
@@ -127,7 +127,7 @@ void insert_ind_d()
         cout << "Data inserted at index " << index << " succesfully!!\n";
     }
 
-    getch();
+    getchar();;
     singly();
 }
 void del_beg_d()
@@ -145,7 +145,7 @@ void del_beg_d()
         head->prev = NULL;
     }
     cout << "\nElement deleted succesfully!!\n";
-    getch();
+    getchar();;
     doubly();
 }
 void del_end_d()
@@ -172,7 +172,7 @@ void del_end_d()
         temp2->next = NULL;
     }
     cout << "\nElement deleted succesfully!!\n";
-    getch();
+    getchar();;
     doubly();
 }
 void del_ind_d()
@@ -210,7 +210,7 @@ void del_ind_d()
     {
         cout << "\nNot enough nodes to delete";
     }
-    getch();
+    getchar();;
     doubly();
 }
 
@@ -231,7 +231,7 @@ void rev_d()
     head = temp;
 
     cout << "\nString reversed succesfully";
-    getch();
+    getchar();;
     doubly();
 }
 void printi_d()
@@ -251,7 +251,7 @@ void printi_d()
             temp = temp->next;
         }
     }
-    getch();
+    getchar();;
     doubly();
 }
 
@@ -274,7 +274,7 @@ void insert_beg()
         temp->next = head;
         head = temp;
     }
-    getch();
+    getchar();;
     singly();
 }
 void insert_end()
@@ -304,7 +304,7 @@ void insert_end()
         temp->next = NULL;
         temp1->next = temp;
     }
-    getch();
+    getchar();;
     singly();
 }
 void insert_ind()
@@ -346,7 +346,7 @@ void insert_ind()
         cout << "Data inserted at index " << index << " succesfully!!\n";
     }
 
-    getch();
+    getchar();;
     singly();
 }
 
@@ -364,7 +364,7 @@ void del_beg()
         free(temp);
     }
     cout << "\nElement deleted succesfully!!\n";
-    getch();
+    getchar();;
     singly();
 }
 void del_end()
@@ -395,7 +395,7 @@ void del_end()
         temp1->next = NULL;
     }
     cout << "\nElement deleted succesfully!!\n";
-    getch();
+    getchar();;
     singly();
 }
 void del_ind()
@@ -430,7 +430,7 @@ void del_ind()
     {
         cout << "\nNot enough nodes to delete";
     }
-    getch();
+    getchar();;
     singly();
 }
 void rev()
@@ -457,7 +457,7 @@ void rev()
     head = temp1;
 
     cout << "reversed succesfully!!\n";
-    getch();
+    getchar();;
     singly();
 }
 void printi()
@@ -477,7 +477,7 @@ void printi()
             temp = temp->next;
         }
     }
-    getch();
+    getchar();;
     singly();
 }
 void singly()
