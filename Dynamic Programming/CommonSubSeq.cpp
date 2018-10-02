@@ -1,8 +1,6 @@
 
-/* Implementation of LCS problem using DP*/
-#include<iostream>
-#include<cstring>
-#include<cstdlib>
+/* Implementation of LCS problem using Dynamic Programming*/
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -36,11 +34,13 @@ void lcs(string X, string Y){
     else
     j--;
   }
+  //output
   cout << "LCS of " << X << " and " << Y << " is " << lcs;
 }
 
 int main(){
   string a,b;
+  //input two strings
   cin>>a;
   cin>>b;
   lcs(a,b);
