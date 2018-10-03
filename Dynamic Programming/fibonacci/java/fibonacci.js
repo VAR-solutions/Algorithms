@@ -1,8 +1,3 @@
-function main() {
-  int n = 9;
-  console.log("Fib(" + n + "): " + fib(n));
-}
-
 function fib(n) {
   if (n === 0) return 0; // Special case for 0
 
@@ -16,3 +11,5 @@ function fib(n) {
 
   return f[(n+1)%2];
 }
+
+console.log(fib(9));
