@@ -1,7 +1,7 @@
 # Data Structures and Algorithms 
-
 Clean example implementations of data structures and algorithms written in different languages.
-
+<br><br>
+[![Gitter chat](https://badges.gitter.im/USER/REPO.png)](https://gitter.im/VAR-solutions/Algorithms "Gitter chat")
 ## List of implementations
 
 [Algorithms list(not updated)](#)
