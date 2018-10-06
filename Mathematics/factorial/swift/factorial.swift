@@ -1,15 +1,15 @@
-var number: Int = 5 // Change the number here 
+var num: Int = 6 // You can change the number here
 
-var fact: Int = 1
+var f: Int = 1
 
-var n: Int = number + 1
+var n: Int = num + 1
 
 for i in 1..<n{
     
-    fact = fact * i
+    f = f * i
     
 }
 
 
 
-print("Factorial of ",number," is: ", fact)
+print("Factorial of ",num," is: ", f)

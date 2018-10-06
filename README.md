@@ -72,6 +72,6 @@ Clean example implementations of data structures and algorithms written in diffe
     * [Coderbyte](https://www.coderbyte.com/)
     * [HireVue](https://www.hirevue.com/)
 # Project Maintainers
-[Vishal Gaur](https://github.com/i-vishi):tada:<br>
-[Ravi Varshney](https://github.com/ravivarshney01):tada:<br>
-[Ananya Tewari](https://github.com/antew7):tada:<br>
+* [Vishal Gaur](https://github.com/i-vishi):tada:<br>
+* [Ravi Varshney](https://github.com/ravivarshney01):tada:<br>
+* [Ananya Tewari](https://github.com/antew7):tada:<br>
