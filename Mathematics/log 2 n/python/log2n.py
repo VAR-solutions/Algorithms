@@ -4,4 +4,4 @@ def getlogbase2n(n):
     desired_value = log(n) / log(2)
     return desired_value
 
-pritn("The log base 2 of 32 is " + str(getlogbase2n(32)))
+print("The log base 2 of 32 is " + str(getlogbase2n(32)))
