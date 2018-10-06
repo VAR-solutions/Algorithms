@@ -5,6 +5,7 @@ import(
 )
 
 func fib(x int) int {
+	//Thus function finds the xth number of the fibonacci sequence
 	if x < 3 {
 		return 1
 	}
