@@ -5,7 +5,7 @@ constexpr unsigned int fibonacci(unsigned int index) {
 
     constexpr auto gr = (1 + std::sqrt(5)) / 2;
 
-    if(index <= 0) {
+    if(index == 0) {
         return 0;
     } else if(index == 1) {
         return 1;
