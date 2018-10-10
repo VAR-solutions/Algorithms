@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
-#define n 3
+#define max 1000
 
 using namespace std;
 
-int findLongestFromACell(int i, int j, int mat[n][n], int dp[n][n]){
+int findLongestFromACell(int i, int j, int mat[max][max], int dp[max][max], int n){
     if (i<0 || i>=n || j<0 || j>=n)
         return 0;
     if (dp[i][j] != -1)
@@ -19,24 +19,29 @@ int findLongestFromACell(int i, int j, int mat[n][n], int dp[n][n]){
     return dp[i][j] = 1;
 }
 
-int finLongestOverAll(int mat[n][n]){
+int finLongestOverAll(int mat[max][max], n){
     int result = 1;
     int dp[n][n];
     memset(dp, -1, sizeof dp);
     for (int i=0; i<n; i++){
       for (int j=0; j<n; j++){
           if (dp[i][j] == -1)
-             findLongestFromACell(i, j, mat, dp);
+             findLongestFromACell(i, j, mat, dp, n);
           result = max(result, dp[i][j]);
        }
      }
      return result;
 }
 
-int main(){ 
-   int  mat[n][n] = {{1, 2, 9},
-                    {5, 3, 8},
-                    {4, 6, 7}};
-   cout << "Length of the longest path is "<< finLongestOverAll(mat)<<endl;
+int main(){
+  int n;
+	int mat[max][max]
+	 cin>>n;
+	 for(int i=0;i<n;i++){
+		 for(int j=0;j<n;j++){
+			 cin>>mat[i][j];
+		 }
+	 }
+   cout << "Length of the longest path is "<< finLongestOverAll(mat, n)<<endl;
    return 0;
 }
