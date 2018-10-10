@@ -1,3 +1,5 @@
+import random
+
 def partition2(a, l, r):
     x = a[l]
     j = l;
