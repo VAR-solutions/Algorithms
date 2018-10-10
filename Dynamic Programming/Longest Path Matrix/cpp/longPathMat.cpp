@@ -1,9 +1,8 @@
-#include<bits/stdc++.h> 
-#define n 3 
-using namespace std; 
-  
-// Returns length of the longest path beginning with mat[i][j]. 
-// This function mainly uses lookup table dp[n][n] 
+#include<bits/stdc++.h>
+#define n 3
+
+using namespace std;
+
 int findLongestFromACell(int i, int j, int mat[n][n], int dp[n][n]) 
 { 
     // Base case 
