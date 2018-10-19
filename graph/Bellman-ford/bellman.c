@@ -1,4 +1,4 @@
-//Take a look at the below mentioned lik to know about the algorithm
+//Take a look at the below mentioned link to know about the algorithm
 //https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/
 
 #include<stdio.h>
