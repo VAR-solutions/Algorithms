@@ -37,7 +37,6 @@ Clean example implementations of data structures and algorithms written in diffe
    * [Visual Algorithm - visualising data structures and algorithms through animation](https://visualgo.net/en)
 * **Online classes (Free)**
   * Coursera 
-      * [Introduction to algorithms Part 1](https://www.coursera.org/learn/introduction-to-algorithms)
       * [Algorithms specialization 4 courses](https://www.coursera.org/specializations/algorithms)
    * Khan Academy 
      * [Algorithms](https://www.khanacademy.org/computing/computer-science/algorithms)
