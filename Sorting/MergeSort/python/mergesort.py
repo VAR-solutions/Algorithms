@@ -24,16 +24,12 @@ def Merge(left, right, A):
 
 
 def MergeSort(A):
-    left = []
-    right = []
     n = len(A)
     if (n < 2):
         return
-    mid = n / 2
-    for i in range(mid):
-        left.append(A[i])
-    for i in range(mid, n):
-        right.append(A[i])
+    mid = n // 2
+    left = A[:mid]
+    right = A[mid:]
 
     MergeSort(left)
     MergeSort(right)
