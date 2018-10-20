@@ -6,4 +6,4 @@ function numRandom (num) {
 
 }
 
-console.log(numRandom(5);
+console.log(numRandom(5));
