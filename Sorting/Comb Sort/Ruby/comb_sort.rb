@@ -32,7 +32,7 @@ end
 
 # Test case
 if $PROGRAM_NAME == __FILE__
-  unsorted = Array.new(20) { |_i| rand(10_000) }
+  unsorted = Array.new(20) { rand(10_000) }
   sorted = combsort(unsorted)
   puts "Sorting: #{unsorted}"
   puts "Sorted:  #{sorted}"
