@@ -1,3 +1,5 @@
+// In mathematics, the sieve of Atkin is a modern algorithm for finding all prime numbers up to a specified integer.
+
 const sieveOfAtkin = (limit = 0) => {
   let primes = [2, 3];
   let sieve = new Array(limit);
