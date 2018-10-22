@@ -8,8 +8,8 @@ int countSimple(int n) {
 	while (n) {
 		// If the last bit is set, add one to the counter
 		count += n & 0x1;
-		// Shift one place to the right
-		n >>= 1;
+		// Shift one place to the right, avoid issues from signed extension
+		n = (n >> 1) & 0x7FFFFFFF;
 
 		iterations++;
 	}
