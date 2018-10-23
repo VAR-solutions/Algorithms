@@ -2,14 +2,14 @@ Given a matrix with NxM cells. Each cell in matrix contains a positive integer. 
 
 **Input Format and Sample Input**
 
-For this matrix:
-	-            -
-	| 1  3  33 5 |
-	| 5  8  17 1 |
-	| 23 10 7  8 |
-	| 14 10 9  7 |
-	-            -
-Input is:
+For this matrix:  
+	-            -  
+	| 1  3  33 5 |  
+	| 5  8  17 1 |  
+	| 23 10 7  8 |  
+	| 14 10 9  7 |  
+	-            -  
+Input is:  
 	[[1,3,33,5], [5,8,17,1], [23,10,7,8], [14,10,9,7]]
 
 **Sample Output**
