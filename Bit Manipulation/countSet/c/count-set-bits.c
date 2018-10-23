@@ -9,7 +9,8 @@ int countSimple(int n) {
 		// If the last bit is set, add one to the counter
 		count += n & 0x1;
 		// Shift one place to the right
-		n >>= 1;
+		//avoid issues from signed extension if int is negative
+		n = (n >> 1) & 0x7fffffff;
 
 		iterations++;
 	}

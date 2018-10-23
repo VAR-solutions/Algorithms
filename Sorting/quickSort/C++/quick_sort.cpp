@@ -12,19 +12,21 @@ int partition(std::vector<int> &A, int start, int end)
 	{
 		if(A[i] <= pivot)
 		{
-			temp=A[i];
-			A[i]=A[partitionIndex];
-			A[partitionIndex]=temp;
+			swap(&A[i], &A[partitionIndex]);
 			partitionIndex++;
 		}
 	}
-	temp=A[partitionIndex];		//	Swap pivot element
-	A[partitionIndex]=A[end];	//	eith element at
-	A[end]=temp;			//	partition index
+	swap(&A[partitionIndex], &A[end]);		//	partition index
 
 	return partitionIndex;
 }
 
+void swapElements(int* elementOne, int* elementTwo)
+{
+	int temp = *elementOne;
+	*elementOne = *elementTwo;
+	*elementTwo = temp;
+}
 std::vector<int> quick_sort(std::vector<int> &A, int start, int end)
 {
 /*        std::cout<<"Current list : \n";

@@ -1,0 +1,44 @@
+
+//You are working at the cash counter at a fun-fair, 
+//and you have different types of coins available to you in infinite quantities.
+//The value of each coin is already given. 
+//Can you determine the number of ways of making change for a particular number of units using the given types of coins?
+
+
+
+
+//logics:- Here we are assuming Coins of Denominations on the Row Side and Total Sum of the value on the Column Side
+
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+long n,m;
+cin>>n>>m;
+long T[251][251];
+long w;
+vector<long>a;
+for(int k=0;k<m;k++){
+        cin>>w;
+        a.push_back(w);
+}
+a.push_back(0);
+sort(a.begin(),a.end());
+int d=a.size();
+for(int i=0;i<a.size();i++){
+    for(int j=0;j<=n;j++){
+        if(a[i]==0 && j==0)
+           T[i][j]=1;
+           else if(a[i]==0){
+            T[i][j]=0;
+           }
+           else{
+                    if(a[i]>j)
+            T[i][j]=T[i-1][j];
+           else{
+            T[i][j]=T[i-1][j]+T[i][j-a[i]];
+           }
+           }
+    }
+}
+cout<<T[d-1][n];
+}

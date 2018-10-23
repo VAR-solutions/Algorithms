@@ -1,37 +1,24 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
-string binarySearch(vector <int> a,int l,int r,int num)
-{
-    int mid = l + (r-l)/2;
-    if(r>=l)
-    {
-        if(a[mid] == num)
-        return("Found");
-        else if(a[mid] > num)
-        return(binarySearch(a,l,mid-1,num));
-        else
-        return(binarySearch(a,mid+1,r,num));
-
+bool BinarySearch(int arr[], int n, int k){
+    int s=0;int e=n-1;
+    while (s<=e){
+        int mid=(s+e)/2;
+        if (arr[mid]==k) return true;
+        if (arr[mid]<k){
+            s=mid+1;
+        } else {
+            e=mid-1;
+        }
     }
-    else
-    return("Not Found");
+    return false;
 }
-int main()
-{
-    int n;
-    cout<<"Enter total number of elements: ";
-    cin>>n;
-    cout<<"Enter Elements";
-    int i = n;
-    vector <int> a;
-    while(i--)
-    {
-        int t;
-        cin>>t;
-        a.push_back(t);
-    }
-    int num;
-    cout<<"enter number to search";
-    cin>>num;
-    cout<<binarySearch(a,0,n,num);
+int main(){
+    int n; cin>>n;
+    int arr[n];
+    cout<<"Enter The elements of the array"<<endl;
+    for (int i=0;i<n;i++) cin>>arr[i];
+    cout<<"Enter the key value you want to search"<<endl;
+    int k; cin>>k;
+    if (BinarySearch(arr,n,k)) cout<<"Element is found"<<endl;
 }
