@@ -9,4 +9,4 @@ function factorial(n)
   return result
 end
 
-return factorial(5)
+io.write(factorial(5))
