@@ -1,0 +1,18 @@
+# QuickSort
+
+quicksort(num: Lista[Inteiro]): Lista[Inteiro] = 
+    escolha num
+        caso []  => []
+        caso pivo::resto => 
+            menores = resto.selecione( _ <= pivo )
+            maiores = resto.selecione( _ >  pivo )
+            quicksort(menores) + pivo::quicksort(maiores)
+    fim
+
+escreva "Enter some numbers separated by space"
+numeros = leia_inteiros(" ")
+escreva "The ordered numbers:"
+escreva quicksort(numeros)
+
+
+# More about this language: http://potigol.github.io/
