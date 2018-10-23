@@ -1,0 +1,169 @@
+
+package kdistanceleveltraversal;
+
+/**
+ *
+ * @author Himanshu
+ */
+import java.util.Scanner;
+class Node
+{   
+    int data;
+   Node lc;
+   Node rc;
+   public Node(int s)
+   {
+       data=s;
+   }
+   public void displaynode()
+   {
+       System.out.print(+data+" ");
+   }
+}
+class Queue
+{
+    Node []queue=new Node[200];
+    int front,rear;
+    public Queue()
+    {
+        front=-1;
+        rear=-1;
+    }
+     public void enque(Node l)
+    {
+        if(front==-1 && rear==-1)
+        {
+            front=0;
+            queue[++rear]=l;
+        }
+        else
+         
+        queue[++rear]=l;
+    }
+    public Node deque()
+    {
+        Node temp= queue[front];
+        front++;
+                return temp;
+    }
+    public boolean isempty()
+    {
+        return(front==-1  && rear==-1);
+    }
+}
+
+class Tree
+{
+    Node root;
+
+    public Tree()
+    {
+        
+        root=null;
+    }
+    public void insert(int d)
+    {
+        Node newnode=new Node(d);
+        if (root==null)
+            root=newnode;
+        else
+        {
+            Node current=root;
+            Node parent;
+            while(true)
+            {
+                 parent=current;
+           
+            if(current.data>d)
+            {
+               
+                current=current.lc;
+                if(current==null)
+                {
+                    parent.lc=newnode;
+                    return;
+                }
+            }
+            else
+            {
+              
+                current=current.rc;
+                if(current==null)
+                {
+                    parent.rc=newnode;
+                    return;
+                }
+            }
+            }
+            
+            
+        }
+     
+    }
+     Queue ob2=new Queue();
+       int level=1;
+    void levelorder( Node ro,int p) 
+    {
+
+        ob2.enque(ro);
+        Node Null = null;
+        Node current = null;
+                 ob2.enque(Null);
+        while(!ob2.isempty())
+        {
+           
+          
+            if(level!=p+1){
+        current=ob2.deque();}
+            else
+            {
+                break;
+            }
+       if(current!=null && level==p)
+       System.out.print(current.data+" ");
+       else if(current==null){
+           level++;
+           ob2.enque(Null);
+                   continue;}
+       if(current.lc!=null)
+           ob2.enque(current.lc);
+       if(current.rc!=null)
+          ob2.enque(current.rc);
+           if((ob2.front- ob2.rear)==1)
+           {
+               ob2.front=-1;
+               ob2.rear=-1;
+           }
+            
+        }
+       
+    }
+  
+    
+   
+}
+public class Kdistanceleveltraversal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+         Scanner sc=new Scanner(System.in);
+        System.out.print("enter how many items  insert:");
+        int c=sc.nextInt();
+        int i,j,k,a;
+        Tree ob1=new Tree();
+        for( i=0;i<c;i++)
+        {
+           System.out.print("enetr data:");
+           j=sc.nextInt();
+           ob1.insert(j);
+                  
+        }
+         System.out.print("enetr which klevel data you want");
+         a=sc.nextInt();
+        ob1.levelorder(ob1.root,a);
+    }
+    
+}

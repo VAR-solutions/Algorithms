@@ -16,6 +16,7 @@ int main()
 }
 int factorial(int n){
 	int res=n;
+	if (res=0|| res=1) return 1;
 	if (res>1){
 		res*=factorial(n-1);
 	}

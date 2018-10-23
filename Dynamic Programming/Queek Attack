@@ -1,0 +1,49 @@
+
+
+//A queen is standing on an  chessboard. 
+//The chess board's rows are numbered from  to , going from bottom to top. 
+//Its columns are numbered from  to , going from left to right. Each square is referenced by a tuple, , describing the row, , and column, , where the square is located.
+
+//The queen is standing at position say(rq,cq) 
+//In a single move, she can attack any square in any of the eight directions (left, right, up, down, and the four diagonals)
+
+#include<bits/stdc++.h>
+using namespace std;
+map<pair<int,int>,int>mp;
+//global declaration of variables
+int t=0,x,y,n,k;
+void check(int x,int y,int x2,int y2){
+while(x<=n && x>0 && y<=n && y>0 && mp[{x,y}]==0){
+x+=x2;
+y+=y2;
+t++;
+}}
+
+//driver program
+
+int main(){
+cin>>n>>k;
+int x1,y1;
+cin>>x>>y;
+
+//we are making pair so as to mark the position of obstacles (here i am marking its position say mp[{x,y}]=1 so as to recognize the position of obsatcles
+//if there is obstacle present by the way i am checking this in <b>check</b>function 
+//we can move to the consecutive location until no obstacles present
+
+while(k--){
+cin>>x1>>y1;
+mp[{x1,y1}]=1;
+}
+
+//these are the positions the queen can move up,down,left,right,and the 4 diagonals from its current positions say(x,y)
+check(x+1,y,1,0);//right direction
+check(x-1,y,-1,0);//left direction
+check(x,y+1,0,1);//up direction
+check(x,y-1,0,-1);//down direction
+//the adjacent 4 diagonals directions
+check(x-1,y-1,-1,-1);
+check(x+1,y+1,1,1);
+check(x+1,y-1,1,-1);
+check(x-1,y+1,-1,1);
+cout<<t;
+}
