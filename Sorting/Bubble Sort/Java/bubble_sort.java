@@ -3,9 +3,9 @@ import java.util.Arrays;
 public class BubbleSort {
   public static void main(String[] args) {
     int[] data = { 1, 9, 6, 4, 10, 8, 2, 5, 7, 3 };
-    System.out.println("Before: " + Arrays.toString(data));
+    System.out.println("Before Sort: " + Arrays.toString(data));
     data = sort(data);
-    System.out.println("After:  " + Arrays.toString(data));
+    System.out.println("After Sort:  " + Arrays.toString(data));
   }
 
   // insertion sort algorithm
