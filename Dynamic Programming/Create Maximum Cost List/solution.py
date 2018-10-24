@@ -7,9 +7,6 @@
 '''
 
 def find_maximum_cost(Y):
-    # According to relationship when we decide the ith element of x, we have 2 options:
-    # Putting 1 or putting ith element of Y.
-    # Make empty 2d list with 0s
     values = [[0 for _ in range(2)] for _ in range(len(Y))]
 
     
