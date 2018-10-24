@@ -9,7 +9,7 @@ Clean example implementations of data structures and algorithms written in diffe
 [Algorithms list(not updated)](#)
 
 ## Contribution
- * Contributions are always welcome. Language doesn't matter. Just make sure you're implementing an algorithm.
+ * Contributions are always welcome. Language doesn't matter. Just make sure you're implementing an algorithm. (data_structure + algorithm = power)
  * PRs are welcome. To begin developing, follow the structure:
 
    > Algorithm-Type/algorithm_name/language-name/file_name.extension
