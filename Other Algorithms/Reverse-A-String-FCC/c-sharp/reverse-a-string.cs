@@ -6,12 +6,12 @@ namespace AlgorithmService
         public string ReverseString(string original)
         {
             if (original == null)
-                    throw new ArgumentNullException(nameof(original));
+                throw new ArgumentNullException(nameof(original));
 
-                if (original.Length == 0)
-                    return "";
+            if (original.Length == 0)
+                return "";
 
-                return string.Join("", original.ToCharArray().Reverse());
+            return string.Join("", original.ToCharArray().Reverse());
         }
     }
 }
