@@ -1,7 +1,7 @@
 package util;
 
 /**
- * Classe que representa um caminho entre dois vértices
+ * Classe que representa um caminho entre dois vÃ©rtices
  * @author Brendo Nascimento e Gabriel Azevedo
  *
  */
@@ -12,10 +12,10 @@ public class Path implements Comparable<Path>{
 	private Double time;
 	
 	/**
-	 * Método construtor
-	 * @param v Vértice inicial (estação de partida)
-	 * @param p Vértice final (estação de chegada)
-	 * @param t Tempo que leva para ir da estação de partida até a chegada
+	 * MÃ©todo construtor
+	 * @param v VÃ©rtice inicial (estaÃ§Ã£o de partida)
+	 * @param p VÃ©rtice final (estaÃ§Ã£o de chegada)
+	 * @param t Tempo que leva para ir da estaÃ§Ã£o de partida atÃ© a chegada
 	 */
 	public Path(String v, String p, double t) {
 		vertex = v;
@@ -49,7 +49,7 @@ public class Path implements Comparable<Path>{
 	}
 	
 	/**
-	 * Método que compara o tempo entre caminhos
+	 * MÃ©todo que compara o tempo entre caminhos
 	 */
 	public int compareTo(Path p) {				
 		return time.compareTo(p.getTime());
