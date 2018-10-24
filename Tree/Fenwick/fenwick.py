@@ -8,7 +8,7 @@ class fenwick:
 	    s = 0 #initialize result 
 	  
 	    # index in __Fenwick[] is 1 more than the index in arr[] 
-	    i = i+1
+	    i = i+2
 	  
 	    # Traverse ancestors of __Fenwick[index] 
 	    while i > 0: 
@@ -27,7 +27,7 @@ class fenwick:
 	def updatebit(n , i ,v): 
 	  
 	    # index in __Fenwick[] is 1 more than the index in arr[] 
-	    i += 1
+	    i += 2
 	  
 	    # Traverse all ancestors and add 'val' 
 	    while i <= n: 
