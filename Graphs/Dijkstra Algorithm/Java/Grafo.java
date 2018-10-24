@@ -22,18 +22,18 @@ public class Grafo {
 	
 	
 	/**
-	 * Método que verifica se é um vertice
-	 * @param v Nome do vértice
-	 * @return Uma resposta true caso o nome seja de um vértice, e false caso não
+	 * MÃ©todo que verifica se Ã© um vertice
+	 * @param v Nome do vÃ©rtice
+	 * @return Uma resposta true caso o nome seja de um vÃ©rtice, e false caso nÃ£o
 	 */
 	public boolean isVertex(String v) {
 		return graph.containsKey(v);
 	}	
 		
 	/**
-	 * Método que adiciona um vertice se ele nao existir
-	 * @param v Nome do vértice
-	 * @return O nome do vértice
+	 * MÃ©todo que adiciona um vertice se ele nao existir
+	 * @param v Nome do vÃ©rtice
+	 * @return O nome do vÃ©rtice
 	 */
 	public String addVertex(String v) {
 		if(!isVertex(v)){
@@ -44,8 +44,8 @@ public class Grafo {
 	}	
 			
 	/**
-	 * Método que emove um vertice e suas arestas se ele existir
-	 * @param v Nome do vétice
+	 * MÃ©todo que emove um vertice e suas arestas se ele existir
+	 * @param v Nome do vÃ©tice
 	 */
 	public void removeVertex(String v) {
 		if(isVertex(v)) {
@@ -56,36 +56,36 @@ public class Grafo {
 	}
 		
 	/**
-	 * Método que retorna o numero de vertices
-	 * @return O tamanho do grafo (número de vértices)
+	 * MÃ©todo que retorna o numero de vertices
+	 * @return O tamanho do grafo (nÃºmero de vÃ©rtices)
 	 */
 	public int numVertex() {
 		return graph.size();
 	}
 		
 	/**
-	 * Método que retorna o iterator dos vertices
-	 * @return O itertador com todos os nomes das estações (vétices) do grafo
+	 * MÃ©todo que retorna o iterator dos vertices
+	 * @return O itertador com todos os nomes das estaÃ§Ãµes (vÃ©tices) do grafo
 	 */
 	public Iterable<String> getVertex() {
 			return graph.keySet();
 	}
 		
 	/**
-	 * Método que verifica se é uma aresta
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
-	 * @return Uma resposta true casoseja uma aresta, e false, caso não
+	 * MÃ©todo que verifica se Ã© uma aresta
+	 * @param v Nome do vÃ©rtice de inÃ­cio (estaÃ§Ã£o de partida)
+	 * @param u Nome do vÃ©rtice final (estaÃ§Ã£o de destino)
+	 * @return Uma resposta true casoseja uma aresta, e false, caso nÃ£o
 	 */
 	public boolean isEdge(String v, String u) {
 		return graph.containsKey(v) && graph.get(v).containsKey(u);
 	}
 		
 	/**
-	 * Método que adiciona uma aresta se ela nao existir
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
-	 * @param t Tempo que leva de uma estação até outra
+	 * MÃ©todo que adiciona uma aresta se ela nao existir
+	 * @param v Nome do vÃ©rtice de inÃ­cio (estaÃ§Ã£o de partida)
+	 * @param u Nome do vÃ©rtice final (estaÃ§Ã£o de destino)
+	 * @param t Tempo que leva de uma estaÃ§Ã£o atÃ© outra
 	 */
 	public void addEdge(String v, String u, Double t) {
 		if(!isEdge(v, u) && t > 0) {			
@@ -95,9 +95,9 @@ public class Grafo {
 	}	
 			
 	/**
-	 * Método que retorna uma aresta se ela existir
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
+	 * MÃ©todo que retorna uma aresta se ela existir
+	 * @param v Nome do vÃ©rtice de inÃ­cio (estaÃ§Ã£o de partida)
+	 * @param u Nome do vÃ©rtice final (estaÃ§Ã£o de destino)
 	 * @return 
 	 */
 	public double getEdge(String v, String u) {
@@ -105,9 +105,9 @@ public class Grafo {
 	}
 		
 	/**
-	 * Método que remove uma aresta se ela existir
-	 * @param u Nome do vértice de início (estação de partida)
-	 * @param v Nome do vértice final (estação de destino)
+	 * MÃ©todo que remove uma aresta se ela existir
+	 * @param u Nome do vÃ©rtice de inÃ­cio (estaÃ§Ã£o de partida)
+	 * @param v Nome do vÃ©rtice final (estaÃ§Ã£o de destino)
 	 */
 	public void removeEdge(String u, String v) {
 		if(isEdge(v, u)) {
@@ -117,28 +117,28 @@ public class Grafo {
 	}
 		
 	/**
-	 * Método que retorna o numero de arestas ajacentes do vertice, ou -1 se nao existir
-	 * @param v Nome da estação (vértice)
-	 * @return O número de arestas que estão ligadas ao vétices, ou -1 caso não tenha
+	 * MÃ©todo que retorna o numero de arestas ajacentes do vertice, ou -1 se nao existir
+	 * @param v Nome da estaÃ§Ã£o (vÃ©rtice)
+	 * @return O nÃºmero de arestas que estÃ£o ligadas ao vÃ©tices, ou -1 caso nÃ£o tenha
 	 */
 	public int numEdge(String v) {
 		return isVertex(v) ? graph.get(v).size() : -1;
 	}
 		
 	/**
-	 * Método que retorna o iterator dos vertices adjacentes, ou null se sao exitir
-	 * @param v Nome do vétice
-	 * @return O iterador com todos os vétices adjacentes do vértice atual
+	 * MÃ©todo que retorna o iterator dos vertices adjacentes, ou null se sao exitir
+	 * @param v Nome do vÃ©tice
+	 * @return O iterador com todos os vÃ©tices adjacentes do vÃ©rtice atual
 	 */
 	public Iterable<String> getAdjacent(String v) {
 		return isVertex(v) ? graph.get(v).keySet() : null;
 	}
 		
 	/**
-	 * Algoritmo de Dijikstra: Define os caminhos de um vértice até o outro, inclusive o mínimo
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
-	 * @return Uma HashMap com os caminho mínimo
+	 * Algoritmo de Dijikstra: Define os caminhos de um vÃ©rtice atÃ© o outro, inclusive o mÃ­nimo
+	 * @param v Nome do vÃ©rtice de inÃ­cio (estaÃ§Ã£o de partida)
+	 * @param u Nome do vÃ©rtice final (estaÃ§Ã£o de destino)
+	 * @return Uma HashMap com os caminho mÃ­nimo
 	 */
 	public Stack<Path> dijkstra(String v, String u) {
 			//Verifica se os vertice existem
@@ -180,11 +180,11 @@ public class Grafo {
 	}
 		
 	/**
-	 * Método que converte os vétices visitados em uma pilha de paths (caminhos)
-	 * @param visited HashMap com os vétices visitados no algoritmo de caminho mínimo
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
-	 * @return Uma estrutura de pilha com os vétices visitados
+	 * MÃ©todo que converte os vÃ©tices visitados em uma pilha de paths (caminhos)
+	 * @param visited HashMap com os vÃ©tices visitados no algoritmo de caminho mÃ­nimo
+	 * @param v Nome do vÃ©rtice de inÃ­cio (estaÃ§Ã£o de partida)
+	 * @param u Nome do vÃ©rtice final (estaÃ§Ã£o de destino)
+	 * @return Uma estrutura de pilha com os vÃ©tices visitados
 	 */
 	private Stack<Path> getPath(HashMap<String, Path> visited, String v, String u) {
 			Stack<Path> path = new Stack<>();
