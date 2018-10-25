@@ -7,7 +7,7 @@ unsigned int countSetBits(int num)
     unsigned int count = 0; 
     while (num) 
     { 
-      num &= (n-1) ; 
+      num &= (num-1) ; 
       count++; 
     } 
     return count; 
