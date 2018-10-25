@@ -8,7 +8,7 @@ public class BubbleSort {
     System.out.println("After Sort:  " + Arrays.toString(data));
   }
 
-  // insertion sort algorithm
+  // bubble sort algorithm
   public static int[] sort(int[] data) {
     for (int i = 0; i < data.length; i++) {
       for (int j = 0; j < data.length - 1; j++) {
