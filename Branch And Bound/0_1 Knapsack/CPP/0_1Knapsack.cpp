@@ -96,5 +96,5 @@ int main()
     cout << "Maximum possible profit = "
          << knapsack(W, arr, n); 
   
-    return 0; 
+   return 0; 
 } 
