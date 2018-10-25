@@ -1,48 +1,38 @@
-#include <stdio.h>
-#include <string.h>
-#define RANGE 255
-
-// The main function that sort the given string arr[] in
-// alphabatical order
-void countSort(char arr[])
-{
-    // The output character array that will have sorted arr
-    char output[strlen(arr)];
-    
-    // Create a count array to store count of inidividul
-    // characters and initialize count array as 0
-    int count[RANGE + 1], i;
-    memset(count, 0, sizeof(count));
-    
-    // Store count of each character
-    for(i = 0; arr[i]; ++i)
-    ++count[arr[i]];
-    
-    // Change count[i] so that count[i] now contains actual
-    // position of this character in output array
-    for (i = 1; i <= RANGE; ++i)
-    count[i] += count[i-1];
-    
-    // Build the output character array
-    for (i = 0; arr[i]; ++i)
-    {
-        output[count[arr[i]]-1] = arr[i];
-        --count[arr[i]];
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+void countingSort(int* arr, int highest, int num){
+  int* Count = (int*)malloc(highest*sizeof(int));
+  int* Sorted = (int*)malloc(num*sizeof(int));
+  for(int i=0;i<highest+1;i++)
+    Count[i]=0;
+  for(int i=0;i<num;i++){
+    Count[arr[i]]++;
+  }
+  int j=0;
+  for(int i=0;i<=highest;i++){
+    int temp = Count[i];
+    while(temp--){
+      Sorted[j]=i;
+      j++;
     }
-    
-    // Copy the output array to arr, so that arr now
-    // contains sorted characters
-    for (i = 0; arr[i]; ++i)
-    arr[i] = output[i];
+  }
+  printf("The sorted array is : \n");
+  for(int i=0;i<num;i++)
+  printf("%d ",Sorted[i]);
 }
-
-// Driver program to test above function
-int main()
-{
-    char arr[] = "Hi there!";//"applepp";
-    
-    countSort(arr);
-    
-    printf("Sorted character array is %sn", arr);
-    return 0;
+int main(void) {
+  int* arr;
+  printf("Enter the number of elements : ");
+  int n,k=0;
+  scanf("%d",&n);
+  arr = (int*)malloc(n*sizeof(int));
+  printf("Enter the elements : ");
+  for(int i=0;i<n;i++){
+    scanf("%d",&arr[i]);
+    if(arr[i]>k)
+      k = arr[i];
+  }
+  countingSort(arr,k,n);
+  return 0;
 }
