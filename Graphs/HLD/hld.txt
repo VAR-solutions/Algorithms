@@ -1,0 +1,133 @@
+// chain formation
+
+#inclue<bits/stdc++.h>
+using namespace std;
+#define sz 100005
+vector<int>gr[sz];
+
+int no=0;  //count number of chains existing
+int head[sz]; // head of each chain
+int ind[sz];  // chain no. of a node
+int pos[sz];   // position of a node in its chain
+int csize[sz];  //size of a particular chain
+int sub[sz],par[sz];
+void dfs(int src,int parent){
+	sub[src]=1;
+	par[src]=parent;
+	for(int i=0;i<(int)gr[src].size();++i){
+		int ver=gr[src][i];
+		if(ver==parent) continue;
+		dfs(ver,src);
+	}
+	sub[parent]+=sub[src];
+}
+
+void hld(int src){
+	if(head[no]==-1) head[no]=src; 
+	ind[src]=no;
+	pos[src]=csize[no];
+	csize[no]++;
+	
+	int ind=-1,mx=0; // if ind=0  then index problem in subtree
+	
+	for(int i=0;i<(int)gr[src].size();++i){
+		int ver=gr[src][i];
+		if(ver==par[src]) continue;
+		if(sub[ver]>=mx){
+			mx=sub[ver];
+			ind=i;
+		}
+	}
+	
+	if(ind>=0) hld(gr[src][ind]);  //special child i.e subtree is mazmum
+	
+	for(int i=0;i<(int)gr[src].size();++i){       //other will be other chain
+		int ver=gr[src][i];
+		if(ver==par[src] or i==ind) continue;
+		++no;
+		hld(ver);
+	}
+	
+     
+}
+
+
+
+
+int LCA(int u,int v){
+	
+	if(lv[u]>lv[v]) swap(u,v);
+	int diff=abs(lv[u]-lv[v]);
+	
+	for(int i=13;i>=0;--i)
+	 if((1<<i)&diff) v=par[v][i];
+	 
+	 if(u==v) return v;
+	 
+	 for(int i=13;i>=0;--i){
+	 	if(par[v][i]!=par[u][i]){
+	 		v=par[v][i];
+	 		u=par[u][i];
+		 }
+	 }
+	 return par[u][0];
+	
+}
+
+
+//LCA IN HLD
+
+
+
+int up_qry(int u,int v){
+	
+	if(u==v) return 0;
+	int uchain=ind[u],vchain=ind[v];
+	int ans=-1;
+	while(1){
+		uchain=ind[u];
+		if(uchain==vchain){
+			if(u==v) break;
+			segqry(1,1,ptr-1,inpos[v],inpos[u]);    // according to need
+			if(qt[1]>ans) ans=qt[1];
+			break;
+		}
+		segqry(1,1,ptr-1,inpos[head[uchain]],inpos[u]); // chkpt
+		if(qt[1]>ans) ans=qt[1];
+	
+		u=head[uchain];
+		u=par[u][0];
+		
+	}
+	return ans;
+	
+}
+
+
+void qry(int u,int v){
+	int lca=LCA(u,v);
+	return max(up_qry(u,lca),up_qry(v,lca));
+}
+
+
+void upd(int node,int s,int e,int ind,int val){
+	
+	if(s==e){
+		seg[node]=val;
+		return;
+	}
+	int mid=(s+e)>>1;
+	if(ind<=mid) upd(2*node,s,mid,ind,val);
+	else upd(2*node+1,mid+1,e,ind,val);
+
+	seg[node]=max(seg[2*node],seg[2*node+1]);
+	
+}
+
+void segqry(int node,int s,int e,int l,int r){
+	
+	if(r<s or e<l) return -1;
+	if(l<=s and e<=r) return seg[node];
+	int mid=(s+e)>>1;
+	return max(segqry(2*node,s,mid,l,r),segqry(2*node+1,mid+1,e,l,r));
+}
