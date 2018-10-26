@@ -1,5 +1,5 @@
 def Fib(n):
-        n = int(input("Entre com o valor:"))
+        n = int(input("Enter a value:"))
         if n == 1 or n == 2:
                 return 1
         else:
