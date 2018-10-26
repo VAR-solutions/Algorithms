@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title> Random Number </title>
+  </head>
+
+  <body>
+    <p id="number"> NUMERO </p>
+    <button id="b" onclick = "random()"> Get number </button>
+  </body>
+
+  <script>
+    function random(){
+      return document.getElementById("number").innerHTML = Math.floor(Math.random() * 100);
+    }
+  </script>
+</html>
