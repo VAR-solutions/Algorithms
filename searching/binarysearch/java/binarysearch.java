@@ -38,9 +38,9 @@ else
 {
 System.out.println("Not found");
 }
-}
-}
-}
+}//end of while
+}//end of main
+}//end of class
 
 
 
