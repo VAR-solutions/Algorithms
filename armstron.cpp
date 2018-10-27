@@ -1,16 +1,16 @@
 #include <iostream>
 using namespace std;
 
-int main()
+int main(void)
 {
-  int origNum, num, rem, sum = 0;
+  int origNum, num,sum = 0;
   cout << "Enter a positive  integer: ";
   cin >> origNum;
 
   num = origNum;
 
-  while(num != 0)
-  {
+  while(num)
+  {int rem;
       rem = num % 10;
       sum += rem * rem * rem;
       num /= 10;
