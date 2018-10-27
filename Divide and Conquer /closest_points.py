@@ -74,3 +74,13 @@ for _ in range(n):
 #sort the input array according to x coordinate
 a.sort()
 print closest(a)
+
+
+
+#----------Test Case------------#
+
+'''
+{{2, 3}, {12, 30}, {40, 50}, {5, 1}, {12, 10}, {3, 4}}
+This input gives 1.414214 output
+'''
+
