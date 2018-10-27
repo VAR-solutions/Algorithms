@@ -1,0 +1,68 @@
+        /*                             BFS-ON-2D-GRID                                    */
+                   /*You will be given a 2-dimensional grid of letters. 
+    Find the length of the longest path of consecutive letters, starting at 'A'.
+     Paths can step from one letter in the grid to any adjacent letter (horizontally, vertically, or diagonally).*/
+    #include<bits/stdc++.h>
+    using namespace std;
+    int row[8]={-1,-1,0,1,1,1,0,-1};
+    int col[8]={0,1,1,1,0,-1,-1,-1};
+    int r,c;
+    bool valid(int R,int C)
+    {
+        if(R>=0 && R<r && C>=0 && C<c)
+            return true;
+        return false;
+    }
+
+    int main()
+    {
+        int t=0;
+
+        label:
+        t++;
+        cin>>r>>c;
+          if(r==0 && c==0)
+            return 0;
+          string mat[r];
+          bool vis[r][c];
+        for(int i=0;i<r;i++)
+        {
+            cin>>mat[i];
+        }
+
+        memset(vis,false,sizeof(vis));
+       int ans=0;
+       for(int i=0;i<r;i++)
+        for(int j=0;j<c;j++)
+       {
+           if(mat[i][j]=='A')
+           {
+               vis[i][j]=true;
+               if(ans<=0)
+                ans=1;
+               queue<  pair<pair<int,int>,char> >q;
+               q.push(make_pair(make_pair(i,j),mat[i][j]));
+               while(!q.empty())
+               {
+                  pair<pair<int,int>,char> x=q.front();
+                   q.pop();
+                   for(int k=0;k<8;k++)
+                   {
+                       if(valid(x.first.first+row[k],x.first.second+col[k]) &&
+                           vis[x.first.first+row[k]][x.first.second+col[k]]==false && 
+                            mat[x.first.first+row[k]][x.first.second+col[k]]==x.second+1)
+                       {
+                           if(ans<mat[x.first.first+row[k]][x.first.second+col[k]]-'A'+1)
+                            ans=mat[x.first.first+row[k]][x.first.second+col[k]]-'A'+1;
+                           q.push(make_pair(make_pair(x.first.first+row[k],x.first.second+col[k])
+                                            ,mat[x.first.first+row[k]][x.first.second+col[k]]));
+                           vis[x.first.first+row[k]][x.first.second+col[k]]=true;
+                       }
+                   }
+
+               }
+           }
+       }
+       cout<<"Case "<<t<<": "<<ans<<endl;
+       goto label;
+    }
