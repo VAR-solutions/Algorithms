@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 int main(void)
@@ -10,7 +11,8 @@ int main(void)
   num = origNum;
 
   while(num)
-  {int rem;
+  {
+      int rem;
       rem = num % 10;
       sum += rem * rem * rem;
       num /= 10;
