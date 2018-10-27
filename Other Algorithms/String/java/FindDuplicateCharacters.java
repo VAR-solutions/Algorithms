@@ -10,7 +10,7 @@ public class FindDuplicateCharacters {
     public static void main(String args[]) {
         printDuplicateCharacters("Programming");
         printDuplicateCharacters("Language");
-        printDuplicateCharacters("Hello");
+        printDuplicateCharacters("HelloWorld");
         printDuplicateCharacters("Java");
     } /* * Find all duplicate characters in a String and print each of them. */
 
