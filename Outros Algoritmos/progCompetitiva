@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+using namespace std;
+const int maxn = 1000;
+int n;
+int lista[maxn];
+int lista2[maxn];
+vector<int> g;
+
+void base(){
+    for(int i=0;i<n-1;i++){
+        lista[i] = max(g[i],g[i+1]);
+    }
+}
+
+int dp(){
+
+    int tam = 4;
+    while(tam <= n){
+        int inicio = 0;
+        int fim = tam-1;
+        int a,b;
+        int soma1,soma2;
+        int k = 0;
+        while(fim < n){
+            a = inicio; b = fim;
+            soma1 = g[a]; a++;
+            if(g[a] >= g[b]) a++;
+            else b--;
+            soma1 += lista[a];
+            a = inicio; b = fim;
+            soma2 = g[b]; b--;
+            if(g[a] >= g[b]) a++;
+            else b--;
+            soma2 += lista[a];
+            lista2[k] = max(soma1,soma2);
+            k++;
+            inicio++;
+            fim++;
+        }
+        for(int i=0;i<k;i++){
+            lista[i] = lista2[i];
+        }
+        tam+=2;
+    }
+
+    return lista2[0];
+}
+
+int main(){
+
+    ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    cin >> n;
+    int z = 1;
+    int total;
+    int x1,x2;
+    while(n!=0){
+        g.clear();
+        total = 0;
+        for(int i=0;i<n;i++){
+            int a;
+            cin >> a;
+            total += a;
+            g.push_back(a);
+        }
+        base();
+        x1 = dp();
+        x2 = total - x1;
+        cout << "In game " << z++ << ", the greedy strategy might lose by as many as " << x1 - x2 << " points." << endl;
+        cin >> n;
+    }
+}
