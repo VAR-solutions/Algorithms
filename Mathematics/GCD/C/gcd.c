@@ -6,7 +6,7 @@ int greatCommonDiv(int a, int b){ //used euclidian method to calculate gcd of tw
   }
   return(greatCommonDiv(b , a%b));
 }
-int main(int argc, char const *argv[]) {
+int main() {
 
 int result=greatCommonDiv(35,45);
 
