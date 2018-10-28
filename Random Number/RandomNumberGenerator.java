@@ -18,6 +18,9 @@ public class RandomNumberGenerator {
         double randomDouble = random.nextDouble();
         System.out.println(randomDouble);
 
+        float randomfloat =random.nextFloat();
+        System.out.println(randomfloat);
+
     }
 
 
