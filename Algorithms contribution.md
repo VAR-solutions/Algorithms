@@ -8,7 +8,7 @@
 * Branch and bound algorithms.
 * Brute force algorithms.
 * Randomized algorithms.
- ## General combinatorial algorithms  
+## General combinatorial algorithms  
 * Brent's algorithm: finds a cycle in function value iterations using only two iterators
 * Floyd's cycle-finding algorithm: finds a cycle in function value iterations
 * Gale–Shapley algorithm: solves the stable marriage problem
