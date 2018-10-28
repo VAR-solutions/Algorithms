@@ -26,7 +26,7 @@ Clean example implementations of data structures and algorithms written in diffe
 
 ## Resources
 
- Curated list of resources dealing with algorithms.
+ Curated list of resources dealing with the algorithms.
 
  * **Sites**
    * [Algorithms - Tutorials point](https://www.tutorialspoint.com/data_structures_algorithms/index.htm)
