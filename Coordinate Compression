@@ -1,0 +1,113 @@
+#this is a code for SPOJ orderset question
+        #include<bits/stdc++.h>
+        using namespace std;
+        typedef   int ll;
+        #define no_of_op 200001
+        char optype[no_of_op];
+        ll number[no_of_op],cnt[no_of_op],bit[no_of_op];
+        ll compress[no_of_op];
+        unordered_map<ll,ll>mp;ll mpp[no_of_op];
+        ll k=1;
+     
+     
+        void update(ll ind,ll val)
+        {
+            while(ind<k)
+            {
+                bit[ind]+=val;
+                ind+=(ind&(-ind));
+            }
+        }
+     
+        ll query(ll ind)
+        {
+            ll ans=0;
+             while(ind>0)
+             {
+                 ans+=bit[ind];
+                 ind-=(ind&(-ind));
+             }
+             return ans;
+        }
+     
+        ll binsearch(ll val)
+        {
+            ll start=1,last=k-1,mid;
+            while(start<=last)
+            {
+                mid=(start+last)>>1;
+                if(compress[mid]>=val)last=mid-1;
+                else start=mid+1;
+            }
+            return start;
+        }
+        int main()
+        {
+        //	ios_base::sync_with_stdio(false);
+    //cin.tie(NULL);
+            ll q,local=0;
+            cin >> q;
+            set<ll>st;
+            for(ll i=1;i<=q;i++)
+            {
+                cin >> optype[i] >> number[i];
+                if(optype[i]=='I')
+                    st.insert(number[i]);
+            }
+     
+     
+            for(auto it = st.begin();it!=st.end();it++)
+            {
+                mp[*it]=k;
+                mpp[k]=*it;
+                compress[k]=*it;
+                k++;
+            }
+     
+     
+            for(ll i=1;i<=q;i++)
+            {
+                if(optype[i]=='I')
+                {
+                    ll ind = mp[number[i]];
+                    if(cnt[ind]==0)
+                    {
+                        update(ind,1);
+                        cnt[ind]=1;local++;
+                    }
+                }
+                else if(optype[i]=='D')
+                {
+                    ll ind = mp[number[i]];
+                    if(cnt[ind]==1)
+                    {
+                        update(ind,-1);
+                        cnt[ind]=0;local--;
+                    }
+                }
+                else if(optype[i]=='K')
+                {
+                    if(number[i]>local)
+                        cout << "invalid" << "\n";
+                    else
+                    {
+                        ll start=1,last=k-1,mid;
+                        while(start<=last)
+                        {
+                            mid=(start+last)>>1;
+                            if(query(mid)>=number[i])last=mid-1;
+                            else start=mid+1;
+     
+                        }
+                       cout << mpp[start] << "\n";
+                    }
+                }
+                else
+                {
+                    ll ind = binsearch(number[i]);
+                    cout << query(ind-1) << "\n";
+                }
+            }
+     
+            return 0;
+        } 
