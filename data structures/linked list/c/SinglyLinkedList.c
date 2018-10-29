@@ -101,7 +101,7 @@ void printList(struct Node *head)
 int main()
 {
     int n = 0, i = 0;
-    printf("Enter element to create list: ");
+    printf("Enter elements to create list: ");
     scanf("%d", &n);
     struct Node *head = create_ll(n);
     printf("Press 1 to enter element at the beginning.\nPress 2 to enter element before given element in the list.\nPress 3 to enter element at the end.\nPress 4 to delete element.\nPress 5 to print List\n");
