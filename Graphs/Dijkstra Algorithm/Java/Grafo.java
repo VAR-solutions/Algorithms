@@ -5,8 +5,8 @@ import java.util.PriorityQueue;
 import java.util.Stack;
 
 /**
- * Classe que representa o grafo
- * @author Brendo Nascimento e Gabriel Azevedo
+ * Class that represents the graph
+ * @author Brendo Nascimento and Gabriel Azevedo
  *
  */
 public class Grafo {
@@ -14,7 +14,7 @@ public class Grafo {
 	private HashMap<String, HashMap<String, Double>> graph;
 	
 	/**
-	 * Construtor
+	 * Constructor
 	 */
 	public Grafo(){
 		graph = new HashMap<>();
@@ -22,18 +22,18 @@ public class Grafo {
 	
 	
 	/**
-	 * Método que verifica se é um vertice
-	 * @param v Nome do vértice
-	 * @return Uma resposta true caso o nome seja de um vértice, e false caso não
+	 * Method that check if it is a node
+	 * @param v Name of the node
+	 * @return Returns true if it is a node, otherwise returns false
 	 */
 	public boolean isVertex(String v) {
 		return graph.containsKey(v);
 	}	
 		
 	/**
-	 * Método que adiciona um vertice se ele nao existir
-	 * @param v Nome do vértice
-	 * @return O nome do vértice
+	 * Method that adds a node if it doesn't already exists
+	 * @param v Name of the node
+	 * @return Returns the name of the node
 	 */
 	public String addVertex(String v) {
 		if(!isVertex(v)){
@@ -44,8 +44,8 @@ public class Grafo {
 	}	
 			
 	/**
-	 * Método que emove um vertice e suas arestas se ele existir
-	 * @param v Nome do vétice
+	 * Method that removes a node and its connections if it exists
+	 * @param v Name of the node
 	 */
 	public void removeVertex(String v) {
 		if(isVertex(v)) {
@@ -56,36 +56,36 @@ public class Grafo {
 	}
 		
 	/**
-	 * Método que retorna o numero de vertices
-	 * @return O tamanho do grafo (número de vértices)
+	 * Method that returns how many nodes are in the graph
+	 * @return The size of the graph (number of nodes)
 	 */
 	public int numVertex() {
 		return graph.size();
 	}
 		
 	/**
-	 * Método que retorna o iterator dos vertices
-	 * @return O itertador com todos os nomes das estações (vétices) do grafo
+	 * Method that returns the Node iterator
+	 * @return The iterator with the name of every station (node) in the graph
 	 */
 	public Iterable<String> getVertex() {
 			return graph.keySet();
 	}
 		
 	/**
-	 * Método que verifica se é uma aresta
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
-	 * @return Uma resposta true casoseja uma aresta, e false, caso não
+	 * Method that verifies if there is a path between nodes
+	 * @param v Name of the initial node (Departure station)
+	 * @param u Name of the final node (Arrival station)
+	 * @return True if there is a path, false if not
 	 */
 	public boolean isEdge(String v, String u) {
 		return graph.containsKey(v) && graph.get(v).containsKey(u);
 	}
 		
 	/**
-	 * Método que adiciona uma aresta se ela nao existir
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
-	 * @param t Tempo que leva de uma estação até outra
+	 * Method that creates a path if it doesn't already exists
+	 * @param v Name of the initial node (Departure station)
+	 * @param u Name of the final node (Arrival station)
+	 * @param t Time between stations (Path value)
 	 */
 	public void addEdge(String v, String u, Double t) {
 		if(!isEdge(v, u) && t > 0) {			
@@ -95,19 +95,19 @@ public class Grafo {
 	}	
 			
 	/**
-	 * Método que retorna uma aresta se ela existir
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
-	 * @return 
+	 * Method that returns a path if it exists
+	 * @param v Name of the initial node (Departure station)
+	 * @param u Name of the final node (Arrival station)
+	 * @return The path value if it exists, otherwise, it will return -1
 	 */
 	public double getEdge(String v, String u) {
 		return isEdge(v, u) ? graph.get(u).get(v) : -1;
 	}
 		
 	/**
-	 * Método que remove uma aresta se ela existir
-	 * @param u Nome do vértice de início (estação de partida)
-	 * @param v Nome do vértice final (estação de destino)
+	 * Method that removes a path if it exists
+	 * @param u Name of the initial node (Departure station)
+	 * @param v Name of the final node (Arrival station)
 	 */
 	public void removeEdge(String u, String v) {
 		if(isEdge(v, u)) {
@@ -117,52 +117,52 @@ public class Grafo {
 	}
 		
 	/**
-	 * Método que retorna o numero de arestas ajacentes do vertice, ou -1 se nao existir
-	 * @param v Nome da estação (vértice)
-	 * @return O número de arestas que estão ligadas ao vétices, ou -1 caso não tenha
+	 * Method that return the number of paths adjacent to the node
+	 * @param v Name of the node
+	 * @return The number of paths connected to the node, or -1 if there is none
 	 */
 	public int numEdge(String v) {
 		return isVertex(v) ? graph.get(v).size() : -1;
 	}
 		
 	/**
-	 * Método que retorna o iterator dos vertices adjacentes, ou null se sao exitir
-	 * @param v Nome do vétice
-	 * @return O iterador com todos os vétices adjacentes do vértice atual
+	 * Method that returns the iterator of adjacent nodes, or null if there is none
+	 * @param v Name of the node
+	 * @return An iterator with all nodes connected to the current node
 	 */
 	public Iterable<String> getAdjacent(String v) {
 		return isVertex(v) ? graph.get(v).keySet() : null;
 	}
 		
 	/**
-	 * Algoritmo de Dijikstra: Define os caminhos de um vértice até o outro, inclusive o mínimo
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
-	 * @return Uma HashMap com os caminho mínimo
+	 * Dijikstra Algorithm: Define paths from one node to the other, including the minimum
+	 * @param v Name of the initial node (Departure station)
+	 * @param u Name of the final node (Arrival station)
+	 * @return A HashMap with minimum paths
 	 */
 	public Stack<Path> dijkstra(String v, String u) {
-			//Verifica se os vertice existem
+			//Verify if nodes exists
 			if(isVertex(v) && isVertex(u)) {
-				//Armazena os visitados e suas informacoes
+				//Stores the visited nodes and its informations
 				HashMap<String, Path> visited = new HashMap<>();
 				
-				//Armazena os que faltam visitar
+				//Store the unvisited nodes
 				PriorityQueue<Path> next = new PriorityQueue<>();
 				next.add(new Path(v, null, 0));
 				
-				//Verificar se tem proximo e se o destino nao foi atingido
+				//Verify if there are next nodes and if the destiny hasn't been reached
 				while(!next.isEmpty() && !visited.containsKey(u)) {
-					//Pega as informacoes e o nome do proximo
+					//Get infos and the next node name
 					Path info = next.remove();
 					String rem = info.getVertex();
 					
-					//Verifica se ele nao foi visitado
+					//Verify if the next node hasn't been visited
 					if(!visited.containsKey(rem)) {
 						visited.put(rem, info);
 						
-						//Verifica os adjacentes a ele					
+						//Verify its adjacent nodes					
 						for(String cur : getAdjacent(rem)) {												
-							//Atualiza a distancia dos adjacentes nao visitados
+							//Update the distance of adjacent unvisited nodes
 							if(!visited.containsKey(cur)) {
 								double time = getEdge(rem, cur);
 								time += info.getTime();
@@ -172,7 +172,7 @@ public class Grafo {
 					}
 				}
 							
-				//Se o destino foi atingido retorna a pila de path, se nao null
+				//If the destiny has been reached it returns the path, otherwise returns null
 				return visited.containsKey(u) ? getPath(visited, v, u) : null;
 			}			
 			
@@ -180,11 +180,11 @@ public class Grafo {
 	}
 		
 	/**
-	 * Método que converte os vétices visitados em uma pilha de paths (caminhos)
-	 * @param visited HashMap com os vétices visitados no algoritmo de caminho mínimo
-	 * @param v Nome do vértice de início (estação de partida)
-	 * @param u Nome do vértice final (estação de destino)
-	 * @return Uma estrutura de pilha com os vétices visitados
+	 * Method that converts visited nodes into a path stack
+	 * @param visited HashMap with visited nodes in the minimum path algorithm
+	 * @param v Name of the initial node (Departure station)
+	 * @param u Name of the final node (Arrival station)
+	 * @return A stack with visited nodes
 	 */
 	private Stack<Path> getPath(HashMap<String, Path> visited, String v, String u) {
 			Stack<Path> path = new Stack<>();
