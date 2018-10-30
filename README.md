@@ -75,6 +75,6 @@ Clean example implementations of data structures and algorithms written in diffe
     * [FreeCodeCamp](https://www.freecodecamp.org/)
     
 # Project Maintainers
-* [Vishal Gaur](https://github.com/i-vishi):tada:<br>
+* [Vishal Gaur](https://github.com/i-vishi):tada::tada:<br>
 * [Ravi Varshney](https://github.com/ravivarshney01):tada:<br>
 * [Ananya Tewari](https://github.com/antew7):tada:<br>
