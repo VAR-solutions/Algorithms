@@ -7,7 +7,7 @@ public class CountWords {
 		int count= 0;
 		for(int i=0; i< str.length(); i++)
 		{
-			if(str.charAt(i) == ' ')
+			if(str.charAt(i) == ' ' && Character.isLetter(str.charAt(i+1))) //using isLetter to avoid counting Numbers as words
 			{
 				count++;
 			}
@@ -18,7 +18,7 @@ public class CountWords {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String s ="This is a test match";
+		String s ="This is a 1234 test match";
 		System.out.println(countWords(s));
 
 
