@@ -1,0 +1,10 @@
+Step 1. Create a new node and assign the address to any node say ptr.
+Step 2. OVERFLOW,IF(PTR = NULL)
+	   	write : OVERFLOW and EXIT.
+Step 3. ASSIGN INFO[PTR] = ITEM
+Step 4. IF(START = NULL) 
+	    	ASSIGN NEXT[PTR] = NULL
+       	 ELSE 
+         	ASSIGN NEXT[PTR] = START
+Step 5. ASSIGN START = PTR
+Step 6. EXIT    
