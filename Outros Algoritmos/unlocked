@@ -1,0 +1,80 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int INF = 10001;
+string A,B;
+int r;
+int validade[10001];
+vector<int> v;
+int minimo;
+int cost;
+
+void init(){
+
+	for(int i=0;i<10000;i++){
+		validade[i] = 0;
+	}
+}
+
+int main(){
+
+	int inicio,fim;
+	int z;
+	z = 1;
+	cin >> A >> B >> r;
+	while(A!="0" || B!="0" || r!=0){
+		int base;
+		base = 1000;
+		inicio = 0; fim = 0;
+		for(int i=0;i<4;i++){
+			inicio += base*(A[i] - 48);
+			fim += base*(B[i] - 48);
+			base /= 10;
+		}
+		v.clear();
+		for(int i=0;i<r;i++){
+			cin >> A;
+			int base;
+			int value = 0;
+			base = 1000;
+			for(int j=0;j<4;j++){
+				value += base*(A[j] - 48);
+				base /= 10;
+			}
+			v.push_back(value);
+		}
+		bool ans = false;
+		init();
+		queue<pair<int,int>> q;
+		q.push({inicio,0});
+		while(!q.empty()){
+			pair<int,int> g;
+			g = q.front(); q.pop();
+			int u,x,point;
+			point = g.second;
+			u = g.first;
+			if(u == fim){
+				ans = true;
+				minimo = point;
+				break;
+			}
+			point++;
+			for(int i=0;i<r;i++){
+				x = (u+v[i])%10000;
+				if(validade[x] == 0){
+					validade[x] = 1;
+					q.push({x,point});
+				}
+			}
+		}
+
+		cout << "Case " << z++ << ": ";
+		if(!ans){
+			cout << "Permanently Locked" << endl;
+		}
+		else{
+			cout << minimo << endl;
+		}
+		cin >> A >> B >> r;
+	}
+}

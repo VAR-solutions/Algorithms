@@ -1,0 +1,36 @@
+temp0[-]
+temp1[-]
+temp2[-]
+temp3[-]
+temp4[-]
+temp5[-]
+randomh[temp0+randomh-]
+randoml[temp1+randoml-]
+temp3+++++++[temp2+++++++++++@temp3-]
+temp2[
+ temp0[randomh+temp3+temp0-]
+ temp3[temp0+temp3-]
+ temp1[randomh+temp3+temp4+temp1-]
+ temp4[temp1+temp4-]
+ temp3[
+  randoml+[temp4+temp5+randoml-]
+  temp5[randoml+temp5-]+
+  temp4[temp5-temp4[-]]
+  temp5[randomh+temp5-]
+ temp3-]
+temp2-]
+++++++[temp3++++++++temp2-]
+temp3-[
+ temp1[randomh+temp2+temp1-]
+ temp2[temp1+temp2-]
+temp3-]
+temp0[-]temp1[-]+++++[temp0+++++temp1-]
+temp0[
+ randoml+[temp1+temp2+randoml-]
+ temp2[randoml+temp2-]+
+ temp1[temp2-temp1[-]]
+ temp2[randomh+temp2-]
+temp0-]
+++++++[randomh+++++++++temp0-]
+randomh[x+temp0+randomh-]
+temp0[randomh+temp0-]

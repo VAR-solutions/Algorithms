@@ -5,8 +5,7 @@
    > Algorithm-Type/algorithm_name/language-name/file_name.extension
    e.g
    > Sorting/bubble_sort/python/bubble_sort.py
-
- * If there is an implementation of the same algorithm in your language, add your username in front of the file name.
+ * If there is an implementation of the same algorithm in your language, do not give a PR for that.
  * Please include a description for the algorithm that you are implementing. It doesn't matter if it's copied from somewhere as long as it helps people that are learning new algorithm.
  * Graphical examples would be very helpful too.
  * Don't forget to include tests.
