@@ -13,3 +13,5 @@ For example, if n =4, P1 can make the following moves:
  * P1 removes 3 stones leaving 1. P2 cannot move and loses.
 
 P1 would make the second play and win the game.
+
+> This problem found on [HackerRank](https://www.hackerrank.com/challenges/minimum-absolute-difference-in-an-array/) and here I have posted my answer. There may be different solution for this problem.
