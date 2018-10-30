@@ -1,0 +1,187 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Queens extends JPanel
+{
+    static JFrame frame;
+    private JButton[][] board;
+    private JLabel label;
+    private JButton start;
+    private JButton reset;
+    private JButton exit;
+    private ImageIcon icon;
+    private ImageIcon img;
+
+    public Queens(int s)
+    {
+        img = new ImageIcon(this.getClass().getResource("queen.png"));
+        board = new JButton[s][s];
+        setLayout(new BorderLayout());
+
+        JPanel north = new JPanel();
+        label = new JLabel("Welcome");
+        north.add(label);
+        add(north, BorderLayout.NORTH);
+
+        JPanel main = new JPanel();
+        main.setLayout(new GridLayout(s, s));
+        for(int i = 0; i < s; i ++)
+        {
+           for(int j = 0; j < s; j++)
+           {
+               board[i][j] = new JButton();
+               board[i][j].setEnabled(false);
+               if((i % 2 == 0 && j % 2 == 0) || (i % 2 == 1 && j % 2 == 1))
+                   board[i][j].setBackground(Color.RED);
+               else
+                   board[i][j].setBackground(Color.DARK_GRAY);
+               main.add(board[i][j]);
+           }
+        }
+        add(main, BorderLayout.CENTER);
+
+        JPanel south = new JPanel();
+        start = new JButton();
+        start.setText("Start");
+        start.addActionListener(new Listener1());
+        south.add(start);
+        reset = new JButton();
+        reset.setText("Reset");
+        reset.addActionListener(new Listener2());
+        south.add(reset);
+        exit = new JButton();
+        exit.setText("Exit");
+        exit.addActionListener(new Listener3());
+        south.add(exit);
+        add(south, BorderLayout.SOUTH);
+    }
+
+    public boolean isSafe(int r, int c)
+    {
+        int i, j;
+        for (i = 0; i < c; i++)
+        {
+          //  if (board[r][i].getBackground().equals(Color.PINK))
+            if(board[r][i].getIcon()!= null)
+                return false;
+        }
+
+        for (i=r, j=c; i>=0 && j>=0; i--, j--)
+        {
+          //  if (board[i][j].getBackground().equals(Color.PINK))
+            if(board[i][j].getIcon()!= null)
+                return false;
+        }
+
+        for (i=r, j=c; j>=0 && i<board.length;i++, j--)
+        {
+          //  if (board[i][j].getBackground().equals(Color.PINK))
+            if(board[i][j].getIcon()!=null)
+                return false;
+        }
+
+        return true;
+    }
+
+
+    public boolean solve (int c, int queensLeft)
+    {
+        try
+        {
+            Thread.sleep(80);
+        }
+        catch(InterruptedException e)
+        {
+            label.setText("Oops, something went wrong");
+            System.exit(0);
+        }
+        if(queensLeft == 0)
+            return true;
+
+        for (int i = 0; i < board.length; i++)
+        {
+            if (isSafe(i, c))
+            {
+               // board[i][c].setBackground(Color.PINK);
+                icon = new ImageIcon(img.getImage().getScaledInstance(board[i][c].getWidth(), board[i][c].getHeight(), Image.SCALE_SMOOTH));
+                board[i][c].setIcon(icon);
+                board[i][c].paintImmediately(0, 0, board[i][c].getWidth(), board[i][c].getHeight());
+
+                /* recur to place rest of the queens */
+                if (solve(c + 1, queensLeft - 1))
+                    return true;
+
+                if((i % 2 == 0 && c % 2 == 0) || (i % 2 == 1 && c % 2 == 1)) {
+                    board[i][c].setBackground(Color.RED);
+                    board[i][c].setIcon(null);
+                    board[i][c].paintImmediately(0, 0,  board[i][c].getWidth(), board[i][c].getHeight());
+                }
+                else {
+                    board[i][c].setBackground(Color.DARK_GRAY);
+                    board[i][c].setIcon(null);
+                    board[i][c].paintImmediately(0, 0,  board[i][c].getWidth(), board[i][c].getHeight());
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public static void main (String [] args)
+    {
+        int s = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the size of the board"));
+
+        frame = new JFrame();
+        frame.setContentPane(new Queens(s));
+        frame.setSize(1500,1500);
+        frame.setLocation((int)CENTER_ALIGNMENT, (int)CENTER_ALIGNMENT);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+    }
+
+
+    private class Listener1 implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            while(!solve(0, board.length))
+            {
+                label.setText("Sorry, this number doesn't work");
+            }
+            label.setText("Yay we solved it");
+            start.setEnabled(false);
+        }
+    }
+
+    private class Listener2 implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            frame.dispose();
+            int s = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the size of the board"));
+
+            frame = new JFrame();
+            frame.setContentPane(new Queens(s));
+            frame.setSize(1500,1500);
+            frame.setLocation((int)CENTER_ALIGNMENT, (int)CENTER_ALIGNMENT);
+            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            frame.setVisible(true);
+            start.setEnabled(true);
+        }
+    }
+
+    private class Listener3 implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            System.exit(0);
+        }
+    }
+}
+
