@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int mod = 100000007;
+
+int main(){
+
+	vector<int> A;
+	vector<int> B;
+	int dp[1005][1024];
+
+	int tc;
+	int z = 1;
+	cin >> tc;
+	while(tc--){
+		A.clear();
+		B.clear();
+		int n,m;
+		cin >> n >> m;
+		A.resize(n); B.resize(m);
+		for(int i=0;i<n;i++){
+			cin >> A[i];
+		}
+		for(int i=0;i<m;i++){
+			cin >> B[i];
+		}
+		sort(B.begin(),B.end());
+		for(int i=0;i<=n;i++){
+			for(int j=0;j<1024;j++){
+				dp[i][j] = 0;
+			}
+		}
+		dp[0][0] = 1;
+		for(int i=1;i<=n;i++){
+			int a = A[i-1];
+			for(int j=0;j<1024;j++){
+				dp[i][j] = (dp[i-1][j] + dp[i-1][j^a])%mod;
+				dp[i][j] %= mod;
+			}
+		}
+		B.push_back(1025);
+		int curr = 0;
+		int ans = 0;
+		for(int i=0;i<1024;i++){
+			if(i == B[curr]){
+				curr++;
+			}
+			else{
+				ans += dp[n][i];
+				ans %= mod;
+			}
+		}
+		cout << "Case " << z++ << ": " << ans << endl;
+	}
+}
