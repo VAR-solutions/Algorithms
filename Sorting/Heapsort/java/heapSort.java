@@ -1,3 +1,27 @@
+
+/**
+ * About Heapsort:
+ * In computer science, heapsort is a comparison-based sorting algorithm.
+ * Heapsort can be thought of as an improved selection sort: like that
+ * algorithm, it divides its input into a sorted and an unsorted region,
+ * and it iteratively shrinks the unsorted region by extracting the largest
+ * element and moving that to the sorted region. The improvement consists
+ * of the use of a heap data structure rather than a linear-time search
+ * to find the maximum.[1]
+ * Although somewhat slower in practice on most machines than a
+ * well-implemented quicksort, it has the advantage of a more favorable
+ * worst-case O(n log n) runtime. Heapsort is an in-place algorithm,
+ * but it is not a stable sort.
+ * (https://en.wikipedia.org/wiki/Heapsort)
+ *
+ * This implementation is using a fixed-size minimal heap.
+ * The "run_heap_sort(int[] a)" will basically create an empty heap, insert
+ * the elements of a into it, and then place the smaller elements in order
+ * on the vector again. The result will be a sorting from the smaller to the
+ * greater values.
+ *
+ * @author Pitágoras Alves
+ */
 public class heap_sort {
 
     static void run_heap_sort(int[] a) {
