@@ -8,7 +8,7 @@ Clean example implementations of data structures and algorithms written in diffe
 
 [Algorithms list(not updated)](#)
 
-## Contribution
+## Contribution.
  * Contributions are always welcome. Language doesn't matter. Just make sure you're implementing an algorithm.
  * PRs are welcome. To begin developing, follow the structure:
 
@@ -24,7 +24,7 @@ Clean example implementations of data structures and algorithms written in diffe
  * Don't remove previous implementations of algorithms. Just add a new file with your own implementation.
  * Beautify and cleanup your code for easier reading
 
-## Resources
+## Resources.
 
  Curated list of resources dealing with algorithms.
 
