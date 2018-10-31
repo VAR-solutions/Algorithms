@@ -16,7 +16,7 @@ class Graph():
 	
 	# A recursive utility function to solve m
 	# coloring problem
-	def graphColourUtil(self, m, colour, v):
+	def graphColourUtil(self, m, colour, v):# mention colour of graph
 		if v == self.V:
 			return True
 
