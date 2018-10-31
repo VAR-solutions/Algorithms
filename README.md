@@ -1,3 +1,4 @@
+[![Hactoberfest](https://img.shields.io/badge/hactoberfest-foss-blue.svg)](https://opensource.microsoft.com/?sort=Awesomeness&keyword=&tag=android)
 # Data Structures and Algorithms 
 Clean example implementations of data structures and algorithms written in different languages.
 <br><br>
