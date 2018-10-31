@@ -1,6 +1,23 @@
 /**
+ * About Heaps: In computer science, a heap is a specialized tree-based data structure
+ * that satisfies the heap property: if P is a parent node of C, then the key (the value)
+ *  of P is either greater than or equal to (in a max heap) or less than or equal to
+ * (in a min heap) the key of C. The node at the "top" of the heap (with no parents)
+ *  is called the root node.
+ * The heap is one maximally efficient implementation of an abstract data type called
+ * a priority queue, and in fact priority queues are often referred to as "heaps",
+ * regardless of how they may be implemented. A common implementation of a heap is the
+ * binary heap, in which the tree is a binary tree (see figure). The heap data structure,
+ * specifically the binary heap, was introduced by J. W. J. Williams in 1964, as a data
+ * structure for the heapsort sorting algorithm. Heaps are also crucial in several
+ * efficient graph algorithms such as Dijkstra's algorithm. 
+ * (https://en.wikipedia.org/wiki/Heap_(data_structure))
+ *
  * This is a Minimal Heap, so the first element will always be the smallest value.
  * The size is fixed and must be assigned when the constructor is called.
+ * Here, for implementation porpuses, the first element of the heap vector is an empty
+ * root. It was used didatically, because the index calculation math gets more simple
+ * if the starting index of the vector is 1.
  * @author Pitágoras Alves
  */
 public class Heap {
