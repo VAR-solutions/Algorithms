@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+int n = 5;
 #define for_i0n for(int i=0;i<n;i++)
 #define for_ji1n for(int j=0;j<n - i - 1;j++) 
 int main() {
