@@ -15,4 +15,4 @@ def bubble_sort(arr):
             break
 
 if __name__ == "__main__":
-    main()
+    print "hello"
