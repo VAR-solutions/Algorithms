@@ -1,13 +1,11 @@
-#include <cstdlib>
-#include <ctime>
-#include <iostream>
+#include <bits/stdc++.h>
  
 int main (int argc, char const* argv[])
 {
       srand((unsigned)time(0)); 
-      int maior = 100;
-      int menor = 30;
-      int aleatorio = rand()%(maior-menor+1) + menor;
-      std::cout << "Numero Aleatorio = " << aleatorio << std::endl;
+      int u = 100;
+      int d = 30;
+      int r = rand()%(u-d+1) + d;
+      std::cout << "Random Number = " << r << std::endl;
       return 0;
 }
