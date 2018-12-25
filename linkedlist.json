@@ -1,10 +1,8 @@
-Step 1. Create a new node and assign the address to any node say ptr.
-Step 2. OVERFLOW,IF(PTR = NULL)
-	   	write : OVERFLOW and EXIT.
-Step 3. ASSIGN INFO[PTR] = ITEM
-Step 4. IF(START = NULL) 
-	    	ASSIGN NEXT[PTR] = NULL
-       	 ELSE 
-         	ASSIGN NEXT[PTR] = START
-Step 5. ASSIGN START = PTR
-Step 6. EXIT    
+Inserting at end of linked list
+
+create newnode with vale newnode -> next as null
+check if list is empty(head==null)
+if empty, set head=newnode
+if notempty then define a node pointer temp and initialize with head
+keep moving temp until temp-> next is equal to null
+set temp -> next=newnode
