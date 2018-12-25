@@ -8,7 +8,7 @@ Clean example implementations of data structures and algorithms written in diffe
 
 [Algorithms list(not updated)](#)
 
-## Contribution
+## Contribution!
  * Contributions are always welcome. Language doesn't matter. Just make sure you're implementing an algorithm.
  * PRs are welcome. To begin developing, follow the structure:
 
@@ -22,7 +22,7 @@ Clean example implementations of data structures and algorithms written in diffe
  * Graphical examples would be very helpful too.
  * Don't forget to include tests.
  * Don't remove previous implementations of algorithms. Just add a new file with your own implementation.
- * Beautify and cleanup your code for easier reading
+ * Beautify and clean up your code for easier reading
 
 ## Resources
 
@@ -74,7 +74,7 @@ Clean example implementations of data structures and algorithms written in diffe
     * [HireVue](https://www.hirevue.com/)
     * [FreeCodeCamp](https://www.freecodecamp.org/)
     
-# Project Maintainers
+# Project Maintainers.
 * [Vishal Gaur](https://github.com/i-vishi):tada:<br>
 * [Ravi Varshney](https://github.com/ravivarshney01):tada:<br>
 * [Ananya Tewari](https://github.com/antew7):tada:<br>
