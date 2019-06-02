@@ -1,0 +1,9 @@
+def k_largest_element(my_array, k):
+    my_array.sort()
+    return my_array[len(my_array) - k]
+    
+    
+if __name__ == '__main__':
+    arr = [6,3,7,9,1,4,3]
+    k = int(input("Enter The Value Of k : "))
+    print(k_largest_element(arr,k))
