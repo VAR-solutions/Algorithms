@@ -1,0 +1,144 @@
+
+// I took reference from here: https://towardsdatascience.com/building-a-logistic-regression-in-python-step-by-step-becd4d56c9c8
+//The dataset comes from the UCI Machine Learning repository, and it is related to direct marketing campaigns (phone calls) of a Portuguese 
+//banking institution. The classification goal is to predict whether the client will subscribe (1/0) to a term deposit (variable y). The dataset 
+//can be downloaded from here: https://raw.githubusercontent.com/madmashup/targeted-marketing-predictive-engine/master/banking.csv
+
+> import org.apache.log4j.
+
+> Logger.getLogger("org").setLevel(Level.ERROR)
+
+//reading data from csv
+> val data = spark.read.format("csv").option("header", "true").option("inferschema", "true").load("/home/arham/Documents/spark-pro/banking.csv")
+
+//getting only the usefull columns for our model
+//why we use these columns? find it here https://towardsdatascience.com/building-a-logistic-regression-in-python-step-by-step-becd4d56c9c8#a448
+> val needed_cols = (data.select(data("y").as("label"), $"job",$"marital",$"education",$"default",$"housing",$"loan",$"contact",$"month",$"day_of_week",$"poutcome"))
+
+//getting number of records
+> needed_cols.count()
+//res17: Long = 41188
+
+> needed_cols.show(20)
+
+//drop all null rows
+> val reduced_null_value_data = needed_cols.na.drop()
+
+//percentage of class 0 or not taking subscription
+scala> (reduced_null_value_data.where("label == 0").count()*100)/reduced_null_value_data.count()
+//res43: Long = 88
+
+//percentage of class 1 or taking subscription
+> (reduced_null_value_data.where("label == 1").count()*100)/reduced_null_value_data.count()
+//res44: Long = 11
+
+> import org.apache.spark.ml.feature.{OneHotEncoder, StringIndexer}
+
+// indexing the column values find more about it here: https://spark.apache.org/docs/latest/ml-features.html#stringindexer
+> val job_indexer = new StringIndexer().setInputCol("job").setOutputCol("job_index").fit(reduced_null_value_data)
+
+> val edu_indexer = new StringIndexer().setInputCol("education").setOutputCol("education_index").fit(reduced_null_value_data)
+
+> val marital_indexer = new StringIndexer().setInputCol("marital").setOutputCol("marital_index").fit(reduced_null_value_data)
+
+> val def_indexer = new StringIndexer().setInputCol("default").setOutputCol("default_index").fit(reduced_null_value_data)
+
+> val housing_indexer = new StringIndexer().setInputCol("housing").setOutputCol("housing_index").fit(reduced_null_value_data)
+
+> val loan_indexer = new StringIndexer().setInputCol("loan").setOutputCol("loan_index").fit(reduced_null_value_data)
+
+> val contact_indexer = new StringIndexer().setInputCol("contact").setOutputCol("contact_index").fit(reduced_null_value_data)
+
+> val month_indexer = new StringIndexer().setInputCol("month").setOutputCol("month_index").fit(reduced_null_value_data)
+
+> val day_of_week_indexer = new StringIndexer().setInputCol("day_of_week").setOutputCol("day_of_week_index").fit(reduced_null_value_data)
+
+> val poutcome_indexer = new StringIndexer().setInputCol("poutcome").setOutputCol("poutcome_index").fit(reduced_null_value_data)
+
+
+// Encoding the column values find more about it here: https://spark.apache.org/docs/2.1.0/ml-features.html#onehotencoder
+> val edu_vector = new OneHotEncoder().setInputCol("education_index").setOutputCol("education_vector")
+
+> val marital_vector = new OneHotEncoder().setInputCol("marital_index").setOutputCol("marital_vector")
+
+> val job_vector = new OneHotEncoder().setInputCol("job_index").setOutputCol("job_vector")
+
+> val def_vector = new OneHotEncoder().setInputCol("default_index").setOutputCol("default_vector")
+
+> val housing_vector = new OneHotEncoder().setInputCol("housing_index").setOutputCol("housing_vector")
+
+> val loan_vector = new OneHotEncoder().setInputCol("loan_index").setOutputCol("loan_vector")
+
+> val contact_vector = new OneHotEncoder().setInputCol("contact_index").setOutputCol("contact_vector")
+
+> val month_vector = new OneHotEncoder().setInputCol("month_index").setOutputCol("month_vector")
+
+> val day_of_week_vector = new OneHotEncoder().setInputCol("day_of_week_index").setOutputCol("day_of_week_vector")
+
+> val poutcome_vector = new OneHotEncoder().setInputCol("poutcome_index").setOutputCol("poutcome_vector")
+
+> import org.apache.spark.ml.feature.{VectorAssembler, VectorIndexer}
+
+// combining all feature columns find more here: https://spark.apache.org/docs/2.1.0/ml-features.html#vectorassembler
+> val  assembler = newVectorAssembler().setInputCols(Array("job_vector","marital_vector","education_vector","default_vector","housing_vector","loan_vector","contact_vector","month_vector","day_of_week_vector","poutcome_vector")).setOutputCol("features")
+
+//splitting data with ratio 70:30 - training:testing
+> val Array(training, testing) = reduced_null_value_data.randomSplit(Array(0.7, 0.3), seed=10)
+
+> import org.apache.spark.ml.Pipeline
+
+> import org.apache.spark.ml.classification.LogisticRegression
+
+> val log_reg = new LogisticRegression()
+
+//executing all through a pipeline
+> val pipeline = new Pipeline().setStages(Array(job_indexer, marital_indexer, edu_indexer, def_indexer, housing_indexer, loan_indexer, contact_indexer, month_indexer, day_of_week_indexer, poutcome_indexer, job_vector, marital_vector, edu_vector, def_vector, housing_vector, loan_vector, contact_vector, month_vector, day_of_week_vector, poutcome_vector, assembler, log_reg))
+
+//training
+> val model = pipeline.fit(training)
+
+//testing
+> val result = model.transform(testing)
+
+//////////////////
+//Model Evaluation
+
+> result.printSchema
+
+> import org.apache.spark.mllib.evaluation.MulticlassMetrics
+
+// getting prediction and label from result and converting to rdd for Evaluation (because MulticlassMetrics need rdd and only available in mllib 
+//find more here: https://spark.apache.org/docs/2.3.0/mllib-evaluation-metrics.html#multiclass-classification)
+> val predAndLabel = result.select($"prediction", $"label").as[(Double, Double)].rdd
+
+> val matrics = new MulticlassMetrics(predAndLabel)
+
+// getting accuracy
+> matrics.accuracy
+res11: Double = 0.8967916189229006
+
+//getting confusion matrix
+//it truly predicted 10712 records for label 0/not taking subscription
+//and truly predicted 245 records for label 1/taking subscription
+//131 wrong predictions for label 0/not taking subscription
+//1130 wrong predictions for label 1/taking subscription
+> println(matrics.confusionMatrix)
+//	   predicted 0	predicted 1
+//actualy 0: 10712.0  	131.0                                           
+//actualy 1: 1130.0   	245.0 
+
+//percentage of class 0 or not taking subscription(training dataset)
+> (training.where("label == 0").count()*100)/training.count()
+//res47: Long = 88
+
+//percentage of class 1 or taking subscription (training dataset)
+> (training.where("label == 1").count()*100)/training.count()
+//res48: Long = 11
+
+//percentage of class 0 or not taking subscription (testing dataset)
+> (testing.where("label == 0").count()*100)/testing.count()
+//res38: Long = 88
+
+//percentage of class 1 or taking subscription (testing dataset)
+> (testing.where("label == 1").count()*100)/testing.count()
+//res39: Long = 11

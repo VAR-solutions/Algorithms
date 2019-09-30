@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+const int lim = 1000000007;
+
+int dp[2050][105];
+int n;
+vector<vector<int>> g;
+
+void init(){
+	for(int i=0;i<2050;i++){
+		for(int j=0;j<105;j++){
+			dp[i][j] = -1;
+		}
+	}
+}
+
+int busca(int mask,int camisa){
+
+	int size = __builtin_popcount(mask);
+	if(size == n){
+		return 1;
+	}
+	if(camisa > 100){
+		return 0;
+	}
+	if(dp[mask][camisa]!=-1){
+		return dp[mask][camisa];
+	}
+	int resp = 0;
+	for(int i=0;i<g[camisa].size();i++){
+		int mask2 = mask&(1<<g[camisa][i]);
+		if(mask2 == 0){
+			mask2 = mask|(1<<g[camisa][i]);
+			resp += (busca(mask2, camisa+1)%lim);
+			resp %= lim;
+		}
+	}
+	resp += busca(mask, camisa+1)%lim;
+	resp %= lim;
+	dp[mask][camisa] = resp;
+
+	return resp;
+}
+
+int main(){
+
+	int tc;
+	char av;
+	int num;
+
+	scanf("%d",&tc);
+	while(tc--){
+		init();
+		g.clear();
+		scanf("%d",&n);
+		g.resize(101);
+		for(int i=0;i<n;i++){
+			av = 'a';
+			while(av!='\n'){
+				scanf("%d",&num);
+				scanf("%c",&av);
+				g[num].push_back(i);
+			}
+		}
+		cout << busca(0,1) << endl;
+	}
+}
