@@ -11,3 +11,7 @@ Use it whenever you need to simulate some random values
 
 ## How
 Write the correspondent random function and use it in your code
+
+## Pseudocode
+
+random = random()
