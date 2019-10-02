@@ -44,7 +44,7 @@ def boyer_moore_match(text, pattern):
 if __name__ == '__main__':
         
     def highlight(text, pattern):
-        print('text - {text}')
+        print(f'text - {text}')
         p = boyer_moore_match(text, pattern)
         print('match - %s%s' % ('.'*p, pattern))
 
