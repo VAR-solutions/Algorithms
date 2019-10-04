@@ -1,5 +1,5 @@
-def recur_fibo(n):
+def fibonacci(n):
  if n <= 1:
        return n
    else:
-       return(recur_fibo(n-1) + recur_fibo(n-2))
+       return(fibonacci(n-1) + fibonacci(n-2))
