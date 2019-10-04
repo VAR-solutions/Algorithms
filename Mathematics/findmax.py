@@ -2,7 +2,7 @@
 
 import math
 
-def find_max(nums):
+def maximum(nums):
     max = 0
     for x in nums:
       if x > max:
