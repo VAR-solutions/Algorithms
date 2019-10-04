@@ -1,17 +1,17 @@
 def main():
     print("Order = "+str(bubble_sort([9, 1, 2, 7, 4, 6, 5, 3])))
 
-def bubble_sort(arr):
+def bubble_sort(ar):
     while True:
         sorted = True
-        for i in range(len(arr)-1):
-            if(arr[i] > arr[i+1]):
-                buff = arr[i+1]
-                arr[i+1] = arr[i]
-                arr[i] = buff
+        for i in range(len(ar)-1):
+            if(ar[i] > ar[i+1]):
+                buff = ar[i+1]
+                ar[i+1] = ar[i]
+                ar[i] = buff
                 sorted = False
         if(sorted):
-            return arr
+            return ar
             break
 
 if __name__ == "__main__":
