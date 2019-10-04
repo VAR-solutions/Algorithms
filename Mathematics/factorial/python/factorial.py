@@ -9,3 +9,4 @@ def factorial(num):
 
 print("5! is" + str(factorial(5)))    #calling the function
 print("10! is " + str(factorial(10)))
+print("20! is " + str(factorial(10)))
