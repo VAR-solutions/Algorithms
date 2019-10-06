@@ -4,6 +4,22 @@
 
 using namespace std; 
 
+void Sort_by_arrival_time(int arrival_time[], int burst_time[], int n){
+	vector< pair <int, int> > v;
+
+	for (int i = 0; i < n; ++i){
+		v.push_back({arrival_time[i], burst_time[i]});
+	}
+
+	sort(v.begin(), v.end());
+
+	for (int i = 0; i < n; ++i)
+	{
+		arrival_time[i] = v[i].first;
+		burst_time[i] = v[i].second;
+	}
+}
+
 void findWaitingTime(int processes[], int n, int bt[], int wt[]) { 
 	 
 	wt[0] = 0;  
@@ -44,17 +60,20 @@ int main()
 	//process id's 
 	int n;//Enter number of processes
 	cin>>n;
-	int processes[n],burst_time[n];
-	int processes[] = { 1, 2, 3}; 
-	int n = sizeof processes / sizeof processes[0]; 
-
-	//Burst time of all processes 
-	int burst_time[] = {10, 5, 8}; 
+	int processes[n],burst_time[n], arrival_time[n];
 
 	for (int i = 0; i < n; ++i){
-		cin>>processes[i];
-		cin>>burst_time[n];
+
+		cin>>processes[i]>>arrival_time[i]>>burst_time[i];
 	}
+
+	cout<<"Processes\t"<<"Arrival Time\t"<<"Burst Time\n";
+
+	for (int i = 0; i < n; ++i){	
+		cout<<Processes[i]<<"\t\t"<<arrival_time[i]<<"\t\t"<<burst_time[i]<<endl;
+	}
+
+	Sort_by_arrival_time(arrival_time, burst_time, n);
 
 	findavgTime(processes, n, burst_time); 
 	return 0; 
