@@ -1,8 +1,0 @@
-Inserting at end of linked list
-
-create newnode with vale newnode -> next as null
-check if list is empty(head==null)
-if empty, set head=newnode
-if notempty then define a node pointer temp and initialize with head
-keep moving temp until temp-> next is equal to null
-set temp -> next=newnode
