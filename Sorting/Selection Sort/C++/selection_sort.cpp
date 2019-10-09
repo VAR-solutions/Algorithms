@@ -1,9 +1,10 @@
 #include<iostream.h>
 #include<conio.h>
+# define SIZE_ARR 50						//this is to make the program scalable
 void main()
 {
 	clrscr();
-	int size, arr[50], i, j, temp,pos;
+	int size, arr[SIZE_ARR], i, j, temp,pos;
 	cout<<"Enter Array Size : ";
 	cin>>size;
 	cout<<"Enter Array Elements : ";
