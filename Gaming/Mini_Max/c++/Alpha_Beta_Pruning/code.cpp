@@ -1,5 +1,6 @@
 // C++ program to demonstrate 
 // working of Alpha-Beta Pruning 
+
 #include<bits/stdc++.h> 
 using namespace std; 
 
@@ -11,6 +12,7 @@ const int MIN = -1000;
 // Returns optimal value for 
 // current player(Initially called 
 // for root and maximizer) 
+
 int minimax(int depth, int nodeIndex, 
 			bool maximizingPlayer, 
 			int values[], int alpha, 
@@ -71,6 +73,6 @@ int main()
 	return 0; 
 } 
 
-Output :
+## Output :
 
 The optimal value is : 5
