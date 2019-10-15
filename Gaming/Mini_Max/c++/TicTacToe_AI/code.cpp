@@ -219,3 +219,10 @@ int main()
 								bestMove.col ); 
 	return 0; 
 } 
+
+Output :
+
+The value of the best Move is : 10
+
+The Optimal Move is :
+ROW: 2 COL: 2
