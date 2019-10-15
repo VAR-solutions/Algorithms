@@ -73,6 +73,6 @@ int main()
 	return 0; 
 } 
 
-## Output :
+Output :
 
 The optimal value is : 5
