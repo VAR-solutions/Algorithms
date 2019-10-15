@@ -67,7 +67,7 @@ if maximizer has won:
 else if minimizer has won:
     return LOOSE_SCORE + depth  
 
-
+![Test Image 4](4.jpg)
 
 This image depicts all the possible paths that the game can take from the root board state. It is often called the Game Tree.
 The 3 possible scenarios in the above example are :
