@@ -8,6 +8,7 @@ Every board state has a value associated with it. In a given state if the maximi
 ## Example:
 Consider a game which has 4 final states and paths to reach final state are from root to 4 leaves of a perfect binary tree as shown below. Assume you are the maximizing player and you get the first chance to move, i.e., you are at the root and your opponent at next level. Which move you would make as a maximizing player considering that your opponent also plays optimally?
 
+![Test Image 1](a.png)
 
 Since this is a backtracking based algorithm, it tries all possible moves, then backtracks and makes a decision.
 
@@ -17,7 +18,7 @@ Since this is a backtracking based algorithm, it tries all possible moves, then 
 Being the maximizer you would choose the larger value that is 3. Hence the optimal move for the maximizer is to go LEFT and the optimal value is 3.
 
 Now the game tree looks like below :
-
+![Test Image 2](b.png)
 
 The above tree shows two possible scores when maximizer makes left and right moves.
 
