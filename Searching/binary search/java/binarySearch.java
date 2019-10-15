@@ -1,28 +1,35 @@
-import java.util.*;
-import java.io.*;
-class BinarySearch {
-  public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    int n = sc.nextInt();
-    int[] a = new int[n];
-    System.out.println("Enter the array in sorted order");
-    for(int i = 0; i<n; i++)
-      a[i] = sc.nextInt();
-    int low = 0;
-    int high = n-1;
-    int key = sc.nextInt();
-    int ans = -1;
-    while(low<=high) {
-      int mid = (low+high)>>1;
-      if(a[mid]==key) {
-        ans = mid;
-        break;
-      }
-      if(a[mid]<key)
-        low = mid+1;
-      else
-        high = mid-1;
-    }
-    System.out.println(ans);
-  }
-}
+class BinarySearch {	
+	int binarySearch(int arr[], int x) 
+	{ 
+		int l = 0, r = arr.length - 1; 
+		while (l <= r) { 
+			int m = l + (r - l) / 2; 
+
+			if (arr[m] == x) 
+				return m; 
+
+			if (arr[m] < x) 
+				l = m + 1; 
+
+			else
+				r = m - 1; 
+		} 
+
+		return -1; 
+	} 
+ 
+	public static void main(String args[]) 
+	{ 
+		BinarySearch ob = new BinarySearch(); 
+		int arr[] = { 2, 3, 4, 10, 40 }; 
+		int n = arr.length; 
+		int x = 10; 
+		int result = ob.binarySearch(arr, x); 
+		if (result == -1) 
+			System.out.println("Element not present"); 
+		else
+			System.out.println("Element found at "
+							+ "index " + result); 
+	} 
+} 
+
