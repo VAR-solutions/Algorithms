@@ -1,17 +1,14 @@
-// C++ program to demonstrate 
-// working of Alpha-Beta Pruning 
+// C++ program to demonstrate working of Alpha-Beta Pruning
 
 #include<bits/stdc++.h> 
 using namespace std; 
 
-// Initial values of 
-// Aplha and Beta 
+// Initial values of Alpha and Beta
+
 const int MAX = 1000; 
 const int MIN = -1000; 
 
-// Returns optimal value for 
-// current player(Initially called 
-// for root and maximizer) 
+// Returns optimal value for current player(Initially called for root and maximizer)
 
 int minimax(int depth, int nodeIndex, 
 			bool maximizingPlayer, 
