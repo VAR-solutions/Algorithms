@@ -1,4 +1,5 @@
 // A program to illustrate Zobeist Hashing Algorithm 
+
 #include <bits/stdc++.h> 
 using namespace std; 
 
@@ -9,7 +10,7 @@ mt19937 mt(01234567);
 unsigned long long int randomInt() 
 { 
 	uniform_int_distribution<unsigned long long int> 
-								dist(0, UINT64_MAX); 
+	dist(0, UINT64_MAX); 
 	return dist(mt); 
 } 
 
