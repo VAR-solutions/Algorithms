@@ -1,6 +1,5 @@
-// A simple C++ program to find 
-// maximum score that 
-// maximizing player can get. 
+// A simple C++ program to find maximum score that maximizing player can get.
+ 
 #include<bits/stdc++.h> 
 using namespace std; 
 
@@ -11,6 +10,7 @@ using namespace std;
 // of maximizer, else false 
 // scores[] stores leaves of Game tree. 
 // h is maximum height of Game tree 
+
 int minimax(int depth, int nodeIndex, bool isMax, 
 			int scores[], int h) 
 { 
