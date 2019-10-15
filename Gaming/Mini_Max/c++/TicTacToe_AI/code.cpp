@@ -1,5 +1,5 @@
-// C++ program to find the next optimal move for 
-// a player 
+// C++ program to find the next optimal move for a player
+
 #include<bits/stdc++.h> 
 using namespace std; 
 
@@ -13,6 +13,7 @@ char player = 'x', opponent = 'o';
 // This function returns true if there are moves 
 // remaining on the board. It returns false if 
 // there are no moves left to play. 
+
 bool isMovesLeft(char board[3][3]) 
 { 
 	for (int i = 0; i<3; i++) 
@@ -22,8 +23,8 @@ bool isMovesLeft(char board[3][3])
 	return false; 
 } 
 
-// This is the evaluation function as discussed 
-// in the previous article ( http://goo.gl/sJgv68 ) 
+// This is the evaluation function 
+
 int evaluate(char b[3][3]) 
 { 
 	// Checking for Rows for X or O victory. 
@@ -77,6 +78,7 @@ int evaluate(char b[3][3])
 // This is the minimax function. It considers all 
 // the possible ways the game can go and returns 
 // the value of the board 
+
 int minimax(char board[3][3], int depth, bool isMax) 
 { 
 	int score = evaluate(board); 
@@ -166,6 +168,7 @@ Move findBestMove(char board[3][3])
 	// Traverse all cells, evaluate minimax function for 
 	// all empty cells. And return the cell with optimal 
 	// value. 
+	
 	for (int i = 0; i<3; i++) 
 	{ 
 		for (int j = 0; j<3; j++) 
