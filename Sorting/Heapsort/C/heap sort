@@ -1,0 +1,84 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void HEAP_SORT(int[],int);
+void BUILD_MAX_HEAP(int[],int);
+void MAX_HEAPIFY(int[],int,int);
+int c=1;
+int main()
+{
+FILE *fp;
+int a[60000],i,n,p,r;
+clock_t s,t;
+printf("Enter the number:\n");
+scanf("%d",&n);
+fp=fopen("input.txt","w");
+for(i=0;i<n;i++)
+fprintf(fp," %d",n-i);
+fclose(fp);
+
+fp=fopen("input.txt","r");
+for(i=0;i<n;i++)
+fscanf(fp,"%d",&a[i]);
+fclose(fp);
+
+	s=clock();
+	HEAP_SORT(a,n); c++;
+	t=clock();
+
+	printf("time= %f",(t-s)/(double)CLOCKS_PER_SEC);
+	fp=fopen("out.txt","w");
+	for(i=0;i<n;i++)
+	fprintf(fp,"\t%d",a[i]);
+	fclose(fp);
+
+	printf("\nTotal number of steps=%d",c);
+	printf("\n");
+return 0;
+}
+
+void HEAP_SORT(int a[],int n)
+{
+int temp,i;
+BUILD_MAX_HEAP(a,n); c++;
+for(c++,i=n;c++ && i>=2;c++,i--)
+{
+temp=a[1]; c++;
+a[1]=a[i]; c++;
+a[i]=temp; c++;
+MAX_HEAPIFY(a,1,i-1); c++;
+}
+}
+
+void BUILD_MAX_HEAP(int a[],int n)
+{
+	int i;
+	for(c++,i=n/2;c++ && i>=1;c++,i--)
+	MAX_HEAPIFY(a,i,n); c++;
+}
+
+void MAX_HEAPIFY(int a[],int i,int n)
+{
+int l,r,largest,temp;
+l=2*i; c++;
+r=2*i+1; c++;
+if (c++ && l<=n && a[l]>a[i])
+	{	
+	largest=l; c++;
+	}
+else 
+{	
+largest = i; c++;
+}
+if (c++ && r<=n && a[r]>a[largest])
+{	
+largest=r; c++;
+}
+if (c++ && largest!=i)
+{
+temp=a[i]; c++;
+a[i]=a[largest]; c++;
+a[largest]=temp; c++;
+MAX_HEAPIFY(a,largest,n); c++;
+}
+}
