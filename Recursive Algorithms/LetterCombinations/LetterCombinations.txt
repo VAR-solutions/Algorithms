@@ -1,0 +1,30 @@
+PROBLEM STATEMENT :
+Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
+A mapping of digit to letters (just like on the telephone buttons) is given below:
+    2 : abc
+    3 : def
+    4 : ghi
+    5 : jkl
+    6 : mno
+    7 : pqrs
+    8 : tuv
+    9 : wxyz
+
+Example :
+Input: "23"
+Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+
+NOTE : Answer could be in any order you want.
+
+EXPLANATION :
+             2 can be mapped to 'a','b' or 'c'
+             3 can be mapped to 'd','e' or 'f'
+             Therefore possible combinations are : "ad" "ae" "af"
+                                                   "bd" "be" "bf"
+                                                   "cd" "ce" "cf"
+
+SOLUTION :
+We can use Recursion to solve this problem.
+The idea is to consider every input digit one by one and replace the digit with each character in mobile keypad and recur for the next digit. 
+When all the digits are processed return the result.
+
