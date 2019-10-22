@@ -75,6 +75,9 @@ Clean example implementations of data structures and algorithms written in diffe
     * [HireVue](https://www.hirevue.com/)
     * [FreeCodeCamp](https://www.freecodecamp.org/)
     * [CodeSignal](https://codesignal.com/)
+    * [LeetCode](https://leetcode.com/)
+    * [Coding Ninjas](https://www.codingninjas.in/)
+    * [Coding Blocks](https://codingblocks.com/)
     
 # Project Maintainers.
 * [Vishal Gaur](https://github.com/i-vishi):tada:<br>
