@@ -1,77 +1,110 @@
-public class RBBSR{
-  private static final boolean RED= true;
-  private static final boolean BLACK = false;
-  private class Node{
-      Key key;
-      Value val;
-      Node left, right;
-      boolean color;  // color of parent link
+public class SegmentTree
+{
+    private int[] tree;
+    private int maxsize;
+    private int height;
+ 
+    private  final int STARTINDEX = 0; 
+    private  final int ENDINDEX;
+    private  final int ROOT = 0;
+ 
+    public SegmentTree(int size)
+    {
+        height = (int)(Math.ceil(Math.log(size) /  Math.log(2)));
+        maxsize = 2 * (int) Math.pow(2, height) - 1;
+        tree = new int[maxsize];
+        ENDINDEX = size - 1; 
     }
-    private boolean isRed(Node x){
-      if (x == null)
-          return false;
-      return x.color == RED;
+ 
+    private int leftchild(int pos)
+    {
+        return 2 * pos + 1;
     }
-  public Val get(Key key){
-      Node x = root;
-      while (x != null){
-            int cmp = key.compareTo(x.key);
-            if(cmp < 0)
-              x = x.left;
-            else if (cmp > 0)
-              x = x.right;
-            else if (cmp == 0)
-                return x.val;
-          }
-          return null;
-}
-  private Node rotateLeft(Node h){
-    assert isRed(h.right);
-    Node x = h.right;
-    h.right = x.left;
-    x.left = h;
-    x.color = h.color;
-    h.color = RED;
-    return x;
-}
-  private Node rotateLeft(Node h){
-    assert isRed(h.right);
-    Node x = h.right;
-    h.right = x.left;
-    x.left = h;
-    x.color = h.color;
-    h.color = RED;
-    return x;
-}
-  private Node rotateRight(Node h){
-    assert isRed(h.left);
-    Node x = h.left;
-    h.left = x.right;
-    x.right = h;
-    x.color = h.color;
-    h.color = RED;
-    return x;
-}
-  private void flipColors(Node h){
-    assert !isRed(h);
-    assert isRed(h.left);
-    assert isRed(h.right);
-    h.color = RED;
-    h.left.color = BLACK;
-    h.right.color = BLACK;
-}
-  private Node put(Node h, Key key, Value val){
-    if (h == null) return new Node(key, val, RED);
-    int cmp = key.compareTo(h.key);
-    if(cmp < 0)
-      h.left = put(h.left, key, val);
-    else if (cmp > 0) h.right = put(h.right, key, val);
-    else if (cmp == 0) h.val = val;
-    if (isRed(h.right) && !isRed(h.left))
-        h = rotateLeft(h);
-    if (isRed(h.left) && isRed(h.left.left))
-        h = rotateRight(h);
-    if (isRed(h.left) && isRed(h.right))
-        flipColors(h);
-
+ 
+    private int rightchild(int pos)
+    {
+        return 2 * pos + 2;
+    }
+ 
+    private int mid(int start, int end)
+    {
+        return (start + (end - start) / 2); 
+    }
+ 
+    private int getSumUtil(int startIndex, int endIndex, int queryStart, int queryEnd, int current)
+    {
+        if (queryStart <= startIndex && queryEnd >= endIndex )
+        {
+            return tree[current];
+        }
+        if (endIndex < queryStart || startIndex > queryEnd)
+        {
+            return 0;
+        }
+        int mid = mid(startIndex, endIndex);
+        return  getSumUtil(startIndex, mid, queryStart, queryEnd, leftchild(current)) 
+                 + getSumUtil( mid + 1, endIndex, queryStart, queryEnd, rightchild(current));
+    }
+ 
+    public int getSum(int queryStart, int queryEnd)
+    {
+        if(queryStart < 0 || queryEnd > tree.length)
+        {
+            return -1;
+        }
+        return getSumUtil(STARTINDEX, ENDINDEX, queryStart, queryEnd, ROOT);
+    }
+ 
+    private int constructSegmentTreeUtil(int[] elements, int startIndex, int endIndex, int current)
+    {
+        if (startIndex == endIndex)
+        {
+            tree[current] = elements[startIndex];
+            return tree[current];	
+        }
+        int mid = mid(startIndex, endIndex);
+        tree[current] = constructSegmentTreeUtil(elements, startIndex, mid, leftchild(current))
+                           + constructSegmentTreeUtil(elements, mid + 1, endIndex, rightchild(current));
+        return tree[current];
+    }
+ 
+    public void constructSegmentTree(int[] elements)
+    {
+        constructSegmentTreeUtil(elements, STARTINDEX, ENDINDEX, ROOT);	
+    }
+ 
+    private void updateTreeUtil(int startIndex, int endIndex, int updatePos, int update, int current)
+    {
+        if ( updatePos < startIndex || updatePos > endIndex)
+        {
+            return;
+        }
+        tree[current] = tree[current] + update;
+        if (startIndex != endIndex)
+        {
+            int mid = mid(startIndex, endIndex);
+            updateTreeUtil(startIndex, mid, updatePos, update, leftchild(current));
+            updateTreeUtil(mid+1, endIndex, updatePos, update, rightchild(current));
+        }
+    }
+ 
+    public void update(int update, int updatePos, int[] elements)
+    {
+        int updatediff = update - elements[updatePos]  ;
+        elements[updatePos] = update;
+        updateTreeUtil(STARTINDEX, ENDINDEX, updatePos, updatediff, ROOT);
+    }
+ 
+    public static void main(String...arg)
+    {
+        int[] elements = {1,3,5,7,9,11};
+        SegmentTree segmentTree = new SegmentTree(6);
+        segmentTree.constructSegmentTree(elements);
+        int num = segmentTree.getSum(1, 5);
+ 
+        System.out.println("the num is " + num);
+        segmentTree.update(10, 5,elements);
+        num = segmentTree.getSum(1, 5);
+        System.out.println("the num is " + num);	
+    }  	
 }
