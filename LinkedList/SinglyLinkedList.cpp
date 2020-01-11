@@ -11,21 +11,10 @@ private:
 class SinglyLinkedList {
 private:
     Node *head;
-
-    int getSize() {
-        int size{};
-        Node *h = head;
-
-        while (h) {
-            h = h->next;
-            size++;
-        }
-
-        return size;
-    }
+    int size;
 
 public:
-    SinglyLinkedList() : head{nullptr} {}
+    SinglyLinkedList() : head{nullptr}, size{} {}
 
     void insert(int index, int data) {
         if (index < 0 || index > SinglyLinkedList::getSize()) {
@@ -37,6 +26,7 @@ public:
         Node *t = new Node;
         t->next = nullptr;
         t->data = data;
+        ++size;
 
         if (index == 0) {
             t->next = head;
@@ -62,6 +52,7 @@ public:
         }
 
         Node *h = head;
+        --size;
 
         if (index == 0) {
             head = head->next;
@@ -75,6 +66,10 @@ public:
         Node *t = h->next;
         h->next = h->next->next;
         delete t;
+    }
+
+    int getSize() {
+        return size;
     }
 
     void display() {
@@ -102,9 +97,9 @@ int main() {
     ll.remove(0);
     ll.display(); // 2, 3, 4, 5,
     ll.insert(4, 6);
-    ll.display(); // 2, 3, 4, 5, 6
+    ll.display(); // 2, 3, 4, 5, 6,
     ll.remove(5); // invalid index
     ll.remove(4);
-    ll.display(); // 2, 3, 4, 5
+    ll.display(); // 2, 3, 4, 5,
     return 0;
 }
