@@ -1,11 +1,15 @@
 #include <bits/stdc++.h>
+
+int fill(){
+ return rand() % 10000;
+}
  
 int main (int argc, char const* argv[])
 {
-      srand((unsigned)time(0)); 
-      int u = 100;
-      int d = 30;
-      int r = rand()%(u-d+1) + d;
-      std::cout << "Random Number = " << r << std::endl;
-      return 0;
+ srand(1);
+ std::vector<int> a(10000);
+ std::generate(a.begin(), a.end(), fill); 
+ for(int& i:a){
+    std::cout << i << " ";
+ }
 }
