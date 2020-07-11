@@ -60,6 +60,8 @@ Clean example implementations of data structures and algorithms written in diffe
      * [Data Structures](https://www.youtube.com/user/mycodeschool)
      * [Algorithms and Data Structures Capstone](https://www.edx.org/course/algorithms-data-structures-capstone-uc-san-diegox-algs207x) 
      * [Data Structures and Algorithms](https://www.programiz.com/dsa)
+   * GeeksForGeeks
+     * [Algorithms](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
  * **Coding Practice Sites**
     * [HackerRank](https://www.hackerrank.com/)
     * [HackerEarth](https://www.hackerearth.com/)
@@ -75,8 +77,9 @@ Clean example implementations of data structures and algorithms written in diffe
     * [HireVue](https://www.hirevue.com/)
     * [FreeCodeCamp](https://www.freecodecamp.org/)
     * [CodeSignal](https://codesignal.com/)
+    * [AtCoder](https://atcoder.jp/)
     
 # Project Maintainers.
-* [Vishal Gaur](https://github.com/i-vishi):tada:<br>
-* [Ravi Varshney](https://github.com/ravivarshney01):tada:<br>
-* [Ananya Tewari](https://github.com/antew7):tada:<br>
+* [Vishal Gaur](https://github.com/i-vishi) :tada:<br>
+* [Ravi Varshney](https://github.com/ravivarshney01) :tada:<br>
+* [Ananya Tewari](https://github.com/antew7) :tada:<br>
