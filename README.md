@@ -23,6 +23,8 @@ Clean example implementations of data structures and algorithms written in diffe
  * Don't forget to include tests.
  * Don't remove previous implementations of algorithms. Just add a new file with your own implementation.
  * Beautify and clean up your code for easier reading
+ ### Note:
+ * If your PR is closed without any comment, it means that your PR does not meet the above criteria. Make sure your PR is not Duplicate and it should be well-documented.
 
 ## Resources
 
