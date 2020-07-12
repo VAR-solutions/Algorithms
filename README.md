@@ -20,9 +20,11 @@ Clean example implementations of data structures and algorithms written in diffe
  * If there is an implementation of the same algorithm in your language, do not give a PR for that.
  * Please include a description for the algorithm that you are implementing. It doesn't matter if it's copied from somewhere as long as it helps people that are learning new algorithm.
  * Graphical examples would be very helpful too.
- * Don't forget to include tests.
+ * You can include tests as well.
  * Don't remove previous implementations of algorithms. Just add a new file with your own implementation.
  * Beautify and clean up your code for easier reading
+ ### Note:
+ * If your PR is closed without any comment, it means that your PR does not meet the above criteria. Make sure your PR is not Duplicate and it should be well-documented.
 
 ## Resources
 
