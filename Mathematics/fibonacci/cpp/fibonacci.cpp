@@ -3,14 +3,19 @@ using namespace std;
 
 int main()
 {
-	const int n = 10; /// fibonacci sequence size
-	int fib[105];
-	fib[1] = fib[2] = 1;
-	for(int i=3;i<=n;i++)
-		fib[i] = fib[i-1] + fib[i-2];
-	for(int i=1;i<=n;i++)
-		cout <<fib[i] << " ";
-	cout << endl;
-	
-return 0;
+	int n{}, i{3};
+	cin >> n;
+	long a{1}, b{1}, c{};
+	if(n <= 2)
+		cout << (n == 2? "1 1": "1");
+	else{
+		cout << "1 1 ";
+		while(i <= n){
+			c = a + b;
+			b = a;
+			a = c;
+			cout << a << " ";
+			i++;
+		}
+	}   
 }
