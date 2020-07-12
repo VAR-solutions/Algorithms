@@ -1,11 +1,13 @@
-a=int(input("Enter the first number:"))
-b=int(input("Enter the second number:"))
-if(a>b):
-    min1=a
-else:
-    min1=b
-while(1):
-    if(min1%a==0 and min1%b==0):
-        print("LCM is:",min1)
-        break
-    min1=min1+1
+import sys 
+
+def findLCM(a, b): 
+    lar = max(a, b) 
+    small = min(a, b) 
+    i = lar 
+    while(1) : 
+        if (i % small == 0): 
+            return i 
+        i += lar 
+
+a,b = map(int, input.split())
+print(findLCM(a, b)) 
