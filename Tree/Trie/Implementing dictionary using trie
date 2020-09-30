@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node
+{
+    int data;
+    unordered_map<char,Node*> m;
+    string meaning;
+    bool terminal;
+    
+    Node(char d)
+    {
+        data=d;
+        terminal=false;
+    }
+};
+
+void insert(string word,string mean,Node* root)
+{
+    Node* temp=root;
+    for(unsigned int i=0;i<word.length();i++)
+    {
+        char ch=word[i];
+        if(temp->m.find(ch)!=temp->m.end())
+            temp=temp->m[ch];
+        else
+        {
+            Node* n=new Node(ch);
+            temp->m[ch]=n;
+            temp=temp->m[ch];
+        }
+    }
+    temp->terminal=true;
+    temp->meaning=mean;
+}
+
+void getMeaning(string word,Node* root)
+{
+    Node *temp=root;
+    for(unsigned int i=0;i<word.length();i++)
+    {
+        char ch=word[i];
+        if(temp->m.find(ch)!=temp->m.end())
+            temp=temp->m[ch];
+        else
+        {
+            cout<<"Not Found\n";
+            return;
+        }
+    }
+    if(temp->terminal)
+        cout<<temp->meaning<<"\n";
+    else
+        cout<<"Not found\n";
+}
+
+
+int main()
+{
+    Node *root=new Node('\0');
+    insert("language", "the method of human communication",root); 
+    insert("computer", "A computer is a machine that can be instructed to carry out sequences of arithmetic or logical operations automatically via computer programming",root); 
+    insert("map", "a diagrammatic representation of an area",root); 
+    insert("book", "a written or printed work consisting of pages glued or sewn together along one side and bound in covers.",root); 
+    insert("science", "the intellectual and practical activity encompassing the systematic study of the structure and behaviour of the physical and natural world through observation and experiment.",root); 
+
+    getMeaning("map",root);
+    getMeaning("ayu",root);
+    getMeaning("scienc",root);
+}
