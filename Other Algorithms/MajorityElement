@@ -1,0 +1,126 @@
+import java.util.*;
+import java.io.*;
+
+public class MajorityElement {
+
+    private static int getMajorityElement(int[] a, int left, int right) {
+        if (left == right)
+            return -1;
+        if (left + 1 == right)
+            return a[left];
+        // write your code here
+        if (a.length == 2) {
+            if (a[0] == a[1])
+                return 1;
+            else
+                return -1;
+        }
+        sort(a, 0, a.length - 1);
+        // Arrays.sort(a);
+        int count = 1;
+        int currentStart = a[0];
+        int max = -1;
+        for (int i = 1; i < a.length; i++) {
+            if (currentStart == a[i]) {
+                count++;
+            } else {
+                count = 1;
+                currentStart = a[i];
+            }
+            if (max < count) {
+                max = count;
+                if (max > a.length / 2) {
+                    return 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+    private static void sort(int[] a, int l, int r) {
+        if (l < r) {
+            int mid = (r + l) / 2;
+            sort(a, l, mid);
+            sort(a, mid + 1, r);
+            merge(a, l, mid, r);
+        }
+    }
+
+    private static void merge(int[] a, int l, int m, int r) {
+        int il = 0;
+        int ir = 0;
+        int ia = l;
+        int[] left = new int[m - l + 1];
+        int[] right = new int[r - m];
+        for (int i = 0; i < m - l + 1; i++) {
+            left[i] = a[i + l];
+        }
+        for (int i = 0; i < r - m; i++) {
+            right[i] = a[m + 1 + i];
+        }
+        while (il < left.length && ir < right.length) {
+            int l1 = left[il];
+            int r1 = right[ir];
+            if (l1 <= r1) {
+                a[ia] = left[il];
+                il++;
+            } else {
+                a[ia] = right[ir];
+                ir++;
+            }
+            ia++;
+        }
+        while (il < left.length) {
+            a[ia] = left[il];
+            il++;
+            ia++;
+        }
+        while (ir < right.length) {
+            a[ia] = right[ir];
+            ir++;
+            ia++;
+        }
+    }
+
+    public static void main(String[] args) {
+        FastScanner scanner = new FastScanner(System.in);
+        int n = scanner.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.nextInt();
+        }
+        if (getMajorityElement(a, 0, a.length) != -1) {
+            System.out.println(1);
+        } else {
+            System.out.println(0);
+        }
+    }
+
+    static class FastScanner {
+        BufferedReader br;
+        StringTokenizer st;
+
+        FastScanner(InputStream stream) {
+            try {
+                br = new BufferedReader(new InputStreamReader(stream));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreTokens()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+    }
+}
