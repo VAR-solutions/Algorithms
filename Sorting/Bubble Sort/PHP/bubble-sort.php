@@ -1,28 +1,40 @@
-<?php
+<?php 
+// PHP program for implementation 
+// of Bubble Sort 
 
-function bubble_sort($array) {
-	for ($x = 0;$x < count($array);$x++) {
-		for ($y = 0;$y < count($array) - $x - 1;$y++) {
-			if ($array[$y] > $array[$y + 1]) {
-				$temp = $array[$y];
-				$array[$y] = $array[$y + 1];
-				$array[$y + 1] = $temp;
-	}
-}
-	echo ("After #" . $x . " run:   ");
-	print_array($array);
-	}
-}
-function print_array($array) {
-	for ($x = 0;$x < count($array);$x++) {
-		echo ($array[$x] . " ");
-	}
-	echo ("\n");
-}
+function bubbleSort(&$arr) 
+{ 
+	$n = sizeof($arr); 
 
-$array = [34, 22, 1, 8, 2, 13];
-echo "Original Array: ";
-print_array($array);
-bubble_sort($array);
+	// Traverse through all array elements 
+	for($i = 0; $i < $n; $i++) 
+	{ 
+		// Last i elements are already in place 
+		for ($j = 0; $j < $n - $i - 1; $j++) 
+		{ 
+			// traverse the array from 0 to n-i-1 
+			// Swap if the element found is greater 
+			// than the next element 
+			if ($arr[$j] > $arr[$j+1]) 
+			{ 
+				$t = $arr[$j]; 
+				$arr[$j] = $arr[$j+1]; 
+				$arr[$j+1] = $t; 
+			} 
+		} 
+	} 
+} 
 
-?>
+// Driver code to test above 
+$arr = array(64, 34, 25, 12, 22, 11, 90); 
+
+$len = sizeof($arr); 
+bubbleSort($arr); 
+
+echo "Sorted array : \n"; 
+
+for ($i = 0; $i < $len; $i++) 
+	echo $arr[$i]." "; 
+
+// This code is contributed by sumitisnot4u. 
+?> 
