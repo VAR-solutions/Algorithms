@@ -6,4 +6,5 @@ func gcd(_ a: Int, _ b: Int) -> Int {
 }
 
 // Usage
-print(gcd(12, 8))
+let x = gcd(12, 8)
+print(x)    // equal to 4
