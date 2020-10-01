@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int binary(int a[],int n,int s)
+{
+int first,last,mid,pos;
+first=0;
+last=n-1;
+pos=1900;
+while(first<=last)
+{
+mid=(first+last)/2;
+if(a[mid]==s)
+{
+pos=mid;
+break;
+}
+else if(a[mid]<s)
+first=mid+1;
+else
+last=mid-1;
+}
+return pos;
+}
+int main()
+{
+int a[50],size,se,i;
+cin>>size;
+for(i=0;i<size;i++)
+{
+cin>>a[i];
+}
+cin>>se;
+int c=binary(a,size,se);
+if(c==1900)
+cout<<"Element not found";
+else
+cout<<se<<"is present in position "<<c+1;
+return 0;
+}
