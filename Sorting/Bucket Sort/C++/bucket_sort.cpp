@@ -24,7 +24,7 @@ void bucketSort(float a[], int n)
           a[k++] = t[i][j];
 }
  
-int main()
+void main()
 {
     float a[] = {0.765, 0.324, 0.111, 0.951, 0.245, 0.48};
     int n = sizeof(a)/sizeof(a[0]);
@@ -37,5 +37,5 @@ int main()
     cout << "\nElements After Sorting \n";
     for (int i=0; i<n; i++)
        cout << a[i] << " ";
-    return 0;
+  
 }
