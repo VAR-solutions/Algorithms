@@ -1,0 +1,11 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int h,m;
+    cin>>h>>m;
+    auto an = abs(0.5*(60*h-11*m));
+    auto ans = 360 - an < an ? 360 - an : an;
+    cout<<ans<<endl;
+    return 0;
+}
