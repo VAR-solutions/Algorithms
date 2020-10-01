@@ -1,0 +1,25 @@
+<?php 
+// Simple PHP program to find 
+// k'th smallest element 
+
+// Function to return k'th smallest 
+// element in a given array 
+function kthSmallest($arr, $n, $k) 
+{ 
+	
+	// Sort the given array 
+	sort($arr); 
+
+	// Return k'th element 
+	// in the sorted array 
+	return $arr[$k - 1]; 
+} 
+
+	// Driver Code 
+	$arr = array(12, 3, 5, 7, 19); 
+	$n =count($arr); 
+	$k = 2; 
+	echo "K'th smallest element is ", kthSmallest($arr, $n, $k); 
+
+// This code is contributed by anuj_67. 
+?> 
