@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s,k;
+    cin>>s>>k;
+    vector<int> v;
+    for(int i=0; i<k.size(); i++){
+        v.push_back((int)s[i]-97+(int)k[i]-97);
+    }
+    for(int i=0; i<k.size(); i++){
+        if(v[i]>26)
+            v[i]-=26;
+    }
+    string ans;
+    for(int i=0; i<k.size(); i++){
+        char c = (char)('a'+v[i]);
+        ans.push_back(c);
+    }
+    cout<<ans;
+
+    return 0;
+}
