@@ -12,10 +12,10 @@ Clean example implementations of data structures and algorithms written in diffe
  * Contributions are always welcome. Language doesn't matter. Just make sure you're implementing an algorithm.
  * PRs are welcome. To begin developing, follow the structure:
 
-   > Algorithm-Type/algorithm_name/language-name/file_name.extension
+   > Algorithm-Type/algorithm-name/language-name/file-name.extension
    
    e.g
-   > Sorting/bubble_sort/python/bubble_sort.py
+   > Sorting/bubble-sort/python/bubble-sort.py
 
  * If there is an implementation of the same algorithm in your language, do not give a PR for that.
  * Please include a description for the algorithm that you are implementing. It doesn't matter if it's copied from somewhere as long as it helps people that are learning new algorithm.
@@ -24,7 +24,7 @@ Clean example implementations of data structures and algorithms written in diffe
  * Don't remove previous implementations of algorithms. Just add a new file with your own implementation.
  * Beautify and clean up your code for easier reading
  ### Note:
- * If your PR is closed without any comment, it means that your PR does not meet the above criteria. Make sure your PR is not Duplicate and it should be well-documented.
+ * If your PR is closed without any comment, it means that your PR does not meet the above criteria. Make sure your PR is **not Duplicate** and it should be **well-documented**.
 
 ## Resources
 
