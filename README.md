@@ -1,5 +1,5 @@
 # Data Structures and Algorithms 
-Clean example implementations of data structures and algorithms written in different languages.
+Clean example implementations of data structures and algorithms written in different programming languages.
 <br><br>
 [![Gitter chat](https://badges.gitter.im/VAR-solutions/Algorithms.png)](https://gitter.im/VAR-solutions/Algorithms "Gitter chat")
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
@@ -22,7 +22,7 @@ Clean example implementations of data structures and algorithms written in diffe
  * Graphical examples would be very helpful too.
  * You can include tests as well.
  * Don't remove previous implementations of algorithms. Just add a new file with your own implementation.
- * Beautify and clean up your code for easier reading
+ * Beautify and clean up your code which make more clear for reading
  ### Note:
  * If your PR is closed without any comment, it means that your PR does not meet the above criteria. Make sure your PR is **not Duplicate** and it should be **well-documented**.
 
