@@ -5,6 +5,7 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int n;
 
@@ -26,7 +27,7 @@ void bubble_sort(int v[]){
 int main(){
 	int j;
 	scanf("%d",&n);
-	int v[n];
+	int *v = calloc(n, 4);
 
 	for(j = 0; j < n; j++){
 		scanf("%d",&v[j]);
