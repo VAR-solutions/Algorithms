@@ -12,21 +12,23 @@ Clean example implementations of data structures and algorithms written in diffe
  * Contributions are always welcome. Language doesn't matter. Just make sure you're implementing an algorithm.
  * PRs are welcome. To begin developing, follow the structure:
 
-   > Algorithm-Type/algorithm_name/language-name/file_name.extension
+   > Algorithm-Type/algorithm-name/language-name/file-name.extension
    
    e.g
-   > Sorting/bubble_sort/python/bubble_sort.py
+   > Sorting/bubble-sort/python/bubble-sort.py
 
  * If there is an implementation of the same algorithm in your language, do not give a PR for that.
  * Please include a description for the algorithm that you are implementing. It doesn't matter if it's copied from somewhere as long as it helps people that are learning new algorithm.
  * Graphical examples would be very helpful too.
- * Don't forget to include tests.
+ * You can include tests as well.
  * Don't remove previous implementations of algorithms. Just add a new file with your own implementation.
  * Beautify and clean up your code for easier reading
+ ### Note:
+ * If your PR is closed without any comment, it means that your PR does not meet the above criteria. Make sure your PR is **not Duplicate** and it should be **well-documented**.
 
 ## Resources
 
- Curated list of resources dealing with algorithms.
+ The curated list of resources dealing with algorithms.
 
  * **Sites**
    * [Algorithms - Tutorials point](https://www.tutorialspoint.com/data_structures_algorithms/index.htm)
@@ -60,6 +62,8 @@ Clean example implementations of data structures and algorithms written in diffe
      * [Data Structures](https://www.youtube.com/user/mycodeschool)
      * [Algorithms and Data Structures Capstone](https://www.edx.org/course/algorithms-data-structures-capstone-uc-san-diegox-algs207x) 
      * [Data Structures and Algorithms](https://www.programiz.com/dsa)
+   * GeeksForGeeks
+     * [Algorithms](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
  * **Coding Practice Sites**
     * [HackerRank](https://www.hackerrank.com/)
     * [HackerEarth](https://www.hackerearth.com/)
@@ -75,8 +79,9 @@ Clean example implementations of data structures and algorithms written in diffe
     * [HireVue](https://www.hirevue.com/)
     * [FreeCodeCamp](https://www.freecodecamp.org/)
     * [CodeSignal](https://codesignal.com/)
+    * [AtCoder](https://atcoder.jp/)
     
 # Project Maintainers.
-* [Vishal Gaur](https://github.com/i-vishi):tada:<br>
-* [Ravi Varshney](https://github.com/ravivarshney01):tada:<br>
-* [Ananya Tewari](https://github.com/antew7):tada:<br>
+* [Vishal Gaur](https://github.com/i-vishi) :tada:<br>
+* [Ravi Varshney](https://github.com/ravivarshney01) :tada:<br>
+* [Ananya Tewari](https://github.com/antew7) :tada:<br>
