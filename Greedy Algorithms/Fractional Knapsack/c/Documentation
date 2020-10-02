@@ -1,0 +1,4 @@
+Given arrays of Weights and Values,
+This piece of algo efficiently fills the knapsnack for maximum loot.
+
+Time Complexity O(n log(n))
