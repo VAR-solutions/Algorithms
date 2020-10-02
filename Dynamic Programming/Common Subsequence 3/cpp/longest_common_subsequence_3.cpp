@@ -1,8 +1,7 @@
-// Longest Common Sequence of 3 Sequences
 #include <bits/stdc++.h>
 using namespace std;
 
-int lcs3(vector<int> &a, vector<int> &b, vector<int> &c) {
+int lcs3(vector<long int> &a, vector<long int> &b, vector<long int> &c) {
   int n = a.size(); int m = b.size(); int p = c.size();
   vector < vector < vector <int> > > dp(n + 1, vector < vector <int> > (m + 1, vector <int> (p + 1)));
   for (int i = 0; i < n + 1; ++i) {
