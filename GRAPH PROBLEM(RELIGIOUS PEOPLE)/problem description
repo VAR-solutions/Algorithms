@@ -1,0 +1,31 @@
+Amritsar is the largest and most important city in punjab and is a cultural and transportation centre.
+It is also the centre of Sikhism and the site of the Sikh's principal place of worship-the HarmandirSahib,
+or Golden temple.Let us consider
+There are N cities in Amritsar numbered from 1 to N.
+Due to a storm, every road in Amritsar was destroyed and now no temples are left.
+There are 2 types of operations :
+
+You can construct a temple by giving away A dollars in ith city.
+You can repair an already existing road by giving away B dollars.
+
+Your goal is to make temples such that people of every city have access to some temple.
+People of the ith city can visit the temple only if :
+A temple exists in that city.
+OR
+There is a path from that city to a city which contains a temple. (the path should consist of repaired roads only)
+You have to minimize the total cost such that people in every city can go to a temple and output this minimum cost.
+
+NOTE : You can only repair the roads which existed and not build on your own.
+
+      -----***Input Format**----
+
+The first line consists of number of test cases T.
+ Each test case consists of 4 integers
+  N (which denote number of cities),
+  M (number of roads which existed),
+ A (cost to build a temple),
+ B (cost to repair a road).
+  Next M lines contains M pairs denoted by U V which indicates a road existed between U and V.
+
+     ------****Output Format***--------
+Total minimum cost in dollars.
