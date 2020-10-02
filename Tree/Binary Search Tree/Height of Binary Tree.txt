@@ -1,0 +1,11 @@
+int height(Node* node)
+{
+   // Your code here
+   if(node==NULL)
+   return 0;
+   
+   int l=height(node->left);
+   int r=height(node->right);
+   
+   return l>=r?l+1:r+1;
+}
