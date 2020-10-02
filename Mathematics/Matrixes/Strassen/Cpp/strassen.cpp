@@ -617,7 +617,13 @@ namespace matrix_library {
 }
 
 
-
+/**
+ * Initializes two random square matrices and multiplies them in different ways. Measures the multiplication time.
+ * How to use it:
+ * $ path_to_program matrix_size experiment_count
+ * The first parameter passed is the size of the matrices.
+ * The second parameter passed is the number of experiments to average the results.
+ */
 int main(int argc, char *argv[]) {
     if (argc < 2) {
         std::cout << "Specify the size of the matrices.";
