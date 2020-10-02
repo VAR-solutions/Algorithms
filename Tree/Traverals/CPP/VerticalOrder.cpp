@@ -38,13 +38,13 @@ int main(){
               1 
             /   \ 
           2      3 
-         / \ 	  / \
+         / \ 	/ \
       	4   5  6   7
-      			    \	  \
-      			     8	 9
+      		\   \
+      		 8   9
     */
 
-	  TreeNode *root=new TreeNode(1); 
+    TreeNode *root=new TreeNode(1); 
     root->left=new TreeNode(2); 
     root->right=new TreeNode(3); 
     root->left->left=new TreeNode(4); 
