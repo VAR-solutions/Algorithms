@@ -9,12 +9,10 @@ string tensName(int number);
 string intName(int number);
 
 vector<string> ones{ "",     "one", "two",   "three", "four", "five", "six", "seven", "eight", "nine" };
-vector<string> teens{"ten",     "eleven",  "twelve",    "thirteen", "fourteen","fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
-};
+vector<string> teens{"ten",     "eleven",  "twelve",    "thirteen", "fourteen","fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
 vector<string> tens{ "",      "",      "twenty",  "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
 
-string
-nameForNumber(long number)
+string nameForNumber(long number)
 {
   if (number < 10) {
     return ones[number];
@@ -23,8 +21,7 @@ nameForNumber(long number)
   } else if (number < 100) {
     return tens[number / 10] + ((number % 10 != 0) ? " " + nameForNumber(number % 10) : "");
   } else if (number < 1000) {
-    return nameForNumber(number / 100) + " hundred" +
-           ((number % 100 != 0) ? " " + nameForNumber(number % 100) : "");
+    return nameForNumber(number / 100) + " hundred" + ((number % 100 != 0) ? " " + nameForNumber(number % 100) : "");
   } else if (number < 1000000) {
     return nameForNumber(number / 1000) + " thousand" + ((number % 1000 != 0) ? " " + nameForNumber(number % 1000) : "");
   } else if (number < 1000000000) {
@@ -35,19 +32,19 @@ nameForNumber(long number)
     return "error";
 }
 
-int
-main()
+
+int main()
 {
-  long input;
-  do {
-    cout << "Please enter a integer (Press a 0 to exit): ";
-    cin >> input;
-    if (input < 0) {
-      input *= -1;
-      cout << "\nnegative " << nameForNumber(input) << endl;
-    } else {
-      cout << "\n" << nameForNumber(input) << endl;
-    }
-  } while (input);
-  return 0;
+    long input;
+    do {
+        cout << "Please enter a integer (Press a 0 to exit): ";
+        cin >> input;
+        if (input < 0) {
+            input *= -1;
+            cout << "\nnegative " << nameForNumber(input) << endl;
+        } else {
+            cout << "\n" << nameForNumber(input) << endl;
+        }
+    } while (input);
+    return 0;
 }
