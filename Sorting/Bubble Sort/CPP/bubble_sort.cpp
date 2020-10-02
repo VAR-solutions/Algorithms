@@ -1,9 +1,4 @@
-/* Bubble Sort implementation in C++
- * Author : Manvi Gupta
- * Input : array length and elements
- * Output : Sorted array elements
- */
-#include <iostream>
+#include <bits/stdc++.h>>
 using namespace std;
 
 int n;
