@@ -1,0 +1,39 @@
+#include <LiquidCrystal.h>
+#define RELAY 13  
+//#define LED 10
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+int ThermistorPin = 1;
+int Vo;
+float R1 = 12000;
+float logR2, R2, T, Tc, Tf;
+float c1 = 1.009249522e-03, c2 = 2.378405444e-04, c3 = 2.019202697e-07;
+
+void setup() { 
+Serial.begin(9600);
+analogWrite(6,20);   
+lcd.begin(16, 2);
+pinMode(RELAY, OUTPUT);
+}
+
+void loop() {
+ lcd.setCursor(0,0);
+  Vo = analogRead(ThermistorPin);
+  R2 = R1 * (1023.0 / (float)Vo - 1.0);
+  logR2 = log(R2);
+  T = (1.0 / (c1 + c2*logR2 + c3*logR2*logR2*logR2));
+  Tc = T - 273.15;
+  Tf = (Tc * 9.0)/ 5.0 + 32.0; 
+  Serial.print("Temperature: "); 
+  Serial.print(Tf);
+  Serial.print(" F; ");
+  Serial.print(Tc);
+  Serial.println(" C"); 
+    lcd.print("TEMP=");
+    lcd.print(Tc); 
+    lcd.print("C");   
+  delay(500);
+  
+  if (Tc > 36) digitalWrite(RELAY, HIGH),lcd.setCursor(0,1),lcd.print("Fan Status:ON "),delay(1500);
+  else if (Tc < 36) digitalWrite(RELAY, LOW),lcd.setCursor(0,1),lcd.print("Fan Status:OFF"),delay(1500);
+
+}
