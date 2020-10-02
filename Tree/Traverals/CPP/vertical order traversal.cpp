@@ -1,3 +1,9 @@
+/*---Problem Description---*/
+//problem description can be found at: https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
+
+/*---video tutorial of approach used---*/
+// link: https://www.youtube.com/watch?v=4w2Ri4VhgZo&list=PLjhq5EHRYAeLdh0xtn2v7wbQsVc8WAB2e&index=6&ab_channel=CodeCampaign
+
 /*----STRUCTURE OF TREE NODE-----*/
 /*
 class TreeNode{
