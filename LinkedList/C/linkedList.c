@@ -149,6 +149,17 @@ void disp(){
 	printf("\n======================================================\n");
 }
 
+struct node* reverseList(struct node* head){
+    struct node* reverse=NULL;
+    struct node* prox=head;
+    while(head){
+        prox = head->link;
+        head->link = reverse;
+        reverse = head;
+        head = prox;
+    }
+    return reverse;
+}
 int main(){
 	int c, x, pos;
 	while(1){
