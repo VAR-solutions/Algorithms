@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+// BinarySearch compares the key value to
+// the middle element of the slice and eliminating
+// half the data per iteration.
 func BinarySearch(slice []int, key int) int {
 	pos := -1
 	low := 0
