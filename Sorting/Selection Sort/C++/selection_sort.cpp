@@ -14,13 +14,13 @@ void main()
 	cout<<"Sorting array using selection sort...\n";
     	for(i = 0; i < size; i++)
     	{
-        	pos = i;
-        	for(j = i + 1 ; j < size  ; j++)
+        	pos = i;                            
+        	for(j = i + 1 ; j < size  ; j++)   // running through the array 
         	{
-            	if(arr[j] < arr[pos])
-                	pos = j;
+            	if(arr[j] < arr[pos])                    // getting the position of the smallest element in the rest of array( i to size) and storing it into pos 
+                	pos = j; 
         	}
-        	temp = arr[i];
+        	temp = arr[i];                                         // swapping the element (now the smallest elements would be getting positione in begining of array)
         	arr[i] = arr[pos];
         	arr[pos] = temp;
     	}
