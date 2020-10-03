@@ -2,20 +2,20 @@
 using namespace std;
 int main()
 {
-    int array[2][100], n, w, i, curw, used[100], maxi = -1, totalprofit = 0;
+    int array[2][100], num, w, i, curw, used[100], maxi = -1, totalprofit = 0;
     //input number of objects
     cout << "Enter number of objects: ";
-    cin >> n;
+    cin >> num;
     //input max weight of knapsack
     cout << "Enter the weight of the knapsack: ";
     cin >> w;
     /* Array's first row is to store weights
      second row is to store profits */
-    for (i = 0; i < n; i++)
+    for (i = 0; i < num; i++)
     {
         cin >> array[0][i] >> array[1][i];
     }
-    for (i = 0; i < n; i++)
+    for (i = 0; i < num; i++)
     {
         used[i] = 0;
     }
@@ -25,7 +25,7 @@ int main()
     {
         maxi = -1;
         //loop to find max profit object
-        for (i = 0; i < n; i++)
+        for (i = 0; i < num; i++)
         {
             if ((used[i] == 0) && ((maxi == -1) || (((float) array[1][i]
                     / (float) array[0][i]) > ((float) array[1][maxi]
