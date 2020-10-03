@@ -11,7 +11,7 @@ int n;
 void bubble_sort(int v[]){
 	int i,k,aux = 0;
 	for(i = 0; i < n; i++){
-		for(k = 0; k < n-1-i; k++){    // i is beign minused because every time we run through 1 iteration our biggest element is at last index so we need not to compare that again
+		for(k = 0; k < n-1-i; k++){    // i is beign minus because every time we run through 1 iteration our biggest element is at last index so we need not to compare that again
 			if(v[k] > v[k+1]){             //swaping of elements (if the element at lower index is bigger than its lower+1 index then it will be swaped 
 				aux = v[k+1];
 				v[k+1] = v[k];
