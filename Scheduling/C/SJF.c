@@ -3,7 +3,7 @@
 *is a scheduling policy that selects for execution the waiting process with the smallest execution time.
 *SJN is a non-preemptive algorithm. Shortest remaining time is a preemptive variant of SJN. Burst time is the time taken.
 *Example- https://www.guru99.com/shortest-job-first-sjf-scheduling.html
-
+*/
 
 #include<stdio.h>
  int main()
