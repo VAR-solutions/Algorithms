@@ -20,7 +20,7 @@ void bucketSort(float a[], int n)
  
     int k= 0;
     for (int i = 0; i < n; i++)
-        for (int j = 0; j < t[i].size(); j++)           // copying all the elemtn from the vector array to our previous array of elements
+        for (int j = 0; j < t[i].size(); j++)           // copying all the elemtn from the vector array to our previous array of elements.
           a[k++] = t[i][j];
 }
  
