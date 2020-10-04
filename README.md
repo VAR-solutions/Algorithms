@@ -42,6 +42,7 @@ Clean example implementations of data structures and algorithms written in diffe
    * [Visual Algorithm - visualising data structures and algorithms through animation](https://visualgo.net/en)
    * [Rosetta Code](http://rosettacode.org/wiki/Rosetta_Code)
    * [GeeksforGeeks](https://www.geeksforgeeks.org)
+   * [Hackerearth Codemonk](https://www.hackerearth.com/practice/codemonk/)
 * **Online classes (Free)**
   * Coursera 
       * [Introduction to algorithms Part 1](https://www.coursera.org/learn/algorithms-part1)
@@ -83,6 +84,7 @@ Clean example implementations of data structures and algorithms written in diffe
     * [FreeCodeCamp](https://www.freecodecamp.org/)
     * [CodeSignal](https://codesignal.com/)
     * [AtCoder](https://atcoder.jp/)
+    * [CSES](https://cses.fi/problemset/)
     
 # Project Maintainers.
 * [Vishal Gaur](https://github.com/i-vishi) :tada:<br>
