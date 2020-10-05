@@ -7,7 +7,7 @@ import (
  
 func main() {
  
-    fmt.Println("\nSelection Sort:")
+    fmt.Println("\nMerge Sort:")
     slice := (15)
     fmt.Println("\nUnsorted:", slice)
     fmt.Println("\nSorted:", mergeSort(slice), "\n")
