@@ -15,7 +15,7 @@ int nswp(int n) {		//calling out the NSWP function
 int dp[n+1];		//declaring the array used for solving the problem using DP
 
 
-d[0] = dp[1] = 1;		//initialsing the first two elements as 1
+dp[0] = dp[1] = 1;		//initialsing the first two elements as 1
 
 for(int i=2;i<=n;i++) {
 	dp[i]=2*dp[i-1]+dp[i-2];		// the next element of the DP array is the twice of the previous element added to the prev. to the prev. element
