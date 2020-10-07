@@ -179,3 +179,78 @@ void maxEdge(int u, int v, int n, int chain_heads[]){
                   crawl_tree(v, lca, n, chain_heads)); 
     printf("%d\n", ans); 
 }
+
+int main(){
+    memset(tree, -1, sizeof(tree)); 
+  
+    int n = 11; 
+
+    addEdge(1, 1, 2, 13); 
+    addEdge(2, 1, 3, 9); 
+    addEdge(3, 1, 4, 23); 
+    addEdge(4, 2, 5, 4); 
+    addEdge(5, 2, 6, 25); 
+    addEdge(6, 3, 7, 29); 
+    addEdge(7, 6, 8, 5); 
+    addEdge(8, 7, 9, 30); 
+    addEdge(9, 8, 10, 1); 
+    addEdge(10, 8, 11, 6); 
+
+    int root = 0, parent_of_root=-1, depth_of_root=0; 
+
+    dfs(root, parent_of_root, depth_of_root, n); 
+  
+    int chain_heads[N]; 
+
+    memset(chain_heads, -1, sizeof(chain_heads)); 
+
+    int edge_counted = 0; 
+
+    int curr_chain = 0; 
+
+    hld(root, n-1, &edge_counted, &curr_chain, n, chain_heads); 
+
+    construct_ST(0, edge_counted, 1); 
+
+    int u = 11, v  = 9; 
+    cout << "Max edge between " << u << " and " << v << " is "; 
+    maxEdge(u-1, v-1, n, chain_heads); 
+
+    change(8-1, 28, n); 
+  
+    cout << "After Change: max edge between " << u << " and "
+         << v << " is "; 
+    maxEdge(u-1, v-1, n, chain_heads); 
+  
+    v = 4; 
+    cout << "Max edge between " << u << " and " << v << " is "; 
+    maxEdge(u-1, v-1, n, chain_heads); 
+
+    change(5-1, 22, n); 
+    cout << "After Change: max edge between " << u << " and "
+         << v << " is "; 
+    maxEdge(u-1, v-1, n, chain_heads); 
+  
+    return 0; 
+}
+
+/* 
+Input:
+n = 11
+edge= 1, 1, 2, 13
+      2, 1, 3, 9
+      3, 1, 4, 23
+      4, 2, 5, 4
+      5, 2, 6, 25
+      6, 3, 7, 29
+      7, 6, 8, 5
+      8, 7, 9, 30
+      9, 8, 10, 1
+      10, 8, 11, 6
+
+Output:
+Max edge between 11 and 9 is 30
+After Change: max edge between 11 and 9 is 29
+Max edge between 11 and 4 is 25
+After Change: max edge between 11 and 4 is 23
+*/

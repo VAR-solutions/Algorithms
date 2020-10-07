@@ -4,6 +4,7 @@ package Knapsack
 
 import (
 	"math"
+	"fmt"
 )
 
 func max(a, b int) int{
@@ -29,7 +30,7 @@ func solve(maxWeight int, weights, values []int) int {
 	return dp[n][m]
 }
 
-/*
+
 func main() {
 	maxWeight := 50
 	values := []int{
@@ -41,4 +42,13 @@ func main() {
 	maxProfit := solve(maxWeight, weights, values)
 	fmt.Println(maxProfit)
 }
+
+/* 
+Input:
+maxWeight = 50
+values = 60, 100, 120
+weights = 10, 20, 30
+
+Output:
+220
 */
