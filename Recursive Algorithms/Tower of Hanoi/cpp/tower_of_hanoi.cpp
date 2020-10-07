@@ -1,3 +1,9 @@
+/*
+ Problem :- Tower of Hanoi (The Tower of Hanoi is a mathematical game or puzzle. It consists of three rods and a number of disks of different sizes)
+ Read more about problem :-https://en.wikipedia.org/wiki/Tower_of_Hanoi
+ 
+ Algorithm Type : Recursive
+ */
 #include<bits/stdc++.h>
 using namespace std;
 void tower_of_hanoi(int n,char source,char helper,char desti)
