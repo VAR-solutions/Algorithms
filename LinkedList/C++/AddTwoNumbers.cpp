@@ -106,20 +106,31 @@ int main(int argc, char const *argv[])
 {
   ListNode *number1 = new ListNode();
   ListNode *number2 = new ListNode();
-  int input;
+  int input,length=0;
   std::string line;
   std::cout << "Enter a vector of numbers between 0 and 9 that together form an integer in reverse order without leading Zeroes. for Ex : 807 will be entered as 7 0 8. if there are invalid numbers they will be discarded. " << '\n';
   std::getline(std::cin, line);
   std::istringstream stream(line);
-  while (stream >> input)
+  while (stream >> input && length<=100)
+  {
     if(input <=9 && input>=0)
+    {
         insert(&number1, input);
+        length++;
+    }
+  }
   std::cout << "Enter a vector of numbers between 0 and 9 that together form an integer in reverse order without leading Zeroes. for Ex : 807 will be entered as 7 0 8. if there are invalid numbers they will be discarded. " << '\n';
   std::getline(std::cin, line);
   std::istringstream stream2(line);
-  while (stream2 >> input)
+  length =0;
+  while (stream2 >> input && length<=100)
+  {
     if(input <=9 && input>=0)
+    {
         insert(&number2, input);
+        length++;
+    }
+  }
   ListNode* answerHead = addTwoNumbers(number1->next,number2->next);
   std::cout << "after Adding the value is " << '\n';
   display(answerHead);
