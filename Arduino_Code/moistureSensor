@@ -1,0 +1,41 @@
+#include <Servo.h>
+Servo servodry; // create servo object to control a servo for dry waste container
+Servo servowet; // create servo object to control a servo for wet waste container
+Servo servomet; // create servo object to control a servo for metal waste container
+int val;
+int sensor_pin =  ; //pin declaration
+
+void setup() {
+  pinMode(led_pin, OUTPUT);
+  pinMode(sensor_pin, INPUT);
+  servodry.attach(*pin*); // attaches the servodry on pin *pin* to the servo object
+  servowet.attach(*pin*); // attaches the servowet on pin *pin* to the servo object
+  servomet.attach(*pin*); // attaches the servomet on pin *pin* to the servo object
+}
+
+void loop() {
+
+  val = map(val, 0, 1023, 0, 180);
+  if(digitalRead(sensor_pin) == HIGH){
+    for(val=0; val<=90; val++)//this is to open lid of container of wet waste (i dont know your hardware settings so change according to it) val is in terms of angle
+    {
+      servowet.write(val);// sets the servo position according to the scaled value
+    }
+    delay(3000);
+    for(  ;val>=0;val--) //this is to close lid of container of wet waste (i dont know your hardware settings so change according to it) val is in terms of angle
+    {
+       servowet.write(val);// sets the servo position according to the scaled value
+    }
+  }
+  else {
+     for(val=0; val<=90; val++) //this is to open lid of container of dry waste (i dont know your hardware settings so change according to it) val is in terms of angle
+    {
+      servodry.write(val);// sets the servo position according to the scaled value
+    }    
+     delay(3000);
+    for(  ;val>=0;val--) //this is to close lid of container of dry waste (i dont know your hardware settings so change according to it) val is in terms of angle
+    {
+       servowet.write(val);// sets the servo position according to the scaled value
+    }
+  }
+}

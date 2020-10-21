@@ -12,11 +12,11 @@ int partition(std::vector<int> &A, int start, int end)
 	{
 		if(A[i] <= pivot)
 		{
-			swap(&A[i], &A[partitionIndex]);
+			std::swap(A[i], A[partitionIndex]);
 			partitionIndex++;
 		}
 	}
-	swap(&A[partitionIndex], &A[end]);		//	partition index
+	std::swap(A[partitionIndex], A[end]);		//	partition index
 
 	return partitionIndex;
 }
@@ -63,4 +63,3 @@ int main()
         }
         return 0;
 }
-
