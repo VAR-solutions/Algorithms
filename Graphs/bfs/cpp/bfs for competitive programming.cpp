@@ -119,7 +119,7 @@ int main()
         cout<<"enter two vertex :\n";
         cin>>u;
         cin>>v;
-        cout<<"y: undirected -";
+        cout<<"y: undirected -";// asks for directed or undirected
         cin>>ch;
         if(ch=='y')
         addedge(adj,u,v,true);
