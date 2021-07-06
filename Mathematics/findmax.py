@@ -1,10 +1,4 @@
-# NguyenU
+import numpy as np
 
-import math
-
-def find_max(nums):
-    max = 0
-    for x in nums:
-      if x > max:
-        max = x
-    print max
+def finding_max(my_array):
+	return np.array(my_array).max()
