@@ -1,14 +1,18 @@
 /* Insertion sort ascending order */
  
 #include <stdio.h>
- 
+#include <stdlib.h>
+
 int main()
 {
-  int n, array[1000], c, d, t;
+  int n, c, d, t;
  
   printf("Enter number of elements\n");
+  do
+  {
   scanf("%d", &n);
- 
+  }while(n > 101); // max = 100
+  int *array = (int *)malloc(n * sizeof(int));
   printf("Enter %d integers\n", n);
  
   for (c = 0; c < n; c++)
