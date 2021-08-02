@@ -3,44 +3,64 @@
  * Input : Array lenght and elements;
  * Output : Sorted array elements;
 */
+// optimization of bubble_sort in lower bound complexity (best case scenario)
+// demonstration of c features like pointers , passing by reference 
+// design code more better by using functions for micro-programs 
+// Author : Boussebha Wassim
 
-#include <stdio.h>
+#include "bubble_sort.h"
 
-int n;
+int main()
+{
+	int j;
+	do
+	{
+		scanf("%d",&n);
+	} while (n > 31); // never trust the user max = 30
+	
+	int *v = (int*)malloc(n * sizeof(int));
 
-void bubble_sort(int v[]){
-	int i,k,aux = 0;
-	for(i = 0; i < n; i++){
-		for(k = 0; k < n-1; k++){
-			if(v[k] > v[k+1]){
-				aux = v[k+1];
-				v[k+1] = v[k];
-				v[k] = aux;
-			}
+	for(j = 0; j < n; j++)
+	{
+		scanf("%d",v+j);
+	}		
+	array_print(v); // before
+	bubble_sort(v);
+	array_print(v); // after
+	free(v);
+	
+	return 0;
+}
+void array_print(int *v)
+{
+	for(int j = 0; j < n; j++)
+	{
+		if(j != n-1)
+			printf("%d ",v[j]);
+		else
+			printf("%d\n",v[j]);
+	}
+}
+
+void bubble_sort(int *v)
+{
+	int i,k;
+	for(i = 0; i < n; i++)
+	{
+		for(k = 0; k < n - i -1; k++)
+		{
+			if(v[k] > v[k+1])
+				swap(v+k,v+k+1);
+				if(swapped == 0)
+					return;
 		}
 	}
 
 }
-
-
-int main(){
-	int j;
-	scanf("%d",&n);
-	int v[n];
-
-	for(j = 0; j < n; j++){
-		scanf("%d",&v[j]);
-	}
-	bubble_sort(v);
-	for(j = 0; j < n; j++){
-		if(j != n-1){
-			printf("%d ",v[j]);
-		}
-		
-		else{
-			printf("%d\n",v[j]);
-		}
-	}
-	
-	return 0;
+void swap(int *a, int *b)
+{
+	int aux = *b;
+	*b = *a;
+	*a = aux;
+	swapped++; // it is a global variable declared in bubble_sort.h , intitliazed with 0
 }
