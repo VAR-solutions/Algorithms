@@ -3,12 +3,9 @@
 using namespace std;
 //function to calculate power of 2
 unsigned int nextPowerOf2(unsigned int n){
-    unsigned int p = 1;
-    if (n && !(n & (n - 1)))
-        return n;
-    while (p < n)
-        p <<= 1;
-    return p;
+    if (!n) return 1;
+    else if (!(n & (n - 1))) return n;
+    else return (1<<(32-__builtin_clz(n)));
 }
 //main function
 int main(){
