@@ -1,0 +1,119 @@
+class Graph 
+{ 
+    int V;    // No. of vertices 
+  
+    // Pointer to an array containing adjacency lists 
+    list<int> *adj; 
+public: 
+    Graph(int V);  // Constructor 
+  
+    // function to add an edge to graph 
+    void addEdge(int u, int v); 
+  
+    // A recursive function to print DFS starting from v 
+    bool DFSUtil(int, vector<bool> &, vector<int> &, int k); 
+  
+    // prints k-Cores of given graph 
+    void printKCores(int k); 
+}; 
+  
+// A recursive function to print DFS starting from v. 
+// It returns true if degree of v after processing is less 
+// than k else false 
+// It also updates degree of adjacent if degree of v 
+// is less than k.  And if degree of a processed adjacent 
+// becomes less than k, then it reduces of degree of v also, 
+bool Graph::DFSUtil(int v, vector<bool> &visited, 
+                    vector<int> &vDegree, int k) 
+{ 
+    // Mark the current node as visited and print it 
+    visited[v] = true; 
+  
+    // Recur for all the vertices adjacent to this vertex 
+    list<int>::iterator i; 
+    for (i = adj[v].begin(); i != adj[v].end(); ++i) 
+    { 
+        // degree of v is less than k, then degree of adjacent 
+        // must be reduced 
+        if (vDegree[v] < k) 
+            vDegree[*i]--; 
+  
+        // If adjacent is not processed, process it 
+        if (!visited[*i]) 
+        { 
+            // If degree of adjacent after processing becomes 
+            // less than k, then reduce degree of v also. 
+            if (DFSUtil(*i, visited, vDegree, k)) 
+                vDegree[v]--; 
+        } 
+    } 
+  
+    // Return true if degree of v is less than k 
+    return (vDegree[v] < k); 
+} 
+  
+Graph::Graph(int V) 
+{ 
+    this->V = V; 
+    adj = new list<int>[V]; 
+} 
+  
+void Graph::addEdge(int u, int v) 
+{ 
+    adj[u].push_back(v); 
+    adj[v].push_back(u); 
+} 
+  
+// Prints k cores of an undirected graph 
+void Graph::printKCores(int k) 
+{ 
+    // INITIALIZATION 
+    // Mark all the vertices as not visited and not 
+    // processed. 
+    vector<bool> visited(V, false); 
+    vector<bool> processed(V, false); 
+  
+    int mindeg = INT_MAX; 
+    int startvertex; 
+  
+    // Store degrees of all vertices 
+    vector<int> vDegree(V); 
+    for (int i=0; i<V; i++) 
+    { 
+        vDegree[i]  = adj[i].size(); 
+  
+        if (vDegree[i] < mindeg) 
+        { 
+            mindeg = vDegree[i]; 
+            startvertex=i; 
+        } 
+    } 
+  
+    DFSUtil(startvertex, visited, vDegree, k); 
+  
+    // DFS traversal to update degrees of all 
+    // vertices. 
+    for (int i=0; i<V; i++) 
+        if (visited[i] == false) 
+            DFSUtil(i, visited, vDegree, k); 
+  
+    // PRINTING K CORES 
+    cout << "K-Cores : \n"; 
+    for (int v=0; v<V; v++) 
+    { 
+        // Only considering those vertices which have degree 
+        // >= K after BFS 
+        if (vDegree[v] >= k) 
+        { 
+            cout << "\n[" << v << "]"; 
+  
+            // Traverse adjacency list of v and print only 
+            // those adjacent which have vDegree >= k after 
+            // BFS. 
+            list<int>::iterator itr; 
+            for (itr = adj[v].begin(); itr != adj[v].end(); ++itr) 
+                if (vDegree[*itr] >= k) 
+                    cout << " -> " << *itr; 
+        } 
+    } 
+} 
