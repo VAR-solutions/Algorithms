@@ -1,0 +1,39 @@
+// TOTIENT FUNCTION - phi(n) - gives the number of numbers which are coprime with n upto n
+// phi(prime) = prime-1, phi(prime^x) = prime^(x-1)*(prime-1)
+// phi(n*m) = phi(n)*phi(m) iff n and m are coprime.
+// If n = p1^x1 * p2^x2 * .. * pk^xk
+// then phi(n) = phi(p1^x1) * .. * phi(pk^xk)
+//             = p1^(x1-1)*(p1-1) * p2^(x2-1)(p2-1) * ..
+//             = (p1^x1 / p1)*(p1-1) * (p2^x2 / p2)*(p2-1) * ..
+//             = n*((p1-1)/p1) * ((p2-1)/p2) * ((p3-1)/p3) * ..
+
+
+
+const int M = 1e6+1;
+int SPF[(int)MAX];
+int a[M];
+void spf(int max = (int)1e7) {
+    for(int i=0;i<=max;i++) SPF[i] = 1;
+    SPF[0] = SPF[1] = 0;
+    for(int i=2;i<=sqrt(max);i++) {
+        if(SPF[i] == 1) {
+            for(int j = i;j<=max;j+=i) if(SPF[j] == 1) SPF[j] = i;
+        }
+    }
+    for(int i=sqrt(max)+1;i<=max;i++) if(SPF[i] == 1) SPF[i] = i;
+}
+
+void totient() {
+    spf();
+    a[0] = 0, a[1] = 1, a[2] = 3;
+    for(int i=3;i<=1e6;i++) {
+        int j = i, prdt = 1, prdt1 = 1;
+        set<int> s;
+        while(SPF[j] > 1) s.insert(SPF[j]), j /= SPF[j];
+        for(auto k : s) prdt *= k, prdt1 *= (k-1);
+        int cnt = i/prdt;
+        cnt *= prdt1;
+        a[i] = a[i-1]+2*cnt;
+    }
+    return;
+}
