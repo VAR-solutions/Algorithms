@@ -1,0 +1,15 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+	long int n,i=1,num=0,r,d=10;
+	cin>>n;
+	while(n){
+		r=n%10;
+		n=n/10;
+		num=i*pow(d,r-1)+num;
+		i++;
+	}
+	cout<<num;
+	return 0;
+}
