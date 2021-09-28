@@ -1,0 +1,132 @@
+#include<stdio.h>
+#define n 5
+int st1[n],st2[n];
+int top1 = -1, top2 = -1,count = 0;
+void push1(int x);
+void push2(int x);
+int pop1();
+int pop2();
+void enqueue(int x);
+void dequeue();
+void display();
+
+int main()
+{
+    int ch,x;
+    printf("******************Queue_Using_2_Stacks*********************\n");
+    while(1)
+    {
+        printf("Press 1 to insert data\nPress 2 to delete data\nPress 3 to display elements\nPress 4 to quit\n");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:
+                printf("Enter data: ");
+                scanf("%d",&x);
+                enqueue(x);
+            break;
+            case 2:
+                dequeue();
+            break;
+            case 3:
+                display();
+            break;
+            case 4:
+                break;
+            default:
+                printf("Invalid key pressed\n\n");
+        }
+        if(ch == 4)
+        {
+            break;
+        }
+    }
+    return 0;
+}
+
+
+void push1(int x)
+{
+    top1++;
+    st1[top1] = x;
+}
+
+void push2(int x)
+{
+    top2++;
+    st2[top2] = x;
+}
+
+int pop1()
+{
+    int c;
+    c = st1[top1];
+    top1--;
+    return c;
+}
+
+int pop2()
+{  
+    int c;
+    c = st2[top2];
+    top2--;
+    return c;
+}
+
+void enqueue(int x)
+{
+    if(top1 == n-1)
+    {
+        printf("Overflow condition\n\n");
+    }
+    else
+    {
+        push1(x);
+        printf("Data enetered successfully\n\n");
+        count++;
+    }
+}
+
+void dequeue()
+{
+    int i;
+    int b;
+    if(top1 == -1)
+    {
+        printf("Underflow condition\n\n");
+    }
+    else
+    {
+        for(i = 0; i < count; i++)
+        {
+            b = pop1();
+            push2(b);
+        }
+        printf("The deleted element is %d\n\n",st2[top2]);
+        pop2();
+        count--;
+        for(i = 0; i < count; i++)
+        {
+            b = pop2();
+            push1(b);
+        }
+    }
+}
+
+void display()
+{
+    int i;
+    if(top1 == -1)
+    {
+        printf("Queue is empty\n\n");
+    }
+    else
+    {
+        printf("The elements are: ");
+        for(i = 0; i<=top1; i++)
+        {
+            printf("%d ",st1[i]);
+        }
+        printf("\n\n");
+    }
+}
