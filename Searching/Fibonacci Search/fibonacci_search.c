@@ -16,16 +16,13 @@ int fibMonaccianSearch(int arr[], int x, int n)
         fibM  = fibMMm2 + fibMMm1; 
     } 
   
- 
     int offset = -1; 
   
-
     while (fibM > 1) 
     { 
  
         int i = min(offset+fibMMm2, n-1); 
   
-
         if (arr[i] < x) 
         { 
             fibM  = fibMMm1; 
@@ -41,17 +38,15 @@ int fibMonaccianSearch(int arr[], int x, int n)
             fibMMm2 = fibM - fibMMm1; 
         } 
   
-    
         else return i; 
-    } 
+      }  
   
     if(fibMMm1 && arr[offset+1]==x)return offset+1; 
   
 
     return -1; 
 } 
-  
-
+ 
 int main(void) 
 { 
     int arr[] = {10, 22, 35, 40, 45, 50, 80, 82, 
