@@ -1,8 +1,8 @@
 package linkedlistint32
 
 import (
-	_ "testing"
 	"testing"
+	_ "testing"
 )
 
 func Test(t *testing.T) {
@@ -28,7 +28,7 @@ func Test(t *testing.T) {
 		t.Error("third element is not 55")
 	}
 
-	if (ll.Last.Value != 67){
+	if ll.Last.Value != 67 {
 		t.Error("last element is not 67")
 	}
 }
