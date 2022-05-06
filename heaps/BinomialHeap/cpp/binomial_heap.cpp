@@ -104,7 +104,7 @@ class BinomialHeap
      *
      * @param a : Root of the first (sub) tree
      * @param b : Root of the second (sub) tree
-     * @return Node*
+     * @return Root of the merged tree
      */
     Node *merge(Node *a, Node *b)
     {
@@ -133,7 +133,7 @@ class BinomialHeap
     }
 
     /**
-     * @brief Find the top of the priority queue, by traversing all root nodes in the forest
+     * @brief Find the top of the heap, by traversing all root nodes in the forest
      * - Assigns the two pointers passed to it,
      *   - `_min_cur` to the Node that contains the extremum
      *   - `_min_prev` the node that contains the next extremum
@@ -161,14 +161,15 @@ class BinomialHeap
 
 public:
     /**
-     * @brief Default constructor for a new Binomial Heap object
+     * @brief Default constructor for a new BinomialHeap
      *
      */
     BinomialHeap() : root(nullptr) {}
 
     /**
-     * @brief Destructor for the Binomial Heap object,  should destroy
-     * only the nodes it currently owns. The nodes popped during its lifetime are destroyed when they
+     * @brief Destructor for the heap, free only
+     * the nodes it currently owns.
+     * The nodes popped during its lifetime are destroyed when they
      * leave the tree
      *
      */
@@ -178,7 +179,7 @@ public:
     }
 
     /**
-     * @brief Enqueue method for the Binomial Heap object representing a priority queue
+     * @brief Enqueue method for the heap
      *
      * @param x : the value to insert
      */
@@ -189,9 +190,9 @@ public:
     }
 
     /**
-     * @brief Dequeue method for the Binomial Heap object representing a priority queue
+     * @brief Dequeue method for the heap
      *
-     * @return T : the extracted value
+     * @return T : the top (extremum) value
      */
     T pop()
     {
@@ -210,7 +211,7 @@ public:
     }
 
     /**
-     * @brief Peek the top of the priority queue
+     * @brief Peek the top of the heap
      *
      * @return const T& : reference to the top of the queue
      */
