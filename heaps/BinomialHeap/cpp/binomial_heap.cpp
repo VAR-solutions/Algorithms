@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <cassert>
 
 using namespace std;
 
@@ -229,12 +230,12 @@ int main()
     cout << "Hello. Binomial heap!" << endl;
 
     BinomialHeap<int> binomial_heap;
-    priority_queue<int, vector<int>, greater<int> > pq;
+    priority_queue<int, vector<int>, greater<int>> pq;
     for (int T = 0; T < 100; T++)
     {
         for (int i = 0; i < 100000; i++)
         {
-            int data = rand() % 100000;
+            int data = rand() % 10000;
             binomial_heap.push(data);
             pq.push(data);
         }
