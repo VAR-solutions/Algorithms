@@ -1,0 +1,126 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+#define size 50
+
+int top=-1;
+char stack[size];
+int isEmpty()
+{
+	if(top==-1) return 1;
+	else return 0;
+}
+
+void push(char s)
+{
+	top++;
+	stack[top]=s;
+}
+char pop()
+{
+	char s;
+	s=stack[top];
+	top--;
+}
+
+int isOperator(char s)
+{
+	if(s=="+" ||s=="-" ||s=="*" ||s=="/" ||s=="^")
+		return 1;
+	else return 0;
+}
+/*
+int isOperand(char s)
+{
+	if((s>="a" && s<="z")||(s>="A" && s<="Z"))
+		return 1;
+	else
+		return 0;
+} */
+
+int precedence(char s)
+{
+	if(s=="^")	return 3;
+	if(s=="*"|| s=="/")	return 2;
+	if(s=="+" || s=="-")	return 1;
+}
+
+void infixtopost(char infix[],char postfix[])
+{
+	int i,j;
+	char x,item;
+	
+	
+	push("(");
+	strcat(infix,")");
+	i=0;
+	j=0;
+	
+	item=infix[i];
+	
+	while(item!='\0')	//run till end of infix
+	{
+		if(item=="(")
+		{
+			push(item);
+		}
+		
+		else if(item==")")		//pop and output everything till '(' is encountered
+		{
+			x=pop();
+			while(x!="(")
+			{
+				postfix[j]=item;
+				j++;
+				x=pop();
+			}
+		}
+		else if(isOperator(item)==1)		//if in stack operator of higher precedence present pop it
+		{
+			x=pop();
+			while(isOperator(x)==1 && precedence(x)>=precedence(item))
+			{
+				postfix[j]=x;
+				j++;
+				x=pop();
+			}
+			push(x);
+			push(item);
+		}
+		else		//if operand output to postfix expression
+		{
+			postfix[j]=item;
+			j++;
+		}
+
+		/*
+		else						//if character is neither operator, operand nor '(' or ')'
+		{
+			printf("\nInvalid Infix expression!");
+			exit(0);
+		} */
+
+		i++;
+		item=infix[i];
+	}
+	while(!isEmpty())
+	{
+		x=pop();
+		postfix[j]=x;
+		j++;
+	}
+	postfix[j]='\0';				//to represent end of string otherwise puts() will print the entire SIZE of array
+}
+
+int main()
+{
+	char in[30],post[30];
+
+	printf("\nEnter Infix Expression:");
+	gets(in);
+	
+		infixtopost(in,post);
+	puts(post);
+	return 1;
+}
