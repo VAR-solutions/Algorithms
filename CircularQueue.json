@@ -1,0 +1,5 @@
+Step 1: Include all the header files which are used in the program and define a constant 'SIZE' with specific value.
+Step 2: Declare all user defined functions used in circular queue implementation.
+Step 3: Create a one dimensional array with above defined SIZE (int cQueue[SIZE])
+Step 4: Define two integer variables 'front' and 'rear' and initialize both with '-1'. (int front = -1, rear = -1)
+Step 5: Implement main method by displaying menu of operations list and make suitable function calls to perform operation selected by the user on circular queue.
