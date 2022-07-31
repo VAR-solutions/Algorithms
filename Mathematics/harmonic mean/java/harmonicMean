@@ -1,0 +1,11 @@
+import java.util.*;
+
+public class harmonicMean {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        double a = in.nextDouble();
+        double b = in.nextDouble();
+        double ans = 2/((1/a)+(1/b));
+        System.out.println("The harmonic mean of " + a + " & " + b + " is: " + ans);
+    }
+}
