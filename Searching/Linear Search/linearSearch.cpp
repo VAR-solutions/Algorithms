@@ -7,13 +7,13 @@ int pos(int arr[] , int size , int tofind)
 		if (arr[i] == tofind) return i;
 	return -1;
 }
-int main()
+void main()
 {
 	const int size = 5;
 	int arr[] = {1,2,3,4,5};
 	int p = pos(arr, size, 2);
 	if (p == -1)
 		cout <<"Not found\n";
-	else cout << "Found at position "<<p+1<<endl;
-return 0;
+	else cout << " Position of element is: "<<p+1<<endl;
+
 }
