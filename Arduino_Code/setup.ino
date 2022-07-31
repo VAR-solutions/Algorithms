@@ -1,5 +1,5 @@
 #include<Servo.h>
-Servo s1, s2, s3, s4;
+Servo s1, s2, s3, s4; //declaration Servo pin as s1 ,s2, s3, s4
 
 void setup()
 {s1.attach(6);// attaches the servo on pin 9 to the servo object
