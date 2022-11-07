@@ -38,6 +38,7 @@ Clean example implementations of data structures and algorithms written in diffe
    * [Algorithms - Princetone edu](http://algs4.cs.princeton.edu/home/)
    * [Data structures and algorithms - Hackr](https://hackr.io/tutorials/learn-data-structures-algorithms)
    * [Data science - Topcoder](https://www.topcoder.com/community/data-science/data-science-tutorials/)
+   * [Data Structures and Algorithms Tutorial](https://www.scaler.com/topics/data-structures/)
    * [Fundamentals Of Algorithms- Geeks For Geeks](http://www.geeksforgeeks.org/fundamentals-of-algorithms/)
    * [Visual Algorithm - visualising data structures and algorithms through animation](https://visualgo.net/en)
    * [Rosetta Code](http://rosettacode.org/wiki/Rosetta_Code)
