@@ -42,6 +42,7 @@ Clean example implementations of data structures and algorithms written in diffe
    * [Visual Algorithm - visualising data structures and algorithms through animation](https://visualgo.net/en)
    * [Rosetta Code](http://rosettacode.org/wiki/Rosetta_Code)
    * [GeeksforGeeks](https://www.geeksforgeeks.org)
+   * [Scaler Topics](https://www.scaler.com/topics/)
    * [CP-Algorithms](https://cp-algorithms.com)
 * **Online classes (Free)**
   * Coursera 
