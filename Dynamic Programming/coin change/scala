@@ -1,0 +1,22 @@
+object CountingChange {
+    def countChange(money: Int, coins: List[Int]): Int = {
+	def findCombinationsCount(money: Int, coins: List[Int], coinCheckIndex: Int): Int = 
+            if (money == 0) 1
+                else if (money < 0) 0 // coin is bigger than remaining amount of money
+                else if (coins.length == coinCheckIndex) 0 // all the coins are used
+                else {
+                    val usingFirstCoin = findCombinationsCount(money - coins.apply(coinCheckIndex), coins, coinCheckIndex)
+                    val usingRestCoins = findCombinationsCount(money, coins, coinCheckIndex + 1)
+		   
+                    usingFirstCoin + usingRestCoins
+                }
+	  
+        findCombinationsCount(money, coins, 0)
+    }
+  
+    def main(args: Array[String]) {
+        val coinList : List[Int] = List(1, 5, 10)
+        	
+        println("countingChange(12) is " + countChange(12, coinList))
+    }
+}
