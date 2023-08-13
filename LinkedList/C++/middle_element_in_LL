@@ -1,0 +1,75 @@
+#include<bits/stdc++.h> 
+using namespace std; 
+
+// Structure Node 
+struct Node 
+{ 
+	int data; 
+	struct Node* next; 
+}; 
+
+/* Function to get the middle element of the linked list*/
+void printMiddle(struct Node *head) 
+{ 
+	struct Node *slow_ptr = head; 
+	struct Node *fast_ptr = head; 
+
+	if (head!=NULL) 
+	{ 
+		while (fast_ptr != NULL && fast_ptr->next != NULL) 
+		{ 
+			fast_ptr = fast_ptr->next->next; 
+			slow_ptr = slow_ptr->next; 
+		} 
+		cout<<"The middle element is : "<< slow_ptr->data<<endl; 
+	} 
+} 
+
+// Function to add a new node 
+void push(struct Node** head_ref, int new_data) 
+{ 
+	/* allocate node */
+	struct Node* new_node = new Node; 
+
+	/* put in the data */
+	new_node->data = new_data; 
+
+	/* link the old list off the new node */
+	new_node->next = (*head_ref); 
+
+	/* move the head to point to the new node */
+	(*head_ref) = new_node; 
+} 
+
+// A utility function to print a given linked list 
+void printList(struct Node *ptr) 
+{ 
+    cout<<"the linked list is: "<<endl;
+	while (ptr != NULL) 
+	{ 
+		cout<<ptr->data<<"->"; 
+		ptr = ptr->next; 
+	} 
+	 cout<<"NULL\n"; 
+} 
+
+
+int main() 
+{ 
+	// Start with the empty list 
+	struct Node* head = NULL; 
+	int n; // no_of_elements
+	cin>>n;
+	long int ele;
+	cout<<"enter elements: "<<endl;
+	for(int i=0;i<n;i++)
+	{ 
+	    cin>>ele;
+		push(&head, ele); 
+		 
+	} 
+	printList(head); 
+	printMiddle(head);
+
+	return 0; 
+} 
