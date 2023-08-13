@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-double get_optimal_value(int capacity, vector<int> weights, vector<int> values) {
+double get_optimal_value(int capacity, vector<long int> weights, vector<long int> values) {
   double value = 0.0;
   int n = weights.size();
   for(int i = 1; i < n; i++) {
