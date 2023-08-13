@@ -36,6 +36,10 @@ int main()
             {
                 printf("%d, ", i);
             }
+             if(isPrime==2)
+            {
+                printf("%d, ", i);
+            }
         }
     }
 

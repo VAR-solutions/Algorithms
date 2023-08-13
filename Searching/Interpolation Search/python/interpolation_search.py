@@ -3,6 +3,10 @@ def interpolation_search(list, key):
 	lo = 0
 	hi = len(list) - 1
 	while(lo <= hi and key >= list[lo] and key <= list[hi]):
+		if lo == hi: 
+            		if arr[lo] == x:  
+                		return lo; 
+            		return -1; 
 		pos = lo + (((hi - lo)/(list[hi]-list[lo]))*(key - list[lo]))
 		if(list[pos]==x):
 			return pos
