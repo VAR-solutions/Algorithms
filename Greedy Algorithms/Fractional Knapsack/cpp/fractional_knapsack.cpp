@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 double get_optimal_value(int capacity, vector<int> weights, vector<int> values) {
@@ -39,5 +38,5 @@ int main() {
   }
   double optimal_value = get_optimal_value(capacity, weights, values);
   cout << optimal_value << endl;
-  return 0;
+  //return 0;
 }
