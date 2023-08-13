@@ -1,46 +1,22 @@
-/* Bubble Sort implementation in C;
- * Author : Felipe Gabriel;
- * Input : Array lenght and elements;
- * Output : Sorted array elements;
-*/
-
-#include <stdio.h>
-
-int n;
-
-void bubble_sort(int v[]){
-	int i,k,aux = 0;
-	for(i = 0; i < n; i++){
-		for(k = 0; k < n-1; k++){
-			if(v[k] > v[k+1]){
-				aux = v[k+1];
-				v[k+1] = v[k];
-				v[k] = aux;
+#include<stdio.h>
+int main(){
+	int i, j, n, temp;
+	scanf("%d", &n);
+	int arr[n]; //Declaration
+	for(i=0;i<n;i++){
+		scanf("%d", &arr[i]); //Input Elements Into Array 
+	}
+	for(i=0;i<n;i++){ 
+		for(j=i+1;j<n;j++){
+			if(arr[i] > arr[j]){
+				temp = arr[i];
+				arr[i] = arr[j]; //Sorting The Elements Of The Array
+				arr[j] = temp;	
 			}
 		}
 	}
-
-}
-
-
-int main(){
-	int j;
-	scanf("%d",&n);
-	int v[n];
-
-	for(j = 0; j < n; j++){
-		scanf("%d",&v[j]);
+	for(i=0;i<n;i++){
+		printf("%d", arr[i]); //Outputting The Sorted Array
 	}
-	bubble_sort(v);
-	for(j = 0; j < n; j++){
-		if(j != n-1){
-			printf("%d ",v[j]);
-		}
-		
-		else{
-			printf("%d\n",v[j]);
-		}
-	}
-	
 	return 0;
 }
