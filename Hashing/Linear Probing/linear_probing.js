@@ -19,8 +19,9 @@ function linearProbing(size, array, hash = 11, hash_function = 'mod', tiebraker_
     }
   });
 
-  for (j = 0; j < size; j++) {
+  for (j = 0; j < size;) {
     c.push(reorder[j] || null);
+    j++;
   }
   return {
     hits: access/array.length,
