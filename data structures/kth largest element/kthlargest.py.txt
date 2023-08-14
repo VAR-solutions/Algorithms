@@ -1,0 +1,11 @@
+print("enter the number of elements")
+n=int(input())
+A=[]
+for i in range(0,n):
+    x=int(input())
+    A.append(x)
+k=int(input())   
+A.sort()
+print(A[n-k])
+
+# rock onn
