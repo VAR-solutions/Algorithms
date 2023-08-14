@@ -27,7 +27,7 @@ void rankSort(int A[], int n)
 	}
 }
 
-int main()
+void main()
 {
 	int n;
 	cout<<"Enter the number of element to sorted\n";
@@ -40,4 +40,6 @@ int main()
 	for(int i=0;i<n;i++)
 		cout<<a[i]<<" ";
 	cout<<endl;
+	
+	
 }
