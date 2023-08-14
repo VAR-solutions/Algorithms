@@ -1,0 +1,73 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.Stack;
+
+class Bracket {
+    Bracket(char type, int position) {
+        this.type = type;
+        this.position = position;
+    }
+    
+    boolean Match(char c) {
+        if (this.type == '[' && c == ']')
+            return true;
+        if (this.type == '{' && c == '}')
+            return true;
+        if (this.type == '(' && c == ')')
+            return true;
+        return false;
+    }
+
+    char type;
+    int position;
+}
+
+// Output files
+class check_brackets {
+    public static void main(String[] args) throws IOException {
+        InputStreamReader input_stream = new InputStreamReader(System.in);
+        BufferedReader reader = new BufferedReader(input_stream);
+        String text = reader.readLine();
+        int res = isBalanced(text);
+        if (res == -1)
+            System.out.println("Success");
+        else
+            System.out.println(res);
+        input_stream.close();
+        // Printing answer, write your code here
+    }
+    
+  // REAL ALGO!!!
+    public static int isBalanced(String text) {
+        Stack<Bracket> opening_brackets_stack = new Stack<Bracket>();
+        for (int position = 0; position < text.length(); ++position) {
+            char next = text.charAt(position);
+            if (next == '(' || next == '[' || next == '{') {     
+                opening_brackets_stack.add(new Bracket(next, position));
+                // System.out.println("Inside opening if");
+                // Process opening bracket, write your code here
+            }
+
+            if (next == ')' || next == ']' || next == '}') {
+                // System.out.println("Inside closing if");
+                if (opening_brackets_stack.isEmpty()) {
+                    // System.out.println("In next if");
+                    return position + 1;
+                }
+                Bracket top = opening_brackets_stack.pop();
+                if ((top.type == '[' && !top.Match(next)) || (top.type == '{' && !top.Match(next))
+                        || (top.type == '(' && !top.Match(next))) {
+                    // System.out.println("In top.Match if " + top.type);
+                    return position + 1;
+                }
+                // Process closing bracket, write your code here
+            }
+        }
+        if (opening_brackets_stack.isEmpty()) {
+            return -1;
+        } else {
+            return opening_brackets_stack.peek().position + 1;
+        }
+    }
+}
