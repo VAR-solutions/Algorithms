@@ -1,0 +1,53 @@
+#include<stdio.h>
+
+int main()
+{
+int i,j,n,s,k;
+printf("Enter total no. of nodes:");
+scanf("%d",&n);
+int G[n+1][n+1],A[n+1][n+1][n+1];
+//printf("Enter source:");
+//scanf("%d",&s);
+printf("Enter values of Adjacency matrix:\n"); 
+for(i=1;i<=n;i++)
+{
+for(j=1;j<=n;j++)
+{ //printf("Enter value %d %d:\n",i,j);
+ scanf("%d",&G[i][j]);
+ }
+ }
+ 
+ 
+ for(i=1;i<=n;i++)
+ {
+ for(j=1;j<=n;j++)
+ {
+ A[0][i][j]=G[i][j];
+ }
+ }
+ 
+ 
+ for(k=1;k<=n;k++)
+ {
+ for(i=1;i<=n;i++)
+ {
+ for(j=1;j<=n;j++)
+ { 
+  if((A[k-1][i][k]+A[k-1][k][j])<A[k-1][i][j])
+      A[k][i][j]=A[k-1][i][k]+A[k-1][k][j];
+  else
+  A[k][i][j]=A[k-1][i][j];
+  }
+  }
+  }
+  printf("Answer is:\n");
+  for(i=1;i<=n;i++)
+ {
+ for(j=1;j<=n;j++)
+ { 
+  printf("%d ",A[n][i][j]);
+  }
+  printf("\n");
+  }
+  return 0;
+  }
