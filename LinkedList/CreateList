@@ -1,0 +1,60 @@
+#include<stdio.h>
+
+
+struct Node{
+    int data;
+    struct Node* next;
+};
+
+struct Node* head;
+
+void printList()
+ {
+     struct Node* travNode;
+     travNode=head;
+     while(travNode!=NULL)
+     {
+         printf("\n%d",travNode->data);
+         travNode=travNode->next;
+     }
+
+
+ }
+void create()
+ {
+     int size,ele;
+     scanf("%d",&size);
+     struct Node* temp;
+
+     head=NULL;
+
+     while(size)
+     {
+         scanf("%d",&ele);
+         struct Node* node=(struct Node*)malloc(sizeof(struct Node*));
+         node->data=ele;
+         node->next=NULL;
+         if(head==NULL)
+         {
+             head=node;
+             temp=head;
+         }
+         else
+         {
+             while(temp->next!=NULL)
+             {
+                 temp=temp->next;
+             }
+             temp->next=node;
+         }
+
+
+         size--;
+     }
+     printList();
+ }
+
+int main()
+{
+    create();
+}
