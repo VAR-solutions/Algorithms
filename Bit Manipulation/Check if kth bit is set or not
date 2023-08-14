@@ -1,0 +1,15 @@
+#include<iostream>
+void kthset(int n,int k){
+if(n&(1<<(k-1))!=0)
+  cout<<"Yes"<<endl;
+else
+  cout<<"No"<<endl;
+}
+
+int main(){
+int num,k;
+cin>>num>>k;
+kthset(num,k);
+
+return 0;
+}
