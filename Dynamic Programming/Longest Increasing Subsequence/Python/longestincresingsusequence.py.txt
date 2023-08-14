@@ -1,0 +1,39 @@
+global maximum 
+  
+def _lis(arr , n ): 
+  
+    global maximum 
+  
+    # Base Case 
+    if n == 1 : 
+        return 1
+    maxEndingHere = 1
+    for i in range(1, n): 
+        res = _lis(arr , i) 
+        if arr[i-1] < arr[n-1] and res+1 > maxEndingHere: 
+            maxEndingHere = res +1
+  
+    maximum = max(maximum , maxEndingHere) 
+  
+    return maxEndingHere 
+  
+def lis(arr): 
+  
+    global maximum 
+  
+    # lenght of arr 
+    n = len(arr) 
+  
+    # maximum variable holds the result 
+    maximum = 1
+    _lis(arr , n) 
+  
+    return maximum 
+  
+# Driver program to test the above function 
+arr=[]
+n=int(input())
+for i in range(0,n):
+    x=int(input())
+    arr.append(x)
+print ("Length of lis is ", lis(arr))
