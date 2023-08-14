@@ -1,0 +1,103 @@
+import java.io.*;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
+
+public class JobQueue {
+    private int numWorkers;
+    private long[] jobs;
+    private long[] assignedWorker;
+    private long[] startTime;
+    private FastScanner in;
+    private PrintWriter out;
+
+    public static void main(String[] args) throws IOException {
+        new JobQueue().solve();
+    }
+
+    private void readData() throws IOException {
+        numWorkers = in.nextInt();
+        int m = in.nextInt();
+        jobs = new long[m];
+        for (int i = 0; i < m; ++i) {
+            jobs[i] = in.nextInt();
+        }
+    }
+
+    private void writeResponse() {
+        for (int i = 0; i < jobs.length; ++i) {
+            out.println(assignedWorker[i] + " " + startTime[i]);
+        }
+    }
+
+    private void assignJobs() {
+        assignedWorker = new long[jobs.length];
+        startTime = new long[jobs.length];
+        PriorityQueue<Thread> queue = new PriorityQueue<>(jobs.length, new Comparator<Thread>() {
+            public int compare(Thread thread1, Thread thread2) {
+                if (thread1.finishTime != thread2.finishTime) {
+                    if (thread1.finishTime > thread2.finishTime)
+                        return 1;
+                    else
+                        return -1;
+                } else {
+                    if (thread1.index > thread2.index)
+                        return 1;
+                    else
+                        return -1;
+                }
+            }
+        });
+        for (int i = 0; i < numWorkers; i++) {
+            queue.add(new Thread(i, 0));
+        }
+        for (int i = 0; i < jobs.length; i++) {
+            long duration = jobs[i];
+            Thread thread = queue.poll();
+            startTime[i] = thread.finishTime;
+            assignedWorker[i] = thread.index;
+            thread.finishTime += duration;
+            queue.add(thread);
+        }
+    }
+
+    public void solve() throws IOException {
+        in = new FastScanner();
+        out = new PrintWriter(new BufferedOutputStream(System.out));
+        readData();
+        assignJobs();
+        writeResponse();
+        out.close();
+    }
+
+    static class FastScanner {
+        private BufferedReader reader;
+        private StringTokenizer tokenizer;
+
+        public FastScanner() {
+            reader = new BufferedReader(new InputStreamReader(System.in));
+            tokenizer = null;
+        }
+
+        public String next() throws IOException {
+            while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+                tokenizer = new StringTokenizer(reader.readLine());
+            }
+            return tokenizer.nextToken();
+        }
+
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+    }
+
+    static class Thread {
+        public int index;
+        public long finishTime;
+
+        public Thread(int index, long finishTime) {
+            this.index = index;
+            this.finishTime = finishTime;
+        }
+    }
+}
