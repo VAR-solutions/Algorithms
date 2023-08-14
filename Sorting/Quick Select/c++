@@ -1,0 +1,59 @@
+#include<bits/stdc++.h>
+using namespace std;
+int partition(int arr[],int start,int last,int p){
+    cout<<"pivot -> "<<p<<endl;
+    int i=start, j=start;
+    while(i<=last){
+        if(arr[i]>p){
+            i++;
+        }else{
+            cout<<"Swapping "<<arr[i]<<" and "<<arr[j]<<endl;
+            swap(arr[i],arr[j]);
+            i++;
+            j++;
+        }
+
+
+    }
+    cout<<"pivot index -> "<<j-1<<endl;
+    return j-1;
+
+
+
+
+}
+
+void quicksort(int arr[],int start,int last,int k){
+    
+    
+    
+     int p=arr[last];
+     int pi=partition(arr,start,last,p);
+     if(k==pi){
+         cout<<arr[k];
+         return;
+     }else if(k>pi){
+          quicksort(arr,pi+1,last,k);
+     }else{
+     quicksort(arr,start,pi-1,k);
+     }
+
+
+}
+
+
+
+
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++){
+      cin>>arr[i];
+    }
+    int  k;
+  cin>>k;
+  quicksort(arr,0,n-1,k-1);
+  
+ 
+}
