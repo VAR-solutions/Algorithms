@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+  vector<string> printss(int sr,int sc,int n,int m){
+    if(sr==n&&sc==m){
+      vector<string>path={""};
+      return path;
+
+    }
+    if(n==0||m==0){
+         vector<string>path={""};
+      return path;
+    }
+     vector<string>path1;
+      vector<string>path2;
+    if(sc<m){
+      path1=printss(sr,sc+1,n,m);
+      }
+      if(sr<n){
+      path2=printss(sr+1,sc,n,m);
+      }
+    vector<string>path;
+    for(string k: path1){
+         path.push_back('h'+k);
+    }
+    for(string k:path2){
+      path.push_back('v'+k);
+    }
+    return path;
+
+  }
+
+
+
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+    
+   
+    vector<string>final= printss (1,1,n,m);
+    cout<<"[";
+     for(string k:final){
+       if(k==final[final.size()-1]){
+           cout<<k<<"]";
+       }else{
+            cout<<k<<", ";
+       }
+    
+    }
+    
+    
+    
+}
