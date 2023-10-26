@@ -5,21 +5,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
-int findMax(int arr[], int length) {
-    int max = 0;
-    for (int i = 0; i < length; i++) {
-        if (max < arr[i]) {
-            max = arr[i];	
-        }			
-    }
-    return max;
-}
-
 int findLongestIncSubLength(int arr[],int length) {
     int dp[length];
-    int i, j, max = 0;
+    int i, j, maxx = 0;
 
     // Initialize Longest Increasing Subsequence values
     for (i = 0; i < length; i++) {
@@ -32,9 +20,9 @@ int findLongestIncSubLength(int arr[],int length) {
                 dp[i] = dp[j] + 1;	
             }				
         }
+        maxx = max(maxx, dp[i]);
     }
-    max = findMax(dp, length);
-    return max;
+    return maxx;
 }
 
 int main() {
