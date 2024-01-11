@@ -3,7 +3,7 @@ using namespace std;
 bool BinarySearch(int arr[], int n, int k){
     int s=0;int e=n-1;
     while (s<=e){
-        int mid=(s+e)/2;
+        int mid=s+(e-s)/2;
         if (arr[mid]==k) return true;
         if (arr[mid]<k){
             s=mid+1;
