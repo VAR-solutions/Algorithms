@@ -1,20 +1,26 @@
-#include<iostream>
+#include <iostream>
+#include <map>
+#define ull unsigned long long
 using namespace std;
 
-int fibonacci(int n)
-{
-  int fib[n];
-  int i;
-  fib[0] = 0;
-  fib[1] = 1;
-  for (i = 2; i <= n; i++)
-  fib[i] = fib[i-1] + fib[i-2];
-  return fib[n];
+int fibo(map<ull,ull>&memo, int x){
+
+    if(x <= 2){
+      return 1;
+    }
+    if(memo.count(x)){
+      return memo[x];
+    }
+
+    ull result = fibo(memo, x-1)% 1000000007 + fibo(memo, x-2)% 1000000007;
+    memo[x] = result;
+    return memo[x];
 }
 
-int main ()
-{
-  int n = 9;
-  cout<<fibonacci(n);
-  return 0;
+int main(){
+    int x;
+    while(cin>>x){
+        map<ull,ull>memo;
+        cout<<fibo(memo,x)<<endl;
+    }
 }
