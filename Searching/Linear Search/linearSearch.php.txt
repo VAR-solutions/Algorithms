@@ -1,0 +1,10 @@
+<?php
+function linear_search($arr,$item) {
+foreach($arr as $val => $item) {
+     if ($val == $item) {
+        return "item_found";
+     }
+}
+return -l;
+}
+?>
